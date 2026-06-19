@@ -220,7 +220,11 @@ public class Wheel_Manager : MonoBehaviour
 
         return mesh;
     }
-    Mesh BuildSlice(float start, float end, (float radioInterior, float radioExterior) Radios, int _arcSubdivisions)
+    Mesh BuildSlice(
+    float start,
+    float end,
+    (float radioInterior, float radioExterior) Radios,
+    int _arcSubdivisions)
     {
         Mesh mesh =
             new Mesh();
@@ -231,7 +235,8 @@ public class Wheel_Manager : MonoBehaviour
         List<int> tris =
             new();
 
-        
+        List<Vector2> uvs =
+            new();
 
         float step =
             (end - start)
@@ -254,8 +259,23 @@ public class Wheel_Manager : MonoBehaviour
                     angle
                 ));
 
+            float u =
+                (float)i /
+                _arcSubdivisions;
 
-           
+            uvs.Add(
+                new Vector2(
+                    u,
+                    0
+                )
+            );
+
+            uvs.Add(
+                new Vector2(
+                    u,
+                    1
+                )
+            );
         }
 
         for (int i = 0; i < _arcSubdivisions; i++)
@@ -272,17 +292,22 @@ public class Wheel_Manager : MonoBehaviour
             tris.Add(a + 3);
         }
 
-        mesh.SetVertices(verts);
+        mesh.SetVertices(
+            verts
+        );
+
         mesh.SetTriangles(
             tris,
             0
         );
 
-        
+        mesh.SetUVs(
+            0,
+            uvs
+        );
 
         return mesh;
     }
-
     Vector2 Polar(
         float radius,
         float angle)

@@ -9,4 +9,5 @@ public interface IInventoryService
     public void removeFicha(Ficha ficha);
     public bool CheckFicha(Ficha ficha);
 
+    public void ramdomizeList();
 }

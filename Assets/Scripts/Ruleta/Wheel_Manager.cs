@@ -10,7 +10,7 @@ public class Wheel_Manager : MonoBehaviour
 
     
     [ContextMenu("Generate")]
-    public void Generate(int _numeroDeSegmentos, (float radioInterior, float radioExterior) Radios, UnityEngine.Color[] colores, int _arcSubdivisions)
+    public void Generate(int _numeroDeSegmentos, (float radioInterior, float radioExterior) Radios, List<UnityEngine.Color[]> colores, int _arcSubdivisions)
     {
         if (_isGenerating)
             return;
@@ -19,8 +19,8 @@ public class Wheel_Manager : MonoBehaviour
 
         ClearSegments();
 
-        float angleStep =
-            360f / _numeroDeSegmentos;
+        float angleStep = 360f / _numeroDeSegmentos; //Separamos el circulo en los segmentos que tenemos
+
 
         for (int i = 0; i < _numeroDeSegmentos; i++)
         {
@@ -34,7 +34,7 @@ public class Wheel_Manager : MonoBehaviour
                 i,
                 start,
                 end,
-                colores,
+                colores[i],
                 Radios,
                 _arcSubdivisions
             );
@@ -43,7 +43,7 @@ public class Wheel_Manager : MonoBehaviour
         _isGenerating = false;
     }
 
-    public void Generate(int _numeroDeSegmentos, (float radioInterior, float radioExterior) Radios, Texture2D sprite, int _arcSubdivisions)
+    public void Generate(int _numeroDeSegmentos, (float radioInterior, float radioExterior) Radios, List<Texture2D> sprite, int _arcSubdivisions)
     {
         if (_isGenerating)
             return;
@@ -67,7 +67,7 @@ public class Wheel_Manager : MonoBehaviour
                 i,
                 start,
                 end,
-                sprite,
+                sprite[i],
                 Radios,
                 _arcSubdivisions
             );

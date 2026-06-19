@@ -26,6 +26,20 @@ public class InventoryService : IInventoryService
         return listaFichas;
     }
 
+    public void ramdomizeList()
+    {
+        System.Random rng = new System.Random();
+        int n = listaFichas.Count;
+        while (n > 1)
+        {
+            n--;
+            int k = rng.Next(n + 1);
+            var valor = listaFichas[k];
+            listaFichas[k] = listaFichas[n];
+            listaFichas[n] = valor;
+        }
+    }
+
     public void removeFicha(Ficha ficha)
     {
         listaFichas.Remove(ficha);

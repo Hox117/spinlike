@@ -12,13 +12,14 @@ public class EnemyBase : MonoBehaviour, IHittable
     bool dead;
     Animator animator;
 
-
+    IEnemyService enemyService;
     void Start()
     {
         life = enemyData.Life;
         shield = enemyData.Shield;
         AttackMod = enemyData.attackMod;
         animator = GetComponent<Animator>();
+        enemyService = AppContainer.Get<IEnemyService>();
     }
 
     // Update is called once per frame
@@ -28,21 +29,23 @@ public class EnemyBase : MonoBehaviour, IHittable
     }
     public void OnHit(int damage)
     {
-        //TODO: quitarle primero daño al escudo si hay
+        //TODO: quitarle primero daï¿½o al escudo si hay
         life -= damage;
         if (life <= 0) {
             Die();
             return;
         }
-        Debug.Log("me dañaste, me quedan "+life+ "diablos");
+        Debug.Log("me daÃ±aste, me quedan " + life );
 
     }
 
     private void Die()
     {
         dead = true;
+
         animator.SetBool("isDead", true);
         Debug.Log("me Mori");
+        enemyService.removeFirstEnemy();
         StartCoroutine("Disappear");
     }
     public IEnumerator Disappear()

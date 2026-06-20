@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class WheelController : MonoBehaviour
 {
-    private Coroutine coroutine;
-    float speed = 100f;
-    float stop = 10f;
 
     IRouletteService rouletteService;
 
     void Awake()
     {
         rouletteService = AppContainer.Get<IRouletteService>();
+
     }
 
     public void StopSpin()
@@ -27,10 +25,9 @@ public class WheelController : MonoBehaviour
     }
     private IEnumerator StopRoulette()
     {
-        float time = UnityEngine.Random.Range(0.5f, 2f );
-        while (speed >= 0.1f)
+        while (rouletteService.GetSpeed() >= 0.1f)
         {
-            speed -= stop;
+            rouletteService.ChangeSpeed(rouletteService.GetSpeed() - rouletteService.GetStop());
             yield return new WaitForSeconds(0.2f);
         }
         rouletteService.StopRoulette();
@@ -40,11 +37,11 @@ public class WheelController : MonoBehaviour
 
     private IEnumerator letItRide()
     {
-        speed = 100f;
-
+        rouletteService.ResetSpeed();
+        
         while (true)
         {
-            transform.Rotate(Vector3.forward, speed * Time.deltaTime);
+            transform.Rotate(Vector3.forward, rouletteService.GetSpeed() * Time.deltaTime);
             yield return null;
         }
     }

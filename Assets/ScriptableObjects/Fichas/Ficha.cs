@@ -9,4 +9,5 @@ public class Ficha : ScriptableObject
     public Sprite sprite;
     public FichaTypes tipoDeFicha;
     public int id;
+
 }

@@ -5,6 +5,14 @@ public class SegmentController : MonoBehaviour ,ISelectionable
 {
     Ficha ficha;
     private bool _isSelected = true;
+    private IEnemyService enemyService;
+    private ICharacterService characterService;
+    void Awake()
+    {
+        enemyService = AppContainer.Get<IEnemyService>();
+        characterService = AppContainer.Get<ICharacterService>();       
+    }
+
     public void OnSelected()
     {
         //Esto se regenera al volver a lanzar por lo que vuelve a ser true al regenerarse
@@ -12,6 +20,22 @@ public class SegmentController : MonoBehaviour ,ISelectionable
         {
             Debug.Log("Gambleame esta " + ficha.id);
             _isSelected = false;
+            switch (ficha.tipoDeFicha)
+            {
+                case FichaTypes.attack:
+                    enemyService.getFirstEnemy().OnHit(ficha.valor);
+                    break;
+                case FichaTypes.defense:
+                    break;
+                case FichaTypes.buff:
+                    break;
+                case FichaTypes.debuff:
+                    break;
+                case FichaTypes.menu:
+                    break;
+            }
+
+            
         }
         
     }

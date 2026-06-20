@@ -8,6 +8,6 @@ public class BotonDañarJugador : MonoBehaviour
         characterService = AppContainer.Get<ICharacterService>();   
     }
     public void recibirDaño() {
-        characterService.takeDamege(1);
+        characterService.takeDamage(1);
     }
 }

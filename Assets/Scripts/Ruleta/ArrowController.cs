@@ -7,6 +7,7 @@ public class ArrowController : MonoBehaviour
     void Awake()
     {
         rouletteService = AppContainer.Get<IRouletteService>();
+        
     }
     void FixedUpdate()
     {

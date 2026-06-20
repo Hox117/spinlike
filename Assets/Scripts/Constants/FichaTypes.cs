@@ -5,7 +5,8 @@ public enum FichaTypes
     attack,
     defense,
     debuff,
-    buff
+    buff,
+    menu
 
 
 }

@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b2487b990a63e60ab25ccb4c6f5cf31, type: 3}
   m_Name: FichaAtaqueBasico
   m_EditorClassIdentifier: Assembly-CSharp::Ficha
-  colorPrincipal: {r: 1, g: 0, b: 0, a: 0}
-  colorSecundario: {r: 0.26945668, g: 0, b: 0, a: 0}
+  colorPrincipal: {r: 1, g: 0, b: 0, a: 1}
+  colorSecundario: {r: 0.26945668, g: 0, b: 0, a: 1}
   valor: 1
-  sprite: {fileID: 0}
+  sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   tipoDeFicha: 0
+  id: 1

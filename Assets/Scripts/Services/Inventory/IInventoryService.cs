@@ -7,10 +7,10 @@ public interface IInventoryService
     public void cargarInventario(List<Ficha> listaCompletaFichas);
     public void AddFicha(Ficha ficha);
     public void removeFicha(Ficha ficha);
-    public void AddPotion(Potion potion);
+    public void AddPotion(PotionData potion);
     public void RemovePotion(int index);
     public bool IsPotionsFull();
     public bool CheckFicha(Ficha ficha);
-
+    public PotionData GetPotion(int index);
     public void ramdomizeList();
 }

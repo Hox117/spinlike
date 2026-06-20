@@ -16,6 +16,7 @@ public static class Program
 
         AppContainer.Register<IAudioService>(() => new AudioService());
         AppContainer.Register<IEventService>(() => new EventService());
+        AppContainer.Register<ICharacterService>(() => new CharacterService());
         AppContainer.Register<ISceneService>(() => new SceneService(Resources.Load<PanelConfigurationScriptable>("Configuration/LoadingConfiguration")));
         AppContainer.Register<IInventoryService>(() => new InventoryService());
         AppContainer.Register<IRouletteService>(() => new RouletteService());

@@ -9,7 +9,7 @@ public interface IInventoryService
     public void removeFicha(Ficha ficha);
     public void AddPotion(Potion potion);
     public void RemovePotion(int index);
-    public bool IsPotionFull();
+    public bool IsPotionsFull();
     public bool CheckFicha(Ficha ficha);
 
     public void ramdomizeList();

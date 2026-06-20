@@ -82,10 +82,7 @@ public class Wheel_Manager : MonoBehaviour
 
 
         //Mesh Collider
-        MeshCollider meshCollider = segment.AddComponent<MeshCollider>();
-        meshCollider.sharedMesh = mesh;
-        meshCollider.convex = true; 
-        meshCollider.isTrigger = true;
+        PolygonCollider2D Polygoncollider = segment.AddComponent<PolygonCollider2D>();
 
         //Game objects de texto y de sprite
         float midAngle = (startAngle + endAngle) * 0.5f;

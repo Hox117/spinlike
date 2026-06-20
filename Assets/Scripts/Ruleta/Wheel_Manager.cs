@@ -126,49 +126,11 @@ public class Wheel_Manager : MonoBehaviour
         spriteRenderer.sprite = spriteObjeto;
         spriteRenderer.sortingOrder = 1;
 
-    }
-
-    void CreateSegment(
-        int index,
-        float startAngle,
-        float endAngle,
-        Texture2D sprite,
-        (float radioInterior, float radioExterior) Radios,
-        int _arcSubdivisions,Ficha ficha)
-        
-    {
-        GameObject segment =
-            new($"Segment_{index}");
-
-        segment.transform.SetParent(
-            transform,
-            false
-        );
-
-        MeshFilter meshfilter =
-            segment.AddComponent<MeshFilter>();
-
-        MeshRenderer meshRenderer =
-            segment.AddComponent<MeshRenderer>();
-
-        if (_material != null)
-            meshRenderer.sharedMaterial =
-                _material;
-
-        Mesh mesh =
-            BuildSlice(
-                startAngle,
-                endAngle,
-               Radios,
-               _arcSubdivisions
-            );
-
-        meshfilter.sharedMesh = mesh;
-        meshRenderer.material.SetTexture("_MainTex", sprite);
 
         segment.AddComponent<SegmentController>();
         segment.GetComponent<SegmentController>().addFicha(ficha);
 
+        segment.layer = LayerMask.NameToLayer("Segment");
     }
 
     Mesh BuildSlice(float start, float end, UnityEngine.Color[] colores, (float radioInterior, float radioExterior) Radios, int _arcSubdivisions)

@@ -18,6 +18,7 @@ public static class Program
         AppContainer.Register<IEventService>(() => new EventService());
         AppContainer.Register<ISceneService>(() => new SceneService(Resources.Load<PanelConfigurationScriptable>("Configuration/LoadingConfiguration")));
         AppContainer.Register<IInventoryService>(() => new InventoryService());
+        AppContainer.Register<IRouletteService>(() => new RouletteService());
         
     }
 }

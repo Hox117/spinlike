@@ -8,6 +8,13 @@ public class WheelController : MonoBehaviour
     float speed = 100f;
     float stop = 10f;
 
+    IRouletteService rouletteService;
+
+    void Awake()
+    {
+        rouletteService = AppContainer.Get<IRouletteService>();
+    }
+
     public void StopSpin()
     {
         
@@ -16,6 +23,7 @@ public class WheelController : MonoBehaviour
     public void StartSpin()
     {
         StartCoroutine(letItRide());
+        rouletteService.StartRoulette();
     }
     private IEnumerator StopRoulette()
     {
@@ -25,8 +33,9 @@ public class WheelController : MonoBehaviour
             speed -= stop;
             yield return new WaitForSeconds(0.2f);
         }
-        
+        rouletteService.StopRoulette();
         StopAllCoroutines();
+        
     }
 
     private IEnumerator letItRide()

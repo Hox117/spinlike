@@ -1,7 +1,12 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Enemy", menuName = "Scriptable Objects/Enemy")]
 public class Enemy : ScriptableObject
 {
-    public int vida;
+    public int Life;
+    public List<Move> MoveList;
+    public int Shield;
+    public int attackMod;
 }

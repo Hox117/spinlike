@@ -1,9 +1,11 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class InventoryService : IInventoryService
 {
     public List<Ficha> listaFichas;
+    public Potion[] potionList= new Potion[3];
 
     public void AddFicha(Ficha ficha)
     {
@@ -39,9 +41,39 @@ public class InventoryService : IInventoryService
             listaFichas[n] = valor;
         }
     }
+    
 
     public void removeFicha(Ficha ficha)
     {
         listaFichas.Remove(ficha);
+    }
+
+    public void AddPotion(Potion potion)
+    {
+        for (int i = 0; i < potionList.Length; i++) {
+            if (potionList[i] == null) { 
+            potionList[i] = potion;
+            }
+        }
+
+    }
+
+
+    public void RemovePotion(int index)
+    {
+        potionList[index]=null;
+    }
+
+    public bool IsPotionsFull()
+    {
+        bool full = true;
+        for (int i = 0; i < potionList.Length; i++) {
+            if (potionList[i] == null)
+            {
+                full = false; break;
+            }
+        }
+        return full;
+
     }
 }

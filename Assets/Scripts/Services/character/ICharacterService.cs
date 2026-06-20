@@ -4,5 +4,6 @@ public interface ICharacterService
 {
     void resetPlayer();
     void heal(int value);
-    void takeDamege(int value);
+    void takeDamage(int value);
+    void addShield(int value);
 }

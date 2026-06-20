@@ -5,7 +5,7 @@ using UnityEngine;
 public class InventoryService : IInventoryService
 {
     public List<Ficha> listaFichas;
-    public Potion[] potionList= new Potion[3];
+    public PotionData[] potionList= new PotionData[3];
 
     public void AddFicha(Ficha ficha)
     {
@@ -48,14 +48,20 @@ public class InventoryService : IInventoryService
         listaFichas.Remove(ficha);
     }
 
-    public void AddPotion(Potion potion)
+    public void AddPotion(PotionData potion)
     {
-        for (int i = 0; i < potionList.Length; i++) {
-            if (potionList[i] == null) { 
-            potionList[i] = potion;
+        for (int i = 0; i < potionList.Length; i++)
+        {
+            if (potionList[i] == null)
+            {
+                potionList[i] = potion;
+                return;
             }
         }
-
+    }
+    public PotionData GetPotion(int slot)
+    {
+        return potionList[slot];
     }
 
 

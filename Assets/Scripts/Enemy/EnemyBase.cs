@@ -28,6 +28,7 @@ public class EnemyBase : MonoBehaviour, IHittable
     }
     public void OnHit(int damage)
     {
+        //TODO: quitarle primero daño al escudo si hay
         life -= damage;
         if (life <= 0) {
             Die();

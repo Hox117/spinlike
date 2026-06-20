@@ -34,7 +34,7 @@ public class BotonGenerarPrueba : MonoBehaviour
         }
         //para cada ficha sacamos su color y color secundario
 
-        FindAnyObjectByType<Wheel_Manager>().Generate(numeroSegmentos, radio, colores, arcSubdivisiones,textos,sprites);
+        FindAnyObjectByType<Wheel_Manager>().Generate(numeroSegmentos, radio, colores, arcSubdivisiones,textos,sprites, listaFichas);
        
     }
 }

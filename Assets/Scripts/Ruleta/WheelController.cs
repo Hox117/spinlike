@@ -1,18 +1,37 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
 public class WheelController : MonoBehaviour
 {
     private Coroutine coroutine;
-    void Start()
+    float speed = 100f;
+    float stop = 10f;
+
+    public void StopSpin()
     {
-        coroutine = StartCoroutine(letItRide());
+        
+        StartCoroutine(StopRoulette());
+    }
+    public void StartSpin()
+    {
+        StartCoroutine(letItRide());
+    }
+    private IEnumerator StopRoulette()
+    {
+        float time = UnityEngine.Random.Range(0.5f, 2f );
+        while (speed >= 0.1f)
+        {
+            speed -= stop;
+            yield return new WaitForSeconds(0.2f);
+        }
+        
+        StopAllCoroutines();
     }
 
-
-    public IEnumerator letItRide()
+    private IEnumerator letItRide()
     {
-        float speed = 10f;
+        speed = 100f;
 
         while (true)
         {

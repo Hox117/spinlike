@@ -11,7 +11,7 @@ public class Wheel_Manager : MonoBehaviour
 
 
     [ContextMenu("Generate")]
-    public void Generate(int _numeroDeSegmentos, (float radioInterior, float radioExterior) Radios, List<UnityEngine.Color[]> colores, int _arcSubdivisions, List<string> texto, List<Sprite> sprite)
+    public void Generate(int _numeroDeSegmentos, (float radioInterior, float radioExterior) Radios, List<UnityEngine.Color[]> colores, int _arcSubdivisions, List<string> texto, List<Sprite> sprite, List<Ficha> fichas)
     {
         if (_isGenerating)
             return;
@@ -39,7 +39,8 @@ public class Wheel_Manager : MonoBehaviour
                 Radios,
                 _arcSubdivisions,
                 texto[i],
-                sprite[i]
+                sprite[i],
+                fichas[i]
             );
         }
 
@@ -54,7 +55,8 @@ public class Wheel_Manager : MonoBehaviour
         (float radioInterior, float radioExterior) Radios,
         int _arcSubdivisions,
         string textoSegmento,
-        Sprite spriteObjeto)
+        Sprite spriteObjeto,
+        Ficha ficha)
     {
         GameObject segment = new($"Segment_{index}");
 
@@ -132,7 +134,8 @@ public class Wheel_Manager : MonoBehaviour
         float endAngle,
         Texture2D sprite,
         (float radioInterior, float radioExterior) Radios,
-        int _arcSubdivisions)
+        int _arcSubdivisions,Ficha ficha)
+        
     {
         GameObject segment =
             new($"Segment_{index}");
@@ -160,9 +163,12 @@ public class Wheel_Manager : MonoBehaviour
                _arcSubdivisions
             );
 
-        meshfilter.sharedMesh =
-            mesh;
+        meshfilter.sharedMesh = mesh;
         meshRenderer.material.SetTexture("_MainTex", sprite);
+
+        segment.AddComponent<SegmentController>();
+        segment.GetComponent<SegmentController>().addFicha(ficha);
+
     }
 
     Mesh BuildSlice(float start, float end, UnityEngine.Color[] colores, (float radioInterior, float radioExterior) Radios, int _arcSubdivisions)

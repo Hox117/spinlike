@@ -10,16 +10,17 @@ public class PotionSlotUI : MonoBehaviour
 
     private IInventoryService inventoryService;
     private ICharacterService characterService;
-
+    private IEventService eventService;
     private void Start()
     {
         inventoryService = AppContainer.Get<IInventoryService>();
         characterService = AppContainer.Get<ICharacterService>();
-
+        eventService= AppContainer.Get<IEventService>();
+        eventService.Subscribe<PotionChangeEvent>(Refresh);
         Refresh();
     }
 
-    public void Refresh()
+    public void Refresh(GameEventBase e=null)
     {
         PotionData potion = inventoryService.GetPotion(slotIndex);
 
@@ -31,7 +32,10 @@ public class PotionSlotUI : MonoBehaviour
 
         //icon.enabled = true;
         //icon.sprite = potion.Sprite;
-        text.text = potion.name;
+        if (potion != null)
+            text.text = potion.name;
+        else
+            text.text = "";
     }
 
     public void OnClick()
@@ -59,6 +63,9 @@ public class PotionSlotUI : MonoBehaviour
 
             case PotionEffect.Shield:
                 characterService.addShield((int)Math.Round(potion.value));
+                break;
+            default:
+                Debug.Log("pocion aun en desarrollo");
                 break;
         }
 

@@ -63,6 +63,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0e5bc1326abfd2df90a79574a08e55c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  audioSpin: {fileID: 8300000, guid: d6d6b8d0b28be9918b8066b43daa1161, type: 3}
+  pitchSpin: 1
 --- !u!212 &5358800847296481983
 SpriteRenderer:
   serializedVersion: 2

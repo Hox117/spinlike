@@ -8,12 +8,15 @@ public class SegmentController : MonoBehaviour ,ISelectionable
     private IEnemyService enemyService;
     private ICharacterService characterService;
     private ISceneService sceneService;
+    private IAudioService audioService;
     void Awake()
     {
 
         enemyService = AppContainer.Get<IEnemyService>();
         characterService = AppContainer.Get<ICharacterService>();
         sceneService = AppContainer.Get<ISceneService>();
+        audioService = AppContainer.Get<IAudioService>();
+
     }
 
     public void OnSelected()
@@ -22,6 +25,7 @@ public class SegmentController : MonoBehaviour ,ISelectionable
         if (_isSelected)
         {
             Debug.Log("Gambleame esta " + ficha.id);
+            audioService.PlaySound(ficha.audioClip);
             _isSelected = false;
             switch (ficha.tipoDeFicha)
             {

@@ -12,7 +12,9 @@ public class ArrowController : MonoBehaviour
     void FixedUpdate()
     {
         
-        if(rouletteService.GetRouletteStatus()) return; 
+        if(rouletteService.GetRouletteStatus()) {
+            return; 
+        }
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right , 5, layerMask);
         if (hit)

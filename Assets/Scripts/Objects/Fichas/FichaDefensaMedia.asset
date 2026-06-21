@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b2487b990a63e60ab25ccb4c6f5cf31, type: 3}
+  m_Name: FichaDefensaMedia
+  m_EditorClassIdentifier: Assembly-CSharp::Ficha
+  colorPrincipal: {r: 0, g: 0.304458, b: 0.6234137, a: 0}
+  colorSecundario: {r: 0.015744966, g: 0.005391949, b: 0.64243937, a: 0}
+  valor: 3
+  sprite: {fileID: -3803196367135801590, guid: caa96294ad1844346872b81551b8a079, type: 3}
+  tipoDeFicha: 1
+  id: 6
+  useDescription: 0
+  description: 
+  audioClip: {fileID: 8300000, guid: 7bc908cfe94fb36f78e12922ff60c2e6, type: 3}

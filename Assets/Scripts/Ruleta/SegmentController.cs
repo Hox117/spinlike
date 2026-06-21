@@ -8,10 +8,16 @@ public class SegmentController : MonoBehaviour ,ISelectionable
     private bool _isSelected = true;
     private IEnemyService enemyService;
     private ICharacterService characterService;
+    private ISceneService sceneService;
+    private IAudioService audioService;
     void Awake()
     {
+
         enemyService = AppContainer.Get<IEnemyService>();
-        characterService = AppContainer.Get<ICharacterService>();       
+        characterService = AppContainer.Get<ICharacterService>();
+        sceneService = AppContainer.Get<ISceneService>();
+        audioService = AppContainer.Get<IAudioService>();
+
     }
 
     public void OnSelected()
@@ -20,6 +26,7 @@ public class SegmentController : MonoBehaviour ,ISelectionable
         if (_isSelected)
         {
             Debug.Log("Gambleame esta " + ficha.id);
+            audioService.PlaySound(ficha.audioClip);
             _isSelected = false;
             switch (ficha.tipoDeFicha)
             {
@@ -30,12 +37,16 @@ public class SegmentController : MonoBehaviour ,ISelectionable
                         characterService.takeDamage(Math.Abs(ficha.valor) );
                     break;
                 case FichaTypes.defense:
+                    characterService.addShield(ficha.valor);
                     break;
                 case FichaTypes.buff:
                     break;
                 case FichaTypes.debuff:
+                    characterService.takeDamage(-ficha.valor);
                     break;
                 case FichaTypes.menu:
+
+                    sceneService.LoadScene((SceneNames) ficha.valor);
                     break;
             }
 

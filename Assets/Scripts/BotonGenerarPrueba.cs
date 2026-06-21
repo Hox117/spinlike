@@ -4,25 +4,31 @@ using UnityEngine;
 public class BotonGenerarPrueba : MonoBehaviour
 {
     IInventoryService inventoryService;
+    IRouletteService rouletteService;
     public int numeroSegmentos = 3;
-    public (float, float) radio = (0, 2);
     public List<Color[]> colores;
     public List<string> textos;
     public List<Sprite> sprites;
-    public int arcSubdivisiones = 2;
+
+    [SerializeField] private int SpinSpeed = 300;
 
     public bool SPRITE = false;
 
     public Texture2D sprite;
   public void Generar()
     {
+
         colores = new List<Color[]>();
         textos = new List<string>();
         sprites = new List<Sprite>();
 
 
         inventoryService = AppContainer.Get<IInventoryService>();
+        rouletteService = AppContainer.Get<IRouletteService>();
         inventoryService.ramdomizeList();
+
+        rouletteService.ChangeSpeed(SpinSpeed);
+        
         List<Ficha> listaFichas = inventoryService.getListaFichas();
         numeroSegmentos = listaFichas.Count;
 
@@ -34,7 +40,7 @@ public class BotonGenerarPrueba : MonoBehaviour
         }
         //para cada ficha sacamos su color y color secundario
 
-        FindAnyObjectByType<Wheel_Manager>().Generate(numeroSegmentos, radio, colores, arcSubdivisiones,textos,sprites, listaFichas);
+        FindAnyObjectByType<Wheel_Manager>().Generate(numeroSegmentos, colores,textos,sprites, listaFichas);
        
     }
 }

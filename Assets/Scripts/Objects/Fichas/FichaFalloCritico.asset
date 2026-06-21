@@ -15,8 +15,8 @@ MonoBehaviour:
   colorPrincipal: {r: 0, g: 0, b: 0, a: 1}
   colorSecundario: {r: 0.325265, g: 0.2940597, b: 0.2940597, a: 1}
   valor: -1
-  sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
-  tipoDeFicha: 0
+  sprite: {fileID: 1284078919682861982, guid: 864f634b73f009548984363d25ac8d7b, type: 3}
+  tipoDeFicha: 2
   id: 4
   useDescription: 0
   description: 

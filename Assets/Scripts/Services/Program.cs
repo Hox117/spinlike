@@ -20,7 +20,8 @@ public static class Program
         AppContainer.Register<ISceneService>(() => new SceneService(Resources.Load<PanelConfigurationScriptable>("Configuration/LoadingConfiguration")));
         AppContainer.Register<IInventoryService>(() => new InventoryService());
         AppContainer.Register<IRouletteService>(() => new RouletteService());
-        AppContainer.Register<IEnemyService>(() => new EnemyService());        
+        AppContainer.Register<IEnemyService>(() => new EnemyService());    
+        AppContainer.Register<ITurnService>(() => new TurnService());
     }
 }
   

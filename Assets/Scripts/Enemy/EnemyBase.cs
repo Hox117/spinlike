@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyBase : MonoBehaviour, IHittable
@@ -10,23 +11,84 @@ public class EnemyBase : MonoBehaviour, IHittable
     int shield;
     int AttackMod;
     bool dead;
+
+    public bool isTurnEnded = false;
+
     Animator animator;
 
+    ICharacterService characterService;
     IEnemyService enemyService;
+    ITurnService turnService;
+    IEventService eventService;
+    void Awake()
+    {
+        enemyService = AppContainer.Get<IEnemyService>();
+        eventService = AppContainer.Get<IEventService>();
+        turnService = AppContainer.Get<ITurnService>();
+        characterService = AppContainer.Get<ICharacterService>();
+
+    }
     void Start()
     {
         life = enemyData.Life;
         shield = enemyData.Shield;
         AttackMod = enemyData.attackMod;
         animator = GetComponent<Animator>();
-        enemyService = AppContainer.Get<IEnemyService>();
+        
+        eventService.Subscribe<TurnChangeEvent>(TakeAction);
+
     }
 
-    // Update is called once per frame
-    void Update()
+    private void TakeAction(GameEventBase game = null)
     {
+        if(turnService.IsPlayerTurn())return;
+ 
+        StartCoroutine(ExecuteTurn());
 
     }
+
+    
+
+    private IEnumerator ExecuteTurn()
+    {
+        //TODO Revisar esto si da tiempo 100% se puede mejorar me he metido una fumada buena
+        yield return new WaitForSeconds(2f);
+        bool turnoEnemigoListo = false;
+        bool SiguienteEnemigo = false;
+
+        List<GameObject> listaEnemigos = enemyService.getEnemyList();
+
+        characterService.takeDamage(1);
+        Debug.Log("El jugador recibe 1 de daño");
+
+        for(int i = 0; i < listaEnemigos.Count ; i++)
+        {
+            EnemyBase enemy = listaEnemigos[i].GetComponent<EnemyBase>();
+            
+            if (enemy != null)
+            {
+                if(!enemy.isTurnEnded)
+                {
+                    enemy.isTurnEnded = true;
+                    listaEnemigos[i] = enemy.gameObject;
+                    break;
+                }
+            }
+        }
+
+        enemyService.setEnemyList(listaEnemigos);
+
+        foreach (GameObject enemyGO in listaEnemigos)
+        {
+            EnemyBase enemy = enemyGO.GetComponent<EnemyBase>();
+
+            if(!enemy.isTurnEnded)SiguienteEnemigo = true;
+        }
+        if(!SiguienteEnemigo)turnoEnemigoListo = true;
+        if(turnoEnemigoListo)turnService.ChangeTurn();    
+    }
+
+
     public void OnHit(int damage)
     {
         //TODO: quitarle primero da�o al escudo si hay
@@ -46,6 +108,7 @@ public class EnemyBase : MonoBehaviour, IHittable
         animator.SetBool("isDead", true);
         Debug.Log("me Mori");
         enemyService.removeFirstEnemy();
+        eventService.Unsubscribe<TurnChangeEvent>(TakeAction);
         StartCoroutine("Disappear");
     }
     public IEnumerator Disappear()

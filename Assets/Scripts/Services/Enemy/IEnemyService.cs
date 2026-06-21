@@ -8,4 +8,6 @@ public interface IEnemyService
     public void setEnemyList(List<GameObject> listaDeEnemigos);
     public void removeFirstEnemy();
 
+    public void resetTurns();
+
 }

@@ -419,6 +419,7 @@ MonoBehaviour:
   numeroSegmentos: 3
   textos: []
   sprites: []
+  SpinSpeed: 50
   SPRITE: 0
   sprite: {fileID: 0}
 --- !u!1 &475743488
@@ -689,14 +690,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9138970276418470668, guid: 4baa848023235c9a09bc24652242774f, type: 3}
-      propertyPath: radioExterior
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9138970276418470668, guid: 4baa848023235c9a09bc24652242774f, type: 3}
-      propertyPath: _arcSubdivisions
-      value: 5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -806,6 +799,7 @@ MonoBehaviour:
   numeroSegmentos: 3
   textos: []
   sprites: []
+  SpinSpeed: 300
   SPRITE: 0
   sprite: {fileID: 0}
 --- !u!114 &1071327684

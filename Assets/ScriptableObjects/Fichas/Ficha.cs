@@ -13,4 +13,6 @@ public class Ficha : ScriptableObject
     public bool useDescription;
     public string description;
 
+    public AudioClip audioClip;
+
 }

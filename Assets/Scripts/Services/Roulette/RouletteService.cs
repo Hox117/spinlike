@@ -3,11 +3,11 @@ using UnityEngine;
 public class RouletteService : IRouletteService
 {
     private bool _status = true;
-    private int speed = 100;
-    private int stop = 10;
+    private int speed = 300;
+    private int stop = 30;
 
-    private int baseSpeed = 100;
-    private int baseStop = 10;
+    private int baseSpeed = 300;
+    private int baseStop = 30;
     public bool GetRouletteStatus()
     {
         return _status;

@@ -18,3 +18,6 @@ MonoBehaviour:
   sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   tipoDeFicha: 0
   id: 2
+  useDescription: 0
+  description: 
+  audioClip: {fileID: 8300000, guid: 7b806b3ce5d9d22368d52c3d48f9c8b5, type: 3}

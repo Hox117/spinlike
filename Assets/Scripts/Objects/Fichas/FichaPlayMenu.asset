@@ -20,3 +20,4 @@ MonoBehaviour:
   id: 5
   useDescription: 1
   description: PLAY
+  audioClip: {fileID: 8300000, guid: e1d0cc6cf7e324b179131fd540ec28a5, type: 3}

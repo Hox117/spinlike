@@ -5,11 +5,9 @@ public class BotonGenerarPrueba : MonoBehaviour
 {
     IInventoryService inventoryService;
     public int numeroSegmentos = 3;
-    public (float, float) radio = (0, 2);
     public List<Color[]> colores;
     public List<string> textos;
     public List<Sprite> sprites;
-    public int arcSubdivisiones = 2;
 
     public bool SPRITE = false;
 
@@ -34,7 +32,7 @@ public class BotonGenerarPrueba : MonoBehaviour
         }
         //para cada ficha sacamos su color y color secundario
 
-        FindAnyObjectByType<Wheel_Manager>().Generate(numeroSegmentos, radio, colores, arcSubdivisiones,textos,sprites, listaFichas);
+        FindAnyObjectByType<Wheel_Manager>().Generate(numeroSegmentos, colores,textos,sprites, listaFichas);
        
     }
 }

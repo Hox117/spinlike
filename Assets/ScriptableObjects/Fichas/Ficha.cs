@@ -10,4 +10,7 @@ public class Ficha : ScriptableObject
     public FichaTypes tipoDeFicha;
     public int id;
 
+    public bool useDescription;
+    public string description;
+
 }

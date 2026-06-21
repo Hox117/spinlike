@@ -7,10 +7,13 @@ public class SegmentController : MonoBehaviour ,ISelectionable
     private bool _isSelected = true;
     private IEnemyService enemyService;
     private ICharacterService characterService;
+    private ISceneService sceneService;
     void Awake()
     {
+
         enemyService = AppContainer.Get<IEnemyService>();
-        characterService = AppContainer.Get<ICharacterService>();       
+        characterService = AppContainer.Get<ICharacterService>();
+        sceneService = AppContainer.Get<ISceneService>();
     }
 
     public void OnSelected()
@@ -26,12 +29,16 @@ public class SegmentController : MonoBehaviour ,ISelectionable
                     enemyService.getFirstEnemy().OnHit(ficha.valor);
                     break;
                 case FichaTypes.defense:
+                    characterService.addShield(ficha.valor);
                     break;
                 case FichaTypes.buff:
                     break;
                 case FichaTypes.debuff:
+                    characterService.takeDamage(-ficha.valor);
                     break;
                 case FichaTypes.menu:
+
+                    sceneService.LoadScene((SceneNames) ficha.valor);
                     break;
             }
 

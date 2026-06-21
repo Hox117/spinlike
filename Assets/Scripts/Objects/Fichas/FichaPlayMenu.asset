@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b2487b990a63e60ab25ccb4c6f5cf31, type: 3}
-  m_Name: FichaDefensaBasica
+  m_Name: FichaPlayMenu
   m_EditorClassIdentifier: Assembly-CSharp::Ficha
-  colorPrincipal: {r: 0.008547783, g: 0, b: 1, a: 1}
-  colorSecundario: {r: 0, g: 0.8215716, b: 1, a: 1}
+  colorPrincipal: {r: 1, g: 0.67214376, b: 0, a: 1}
+  colorSecundario: {r: 1, g: 0.7112604, b: 0, a: 1}
   valor: 1
-  sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
-  tipoDeFicha: 1
-  id: 3
-  useDescription: 0
-  description: 
+  sprite: {fileID: 0}
+  tipoDeFicha: 4
+  id: 5
+  useDescription: 1
+  description: PLAY

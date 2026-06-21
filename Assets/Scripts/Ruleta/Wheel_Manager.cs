@@ -6,30 +6,31 @@ public class Wheel_Manager : MonoBehaviour
 {
 
     bool _isGenerating;
-
+    [SerializeField] float radioInterior;
+    [SerializeField]  float radioExterior;
+    [SerializeField]  int _arcSubdivisions;
     [SerializeField] Material _material;
-
+    [SerializeField] private TMPro.TMP_FontAsset _fontPersonalizada;
 
     [ContextMenu("Generate")]
-    public void Generate(int _numeroDeSegmentos, (float radioInterior, float radioExterior) Radios, List<UnityEngine.Color[]> colores, int _arcSubdivisions, List<string> texto, List<Sprite> sprite, List<Ficha> fichas)
+    public void Generate(int _numeroDeSegmentos,  List<UnityEngine.Color[]> colores, List<string> texto, List<Sprite> sprite, List<Ficha> fichas)
     {
-        if (_isGenerating)
-            return;
+        if (_isGenerating) return;
 
         _isGenerating = true;
 
         ClearSegments();
+
+        (float radioInterior, float radioExterior) Radios = (radioInterior,radioExterior);
 
         float angleStep = 360f / _numeroDeSegmentos; //Separamos el circulo en los segmentos que tenemos
 
 
         for (int i = 0; i < _numeroDeSegmentos; i++)
         {
-            float start =
-                i * angleStep;
+            float start = i * angleStep;
 
-            float end =
-                start + angleStep;
+            float end = start + angleStep;
 
             CreateSegment(
                 i,
@@ -102,11 +103,22 @@ public class Wheel_Manager : MonoBehaviour
         textGO.transform.localPosition = midPos;
 
         TMPro.TextMeshPro tmp = textGO.AddComponent<TMPro.TextMeshPro>();
-        tmp.text = textoSegmento;
-        tmp.alignment = TMPro.TextAlignmentOptions.Center;
-        tmp.fontSize = 4f; // ajusta según tu escala
-        tmp.sortingOrder = 1;
 
+
+        if(!ficha.useDescription)    tmp.text = textoSegmento;
+        else                         tmp.text = ficha.description; 
+
+        tmp.alignment = TMPro.TextAlignmentOptions.Center;
+        tmp.fontSize = 4f; 
+        tmp.sortingOrder = 1;
+        Debug.Log("Font asignada: " + (_fontPersonalizada != null ? _fontPersonalizada.name : "NULL"));
+
+        if (_fontPersonalizada != null)
+        {
+            tmp.font = _fontPersonalizada;
+            tmp.ForceMeshUpdate();
+        }
+        
         textGO.transform.localRotation = Quaternion.identity;
 
         // --- Sprite ---
@@ -135,26 +147,19 @@ public class Wheel_Manager : MonoBehaviour
 
     Mesh BuildSlice(float start, float end, UnityEngine.Color[] colores, (float radioInterior, float radioExterior) Radios, int _arcSubdivisions)
     {
-        Mesh mesh =
-            new Mesh();
+        Mesh mesh = new Mesh();
 
-        List<Vector3> verts =
-            new();
+        List<Vector3> verts = new();
 
-        List<int> tris =
-            new();
+        List<int> tris = new();
 
-        List<UnityEngine.Color> colors =
-            new();
+        List<UnityEngine.Color> colors = new();
 
-        float step =
-            (end - start)
-            / _arcSubdivisions;
+        float step = (end - start) / _arcSubdivisions;
 
         for (int i = 0; i <= _arcSubdivisions; i++)
         {
-            float angle =
-                start + step * i;
+            float angle = start + step * i;
 
             verts.Add(
                 Polar(
@@ -175,8 +180,7 @@ public class Wheel_Manager : MonoBehaviour
 
         for (int i = 0; i < _arcSubdivisions; i++)
         {
-            int a =
-                i * 2;
+            int a = i * 2;
 
             tris.Add(a);
             tris.Add(a + 1);
@@ -188,14 +192,9 @@ public class Wheel_Manager : MonoBehaviour
         }
 
         mesh.SetVertices(verts);
-        mesh.SetTriangles(
-            tris,
-            0
-        );
+        mesh.SetTriangles( tris, 0 );
 
-        mesh.SetColors(
-            colors
-        );
+        mesh.SetColors( colors );
 
         return mesh;
     }
@@ -205,8 +204,7 @@ public class Wheel_Manager : MonoBehaviour
     (float radioInterior, float radioExterior) Radios,
     int _arcSubdivisions)
     {
-        Mesh mesh =
-            new Mesh();
+        Mesh mesh = new Mesh();
 
         List<Vector3> verts =
             new();

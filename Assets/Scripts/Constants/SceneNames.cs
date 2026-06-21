@@ -4,6 +4,7 @@
 /// </summary>
 public enum SceneNames
 {
-   
+   StartScene,
+   SampleScene
 
 }

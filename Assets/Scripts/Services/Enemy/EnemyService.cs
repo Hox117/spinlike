@@ -19,6 +19,14 @@ public class EnemyService : IEnemyService
         enemiesList.RemoveAt(0);
     }
 
+    public void resetTurns()
+    {
+        foreach (GameObject enemyGO in enemiesList)
+        {
+            enemyGO.GetComponent<EnemyBase>().isTurnEnded = false;
+        }
+    }
+
     public void setEnemyList(List<GameObject> listaDeEnemigos)
     {
         enemiesList = listaDeEnemigos;

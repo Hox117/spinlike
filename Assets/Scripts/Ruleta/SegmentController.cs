@@ -9,6 +9,7 @@ public class SegmentController : MonoBehaviour ,ISelectionable
     private ICharacterService characterService;
     private ISceneService sceneService;
     private IAudioService audioService;
+    private ITurnService turnService;
     void Awake()
     {
 
@@ -16,6 +17,8 @@ public class SegmentController : MonoBehaviour ,ISelectionable
         characterService = AppContainer.Get<ICharacterService>();
         sceneService = AppContainer.Get<ISceneService>();
         audioService = AppContainer.Get<IAudioService>();
+
+        turnService = AppContainer.Get<ITurnService>();
 
     }
 
@@ -47,6 +50,7 @@ public class SegmentController : MonoBehaviour ,ISelectionable
             }
 
             
+            turnService.ChangeTurn();
         }
         
     }

@@ -16,7 +16,9 @@ public class EventService : IEventService
         Type type = action.GetType();
         if (this._events.ContainsKey(type))
         {
-            foreach (var item in this._events[type])
+            var listenersCopia = this._events[type].ToArray();
+            //De vez en cuando se caga encima si se desuscriben eventos a medias esto deberia arreglarlo
+            foreach (var item in listenersCopia)
             {
                 item.Invoke(action);
             }

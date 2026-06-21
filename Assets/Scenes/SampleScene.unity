@@ -691,6 +691,7 @@ MonoBehaviour:
   numeroSegmentos: 3
   textos: []
   sprites: []
+  SpinSpeed: 300
   SPRITE: 0
   sprite: {fileID: 2800000, guid: 4041fc106cf4f5742b8be61b178fb1b7, type: 3}
 --- !u!114 &372682546
@@ -1824,8 +1825,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   enemies:
-  - {fileID: 6526243973607553605, guid: 3ec9a32be44be7b4e97f640532b442d6, type: 3}
-  - {fileID: 6526243973607553605, guid: 3ec9a32be44be7b4e97f640532b442d6, type: 3}
   - {fileID: 6526243973607553605, guid: 3ec9a32be44be7b4e97f640532b442d6, type: 3}
   ActiveEnemies: []
   space: 1.5

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BuffPotion
   m_EditorClassIdentifier: Assembly-CSharp::PotionData
   Name: Buff
-  Sprite: {fileID: 0}
+  Sprite: {fileID: 5291881858394707114, guid: 51a8d57e86c25d045b65714cf60d4e99, type: 3}
   effect: 4
   value: 0
   duration: 0

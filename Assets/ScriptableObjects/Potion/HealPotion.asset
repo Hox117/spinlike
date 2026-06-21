@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HealPotion
   m_EditorClassIdentifier: Assembly-CSharp::PotionData
   Name: Heal
-  Sprite: {fileID: 0}
+  Sprite: {fileID: -6872065083077148219, guid: 94c4bdd54154a4b438f220026cc46b07, type: 3}
   effect: 0
   value: 5
   duration: 0

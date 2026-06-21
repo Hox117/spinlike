@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ShieldPotion
   m_EditorClassIdentifier: Assembly-CSharp::PotionData
   Name: Shield
-  Sprite: {fileID: 0}
+  Sprite: {fileID: -587063887920262363, guid: e9af45bbdf8854e4f8a5193068aa22a3, type: 3}
   effect: 3
   value: 3
   duration: 0

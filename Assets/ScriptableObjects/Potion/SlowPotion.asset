@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SlowPotion
   m_EditorClassIdentifier: Assembly-CSharp::PotionData
   Name: Slow
-  Sprite: {fileID: 0}
+  Sprite: {fileID: -4850450716589517615, guid: a09c5f8c46dc91b41a2b76f8a9a73e1f, type: 3}
   effect: 1
   value: 0
   duration: 0

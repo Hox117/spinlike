@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AttackPotion
   m_EditorClassIdentifier: Assembly-CSharp::PotionData
   Name: Attack
-  Sprite: {fileID: 0}
+  Sprite: {fileID: 5291881858394707114, guid: e1d4af69e333db649b2f480fec9af84e, type: 3}
   effect: 2
   value: 4
   duration: 0

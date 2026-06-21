@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PotionSlotUI : MonoBehaviour
 {
     [SerializeField] private int slotIndex;
-    [SerializeField] private TextMeshProUGUI text;
+    [SerializeField] private Image icon;
 
     private IInventoryService inventoryService;
     private ICharacterService characterService;
@@ -24,18 +24,15 @@ public class PotionSlotUI : MonoBehaviour
     {
         PotionData potion = inventoryService.GetPotion(slotIndex);
 
-        //if (potion == null)
-        //{
-        //    icon.enabled = false;
-        //    return;
-        //}
+        if (potion == null)
+        {
+            icon.enabled = false;
+            return;
+        }
 
-        //icon.enabled = true;
-        //icon.sprite = potion.Sprite;
-        if (potion != null)
-            text.text = potion.name;
-        else
-            text.text = "";
+        icon.enabled = true;
+        icon.sprite = potion.Sprite;
+        
     }
 
     public void OnClick()

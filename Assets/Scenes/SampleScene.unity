@@ -419,9 +419,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 51a8d57e86c25d045b65714cf60d4e99, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -449,6 +449,7 @@ GameObject:
   - component: {fileID: 372682548}
   - component: {fileID: 372682547}
   - component: {fileID: 372682546}
+  - component: {fileID: 372682549}
   - component: {fileID: 372682545}
   m_Layer: 5
   m_Name: Button (Legacy)
@@ -490,7 +491,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BotonGenerarPrueba
   numeroSegmentos: 3
-  textos: []
   sprites: []
   SpinSpeed: 300
   SPRITE: 0
@@ -539,18 +539,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 372682545}
-        m_TargetAssemblyTypeName: BotonGenerarPrueba, Assembly-CSharp
-        m_MethodName: Generar
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 478881958}
         m_TargetAssemblyTypeName: WheelController, Assembly-CSharp
         m_MethodName: StartSpin
@@ -601,6 +589,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 372682543}
   m_CullTransparentMesh: 1
+--- !u!114 &372682549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372682543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0e5bc1326abfd2df90a79574a08e55c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WheelController
+  audioSpin: {fileID: 8300000, guid: d6d6b8d0b28be9918b8066b43daa1161, type: 3}
+  audioStopSpin: {fileID: 0}
+  pitchSpin: 1
 --- !u!114 &478881958 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6357899126973648188, guid: 4baa848023235c9a09bc24652242774f, type: 3}
@@ -1661,9 +1664,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 51a8d57e86c25d045b65714cf60d4e99, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -2036,9 +2039,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 51a8d57e86c25d045b65714cf60d4e99, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1

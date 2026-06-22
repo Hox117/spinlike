@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Wheel_Manager : MonoBehaviour
@@ -86,7 +87,8 @@ public class Wheel_Manager : MonoBehaviour
 
         //Mesh Collider
         PolygonCollider2D Polygoncollider = segment.AddComponent<PolygonCollider2D>();
-
+        Vector2[] colliderPoints = mesh.vertices.Select(v=>(Vector2)v).Distinct().ToArray();
+        Polygoncollider.SetPath(0, colliderPoints);
         //Game objects de texto y de sprite
         float midAngle = (startAngle + endAngle) * 0.5f;
         float midRadius = (Radios.radioInterior + Radios.radioExterior) * 0.5f;

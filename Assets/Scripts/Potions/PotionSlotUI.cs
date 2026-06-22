@@ -10,12 +10,16 @@ public class PotionSlotUI : MonoBehaviour
 
     private IInventoryService inventoryService;
     private ICharacterService characterService;
+    private IAudioService audioService;
+    private IRouletteService rouletteService;
     private IEventService eventService;
     private void Start()
     {
         inventoryService = AppContainer.Get<IInventoryService>();
         characterService = AppContainer.Get<ICharacterService>();
-        eventService= AppContainer.Get<IEventService>();
+        audioService = AppContainer.Get<IAudioService>();
+        rouletteService = AppContainer.Get<IRouletteService>();
+        eventService = AppContainer.Get<IEventService>();
         eventService.Subscribe<PotionChangeEvent>(Refresh);
         Refresh();
     }
@@ -51,20 +55,37 @@ public class PotionSlotUI : MonoBehaviour
 
     private void UsePotion(PotionData potion)
     {
-        //TODO:añadir todos los efectos
-        switch (potion.effect)
-        {
-            case ActionTypes.Heal:
-                characterService.heal((int)Math.Round(potion.value));
-                break;
+        foreach (Action action in potion.actions) {
+            switch (action.type)
+            {
+                case ActionTypes.Heal:
+                    characterService.heal(action.value);
+                    break;
 
-            case ActionTypes.defense:
-                characterService.addShield((int)Math.Round(potion.value));
-                break;
-            default:
-                Debug.Log("pocion aun en desarrollo");
-                break;
+                case ActionTypes.defense:
+                    characterService.addShield(action.value);
+                    break;
+                case ActionTypes.SlowRulette:
+                    rouletteService.ChangeSpeed((int)Math.Floor(rouletteService.GetSpeed()*0.5f));
+                    break;
+                case ActionTypes.BuffAttack:
+                    //characterService.addBuffAttack(action.value, action.duration);
+                    break;
+                case ActionTypes.BuffDefense:
+                    //characterService.addBuffDefense(action.value, action.duration);
+                    break;
+                case ActionTypes.debuff:
+                    Debug.Log("pocion aun en desarrollo");
+                    break;
+                case ActionTypes.attack:
+                    Debug.Log("pocion aun en desarrollo");
+                    break;
+                default:
+                    Debug.Log("pocion aun en desarrollo");
+                    break;
+            }
         }
+        
 
     }
 }

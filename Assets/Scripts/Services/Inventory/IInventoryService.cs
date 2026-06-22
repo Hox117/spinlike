@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,6 +12,7 @@ public interface IInventoryService
     public void RemovePotion(int index);
     public bool IsPotionsFull();
     public bool CheckFicha(Ficha ficha);
+    public void UpdateFicha(Ficha ficha, int index);   
     public PotionData GetPotion(int index);
     public void ramdomizeList();
 }

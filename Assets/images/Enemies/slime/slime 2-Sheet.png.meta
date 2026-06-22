@@ -1,52 +1,52 @@
 fileFormatVersion: 2
-guid: 7d793cdc5cbb074419e8010b625e67e3
+guid: eece140740538004b91f14f2123e58e9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 889032058800004833
-    second: demon 2-Sheet_0
+      213: 8640203887475505532
+    second: slime 2-Sheet_0
   - first:
-      213: -2359217109914726065
-    second: demon 2-Sheet_1
+      213: -2062234834216266950
+    second: slime 2-Sheet_1
   - first:
-      213: 3329456496760494443
-    second: demon 2-Sheet_2
+      213: 3824547115611755055
+    second: slime 2-Sheet_2
   - first:
-      213: 6745709725058677419
-    second: demon 2-Sheet_3
+      213: 3414512289154570393
+    second: slime 2-Sheet_3
   - first:
-      213: -8575370852302023730
-    second: demon 2-Sheet_4
+      213: 6262048401058837674
+    second: slime 2-Sheet_4
   - first:
-      213: -1527558878637038543
-    second: demon 2-Sheet_5
+      213: 3557888887715558449
+    second: slime 2-Sheet_5
   - first:
-      213: -6430086349747453740
-    second: demon 2-Sheet_6
+      213: -4005081425459063974
+    second: slime 2-Sheet_6
   - first:
-      213: -264212395949723575
-    second: demon 2-Sheet_7
+      213: -4913122150982541895
+    second: slime 2-Sheet_7
   - first:
-      213: -3390987694601135758
-    second: demon 2-Sheet_8
+      213: 4916319001605360362
+    second: slime 2-Sheet_8
   - first:
-      213: 5028532995656176284
-    second: demon 2-Sheet_9
+      213: -163048778229663775
+    second: slime 2-Sheet_9
   - first:
-      213: 4354221305458949820
-    second: demon 2-Sheet_10
+      213: 3534941156329863601
+    second: slime 2-Sheet_10
   - first:
-      213: 6052267585669117488
-    second: demon 2-Sheet_11
+      213: 7423688983647381228
+    second: slime 2-Sheet_11
   - first:
-      213: -6421021317751433463
-    second: demon 2-Sheet_12
+      213: 2900973878683013911
+    second: slime 2-Sheet_12
   - first:
-      213: -489981429545595483
-    second: demon 2-Sheet_13
+      213: 768832669614685721
+    second: slime 2-Sheet_13
   - first:
-      213: -8636447071607577143
-    second: demon 2-Sheet_14
+      213: -1916775372585171847
+    second: slime 2-Sheet_14
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -114,7 +114,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -142,13 +142,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: demon 2-Sheet_0
+      name: slime 2-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 216
-        height: 216
+        width: 237
+        height: 129
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -157,20 +157,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1ee55ba72f9765c00800000000000000
-      internalID: 889032058800004833
+      spriteID: c793deb68ab28e770800000000000000
+      internalID: 8640203887475505532
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: demon 2-Sheet_1
+      name: slime 2-Sheet_1
       rect:
         serializedVersion: 2
-        x: 216
+        x: 237
         y: 0
-        width: 216
-        height: 216
+        width: 237
+        height: 129
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,20 +179,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f415287c980624fd0800000000000000
-      internalID: -2359217109914726065
+      spriteID: a335a1f28587163e0800000000000000
+      internalID: -2062234834216266950
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: demon 2-Sheet_2
+      name: slime 2-Sheet_2
       rect:
         serializedVersion: 2
-        x: 432
+        x: 474
         y: 0
-        width: 216
-        height: 216
+        width: 237
+        height: 129
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -201,20 +201,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b6996882b0b943e20800000000000000
-      internalID: 3329456496760494443
+      spriteID: f2298cc9655831530800000000000000
+      internalID: 3824547115611755055
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: demon 2-Sheet_3
+      name: slime 2-Sheet_3
       rect:
         serializedVersion: 2
-        x: 648
+        x: 711
         y: 0
-        width: 216
-        height: 216
+        width: 237
+        height: 129
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -223,20 +223,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: baa350031439d9d50800000000000000
-      internalID: 6745709725058677419
+      spriteID: 998934c06d8c26f20800000000000000
+      internalID: 3414512289154570393
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: demon 2-Sheet_4
+      name: slime 2-Sheet_4
       rect:
         serializedVersion: 2
-        x: 864
+        x: 948
         y: 0
-        width: 216
-        height: 216
+        width: 237
+        height: 129
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -245,20 +245,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ec39c43e4a92ef880800000000000000
-      internalID: -8575370852302023730
+      spriteID: aa43a6fc7d347e650800000000000000
+      internalID: 6262048401058837674
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: demon 2-Sheet_5
+      name: slime 2-Sheet_5
       rect:
         serializedVersion: 2
-        x: 1080
+        x: 1185
         y: 0
-        width: 216
-        height: 216
+        width: 237
+        height: 129
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -267,20 +267,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 13468511b450dcae0800000000000000
-      internalID: -1527558878637038543
+      spriteID: 1347896c719206130800000000000000
+      internalID: 3557888887715558449
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: demon 2-Sheet_6
+      name: slime 2-Sheet_6
       rect:
         serializedVersion: 2
-        x: 1296
+        x: 1422
         y: 0
-        width: 216
-        height: 216
+        width: 237
+        height: 129
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -289,206 +289,118 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4d00730788eb3c6a0800000000000000
-      internalID: -6430086349747453740
+      spriteID: a535ff2d9a71b68c0800000000000000
+      internalID: -4005081425459063974
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: demon 2-Sheet_7
+      name: slime 2-Sheet_7
       rect:
         serializedVersion: 2
-        x: 1512
+        x: 1659
         y: 0
-        width: 216
-        height: 216
+        width: 237
+        height: 129
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 4c5f676bded2ec142bc569838550c232
-      internalID: 1022962387
+      spriteID: 9bd159c3f6511dbb0800000000000000
+      internalID: -4913122150982541895
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: demon 2-Sheet_8
+      name: slime 2-Sheet_8
       rect:
         serializedVersion: 2
-        x: 1728
+        x: 1896
         y: 0
-        width: 216
-        height: 216
+        width: 237
+        height: 129
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 14d84edca75a7624e86df0abcc3ef37f
-      internalID: 126894029
+      spriteID: aeac03d85164a3440800000000000000
+      internalID: 4916319001605360362
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: demon 2-Sheet_9
+      name: slime 2-Sheet_9
       rect:
         serializedVersion: 2
-        x: 1944
+        x: 2133
         y: 0
-        width: 216
-        height: 216
+        width: 237
+        height: 129
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 7ad68f39be75b5e479d56c6f9b48d526
-      internalID: 1017329570
+      spriteID: 1e73f84000cbcbdf0800000000000000
+      internalID: -163048778229663775
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: demon 2-Sheet_10
+      name: slime 2-Sheet_10
       rect:
         serializedVersion: 2
-        x: 2160
+        x: 2370
         y: 0
-        width: 216
-        height: 216
+        width: 237
+        height: 129
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: feaf770af4475f84dbe90a9367340e9c
-      internalID: 208021691
+      spriteID: 1b933f4b042ae0130800000000000000
+      internalID: 3534941156329863601
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: demon 2-Sheet_11
+      name: slime 2-Sheet_11
       rect:
         serializedVersion: 2
-        x: 2376
+        x: 2607
         y: 0
-        width: 216
-        height: 216
+        width: 237
+        height: 129
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: ddd0e71de7191c9458a5b16a385b65be
-      internalID: 819809029
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: demon 2-Sheet_12
-      rect:
-        serializedVersion: 2
-        x: 2592
-        y: 0
-        width: 216
-        height: 216
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 580343be1f220774da65dd0272f588ad
-      internalID: -1263276770
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: demon 2-Sheet_13
-      rect:
-        serializedVersion: 2
-        x: 2808
-        y: 0
-        width: 216
-        height: 216
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bdde1be71ef53c84692dd1d5460a0ee3
-      internalID: -1417352108
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: demon 2-Sheet_14
-      rect:
-        serializedVersion: 2
-        x: 3024
-        y: 0
-        width: 216
-        height: 216
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d7f4941e22d062d4ebd6ddb6d2e102f9
-      internalID: -787010272
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: demon 2-Sheet_15
-      rect:
-        serializedVersion: 2
-        x: 3240
-        y: 0
-        width: 216
-        height: 216
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ac05f49fa9cccf44688a133b0a3a7264
-      internalID: -906453562
+      spriteID: ce668495ccd360760800000000000000
+      internalID: 7423688983647381228
       vertices: []
       indices: 
       edges: []
@@ -497,7 +409,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 1ee0fee43ad5e0f43b19c7ef360f4142
+    spriteID: 767e87c75a1cbc2498e01acb8e72f50e
     internalID: 0
     vertices: []
     indices: 
@@ -507,24 +419,20 @@ TextureImporter:
     spriteCustomMetadata:
       entries:
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":216.0,"y":216.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":237.0,"y":129.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      demon 2-Sheet_0: 889032058800004833
-      demon 2-Sheet_1: -2359217109914726065
-      demon 2-Sheet_10: 208021691
-      demon 2-Sheet_11: 819809029
-      demon 2-Sheet_12: -1263276770
-      demon 2-Sheet_13: -1417352108
-      demon 2-Sheet_14: -787010272
-      demon 2-Sheet_15: -906453562
-      demon 2-Sheet_2: 3329456496760494443
-      demon 2-Sheet_3: 6745709725058677419
-      demon 2-Sheet_4: -8575370852302023730
-      demon 2-Sheet_5: -1527558878637038543
-      demon 2-Sheet_6: -6430086349747453740
-      demon 2-Sheet_7: 1022962387
-      demon 2-Sheet_8: 126894029
-      demon 2-Sheet_9: 1017329570
+      slime 2-Sheet_0: 8640203887475505532
+      slime 2-Sheet_1: -2062234834216266950
+      slime 2-Sheet_10: 3534941156329863601
+      slime 2-Sheet_11: 7423688983647381228
+      slime 2-Sheet_2: 3824547115611755055
+      slime 2-Sheet_3: 3414512289154570393
+      slime 2-Sheet_4: 6262048401058837674
+      slime 2-Sheet_5: 3557888887715558449
+      slime 2-Sheet_6: -4005081425459063974
+      slime 2-Sheet_7: -4913122150982541895
+      slime 2-Sheet_8: 4916319001605360362
+      slime 2-Sheet_9: -163048778229663775
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

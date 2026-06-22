@@ -7,7 +7,7 @@ public class Ficha : ScriptableObject
     public Color colorSecundario;
     public int valor;
     public Sprite sprite;
-    public FichaTypes tipoDeFicha;
+    public ActionTypes tipoDeFicha;
     public int id;
 
     public bool useDescription;

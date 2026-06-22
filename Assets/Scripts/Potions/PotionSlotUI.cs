@@ -54,11 +54,11 @@ public class PotionSlotUI : MonoBehaviour
         //TODO:añadir todos los efectos
         switch (potion.effect)
         {
-            case PotionEffect.Heal:
+            case ActionTypes.Heal:
                 characterService.heal((int)Math.Round(potion.value));
                 break;
 
-            case PotionEffect.Shield:
+            case ActionTypes.defense:
                 characterService.addShield((int)Math.Round(potion.value));
                 break;
             default:

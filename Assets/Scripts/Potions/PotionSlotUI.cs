@@ -6,32 +6,33 @@ using UnityEngine.UI;
 public class PotionSlotUI : MonoBehaviour
 {
     [SerializeField] private int slotIndex;
-    [SerializeField] private TextMeshProUGUI text;
+    [SerializeField] private Image icon;
 
     private IInventoryService inventoryService;
     private ICharacterService characterService;
-
+    private IEventService eventService;
     private void Start()
     {
         inventoryService = AppContainer.Get<IInventoryService>();
         characterService = AppContainer.Get<ICharacterService>();
-
+        eventService= AppContainer.Get<IEventService>();
+        eventService.Subscribe<PotionChangeEvent>(Refresh);
         Refresh();
     }
 
-    public void Refresh()
+    public void Refresh(GameEventBase e=null)
     {
         PotionData potion = inventoryService.GetPotion(slotIndex);
 
-        //if (potion == null)
-        //{
-        //    icon.enabled = false;
-        //    return;
-        //}
+        if (potion == null)
+        {
+            icon.enabled = false;
+            return;
+        }
 
-        //icon.enabled = true;
-        //icon.sprite = potion.Sprite;
-        text.text = potion.name;
+        icon.enabled = true;
+        icon.sprite = potion.Sprite;
+         
     }
 
     public void OnClick()
@@ -53,12 +54,15 @@ public class PotionSlotUI : MonoBehaviour
         //TODO:añadir todos los efectos
         switch (potion.effect)
         {
-            case PotionEffect.Heal:
+            case ActionTypes.Heal:
                 characterService.heal((int)Math.Round(potion.value));
                 break;
 
-            case PotionEffect.Shield:
+            case ActionTypes.defense:
                 characterService.addShield((int)Math.Round(potion.value));
+                break;
+            default:
+                Debug.Log("pocion aun en desarrollo");
                 break;
         }
 

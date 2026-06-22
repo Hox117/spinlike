@@ -1,3 +1,4 @@
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -32,18 +33,21 @@ public class SegmentController : MonoBehaviour ,ISelectionable
             _isSelected = false;
             switch (ficha.tipoDeFicha)
             {
-                case FichaTypes.attack:
-                    enemyService.getFirstEnemy().OnHit(ficha.valor);
+                case ActionTypes.attack:
+                    if (ficha.valor >= 0)
+                        enemyService.getFirstEnemy().OnHit(ficha.valor);
+                    else
+                        characterService.takeDamage(Math.Abs(ficha.valor) );
                     break;
-                case FichaTypes.defense:
+                case ActionTypes.defense:
                     characterService.addShield(ficha.valor);
                     break;
-                case FichaTypes.buff:
+                case ActionTypes.BuffAttack:
                     break;
-                case FichaTypes.debuff:
+                case ActionTypes.debuff:
                     characterService.takeDamage(-ficha.valor);
                     break;
-                case FichaTypes.menu:
+                case ActionTypes.menu:
 
                     sceneService.LoadScene((SceneNames) ficha.valor);
                     break;

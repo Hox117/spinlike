@@ -5,7 +5,7 @@ public class PotionData : ScriptableObject
 {
     public string Name;
     public Sprite Sprite;
-    public PotionEffect effect;
+    public ActionTypes effect;
     public float value;
     public float duration=0;
 

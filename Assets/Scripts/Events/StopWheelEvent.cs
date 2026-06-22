@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class StopWheelEvent : GameEventBase
 {
-    Ficha ficha;
-    public StopWheelEvent(Ficha ficha)
+    FichaData ficha;
+    public StopWheelEvent(FichaData ficha)
     {
         this.ficha = ficha;
     }

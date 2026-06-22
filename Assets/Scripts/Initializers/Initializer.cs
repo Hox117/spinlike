@@ -5,7 +5,7 @@ public class Initializer : MonoBehaviour
 {
     IInventoryService inventoryService;
     ITurnService turnService;
-    [SerializeField] List<Ficha> ListaDeFichas;
+    [SerializeField] List<FichaData> ListaDeFichas;
 
     void Awake()
     {

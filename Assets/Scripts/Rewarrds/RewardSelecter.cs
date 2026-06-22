@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class RewardSelecter : MonoBehaviour
 {
-    [SerializeField] List<Ficha> ListaDeRecompensasPosibles;
+    [SerializeField] List<FichaData> ListaDeRecompensasPosibles;
     void Awake()
     {
         

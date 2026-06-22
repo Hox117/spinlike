@@ -417,7 +417,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BotonGenerarPrueba
   numeroSegmentos: 3
-  textos: []
   sprites: []
   SpinSpeed: 50
   SPRITE: 0
@@ -757,6 +756,7 @@ GameObject:
   - component: {fileID: 1071327685}
   - component: {fileID: 1071327684}
   - component: {fileID: 1071327683}
+  - component: {fileID: 1071327687}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -797,7 +797,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BotonGenerarPrueba
   numeroSegmentos: 3
-  textos: []
   sprites: []
   SpinSpeed: 300
   SPRITE: 0
@@ -858,6 +857,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1071327687}
+        m_TargetAssemblyTypeName: PrepareForCombatButton, Assembly-CSharp
+        m_MethodName: startRun
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1071327685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -896,6 +907,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1071327681}
   m_CullTransparentMesh: 1
+--- !u!114 &1071327687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1071327681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dd6bd4b0bdf043a9b3149301d2effd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1001 &1096211777
 PrefabInstance:
   m_ObjectHideFlags: 0

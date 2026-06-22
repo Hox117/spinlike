@@ -4,7 +4,7 @@ using UnityEngine;
 public class SegmentController : MonoBehaviour ,ISelectionable, IRewardable
 {
     [SerializeField] private PotionData[] potionList;
-    Ficha ficha;
+    private Ficha ficha;
     private bool _isSelected = true;
     private IEnemyService enemyService;
     private ICharacterService characterService;
@@ -24,8 +24,8 @@ public class SegmentController : MonoBehaviour ,ISelectionable, IRewardable
         turnService = AppContainer.Get<ITurnService>();
         eventService = AppContainer.Get<IEventService>();
 
-        
-        
+
+        potionList = Resources.LoadAll<PotionData>("Objects/Potions");
     }
 
     public void OnSelected()
@@ -72,13 +72,16 @@ public class SegmentController : MonoBehaviour ,ISelectionable, IRewardable
         }
         
     }
-
+    public Ficha getFicha()
+    {
+        return ficha;
+    }
     public void addFicha(Ficha ficha)
     {
         this.ficha = ficha;
     }
 
-    public void onReward(FichaData ficha)
+    public void onReward(Ficha ficha)
     {
         if (_isSelected)
         {
@@ -100,7 +103,7 @@ public class SegmentController : MonoBehaviour ,ISelectionable, IRewardable
                         inventoryService.AddFicha(ficha);
                         break;
                     case ActionTypes.Heal:
-                        
+                        GenerarPocion();
                         break;
                 }
             }

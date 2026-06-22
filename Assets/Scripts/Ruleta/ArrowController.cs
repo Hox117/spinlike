@@ -12,11 +12,11 @@ public class ArrowController : MonoBehaviour
         eventService.Subscribe<StopWheelEvent>(checkPiece);
 
     }
-    void FixedUpdate()
+    void OnDestroy()
     {
-
-        
+        eventService.Unsubscribe<StopWheelEvent>(checkPiece);
     }
+
     void checkPiece(GameEventBase e) {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right, 0.7f, layerMask);
         if (hit)

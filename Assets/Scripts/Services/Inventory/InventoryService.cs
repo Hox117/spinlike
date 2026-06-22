@@ -98,4 +98,9 @@ public class InventoryService : IInventoryService
         listaFichas[index] = new Ficha(ficha);
         
     }
+
+    public void removeAllFicha()
+    {
+        listaFichas = new List<Ficha>();
+    }
 }

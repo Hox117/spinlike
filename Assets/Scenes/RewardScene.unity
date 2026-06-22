@@ -981,8 +981,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2101512386}
-  - component: {fileID: 2101512385}
   - component: {fileID: 2101512384}
+  - component: {fileID: 2101512387}
   m_Layer: 0
   m_Name: RewarInitializer
   m_TagString: Untagged
@@ -1005,19 +1005,8 @@ MonoBehaviour:
   ListaDeRecompensasPosibles:
   - {fileID: 11400000, guid: 37c2057dd54119ccb90f0dfaa22312d7, type: 2}
   - {fileID: 11400000, guid: 2a11b17ffc2946d55b01d7de767d9c85, type: 2}
---- !u!114 &2101512385
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2101512383}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76d2f0e33708b5fb0a3c1e81224e1b8b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Initializer
-  ListaDeFichas: []
+  - {fileID: 11400000, guid: 81da95a14e2994273a8936346d5f9d66, type: 2}
+  - {fileID: 11400000, guid: 5521ff6123cb1fa7d8878fb0ced630d6, type: 2}
 --- !u!4 &2101512386
 Transform:
   m_ObjectHideFlags: 0
@@ -1033,6 +1022,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2101512387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101512383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c80a0aa575b41022a85b662cbaa5ed85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  ListaDeFichas: []
 --- !u!1001 &2138903064
 PrefabInstance:
   m_ObjectHideFlags: 0

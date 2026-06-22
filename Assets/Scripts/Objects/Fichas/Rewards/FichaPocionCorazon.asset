@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Ficha
   colorPrincipal: {r: 1, g: 0, b: 0.7531514, a: 0}
   colorSecundario: {r: 0, g: 0, b: 0, a: 0}
-  valor: 0
   sprite: {fileID: -6872065083077148219, guid: 94c4bdd54154a4b438f220026cc46b07, type: 3}
-  tipoDeFicha: 0
-  id: 9
-  useDescription: 1
+  actions:
+  - type: 4
+    value: 0
+    duration: 0
   description: 
   audioClip: {fileID: 0}

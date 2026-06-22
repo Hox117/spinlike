@@ -12,6 +12,7 @@ public class Wheel_Manager : MonoBehaviour
     [SerializeField] Material _material;
     [SerializeField] private TMPro.TMP_FontAsset _fontPersonalizada;
 
+
     [ContextMenu("Generate")]
     public void Generate(int _numeroDeSegmentos,  List<Ficha> fichas)
     {

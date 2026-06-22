@@ -1,0 +1,1010 @@
+fileFormatVersion: 2
+guid: f69f850f4aab545459d41a8267e7491d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 9131353838874824994
+    second: kobold idle 1-Sheet_0
+  - first:
+      213: 5397802843662474506
+    second: kobold idle 1-Sheet_1
+  - first:
+      213: -6243003784099976948
+    second: kobold idle 1-Sheet_2
+  - first:
+      213: -7164684241296324532
+    second: kobold idle 1-Sheet_3
+  - first:
+      213: -3614321930986187936
+    second: kobold idle 1-Sheet_4
+  - first:
+      213: 2045381681733068615
+    second: kobold idle 1-Sheet_5
+  - first:
+      213: 7763362625831764246
+    second: kobold idle 1-Sheet_6
+  - first:
+      213: 6759177667650471577
+    second: kobold idle 1-Sheet_7
+  - first:
+      213: 8135030545875641301
+    second: kobold idle 1-Sheet_8
+  - first:
+      213: 7663207104896461263
+    second: kobold idle 1-Sheet_9
+  - first:
+      213: 1957124418974641293
+    second: kobold idle 1-Sheet_10
+  - first:
+      213: -4154719158020105798
+    second: kobold idle 1-Sheet_11
+  - first:
+      213: -5716972837294309281
+    second: kobold idle 1-Sheet_12
+  - first:
+      213: 2067298515262326679
+    second: kobold idle 1-Sheet_13
+  - first:
+      213: 4908776629893976288
+    second: kobold idle 1-Sheet_14
+  - first:
+      213: -5979117967938692070
+    second: kobold idle 1-Sheet_15
+  - first:
+      213: 8650137050584124060
+    second: kobold idle 1-Sheet_16
+  - first:
+      213: 2869457460679389057
+    second: kobold idle 1-Sheet_17
+  - first:
+      213: 1960027490775903426
+    second: kobold idle 1-Sheet_18
+  - first:
+      213: -7298500056248157123
+    second: kobold idle 1-Sheet_19
+  - first:
+      213: 7579650827702205035
+    second: kobold idle 1-Sheet_20
+  - first:
+      213: -2991129353100573597
+    second: kobold idle 1-Sheet_21
+  - first:
+      213: -2894754508407257134
+    second: kobold idle 1-Sheet_22
+  - first:
+      213: -6197349799097916405
+    second: kobold idle 1-Sheet_23
+  - first:
+      213: 2471256469342966257
+    second: kobold idle 1-Sheet_24
+  - first:
+      213: 8477724847621101330
+    second: kobold idle 1-Sheet_25
+  - first:
+      213: 7904805158546698648
+    second: kobold idle 1-Sheet_26
+  - first:
+      213: 4131251054178724039
+    second: kobold idle 1-Sheet_27
+  - first:
+      213: 4677678872727118899
+    second: kobold idle 1-Sheet_28
+  - first:
+      213: -4478324123480938170
+    second: kobold idle 1-Sheet_29
+  - first:
+      213: 1035613438398260660
+    second: kobold idle 1-Sheet_30
+  - first:
+      213: 8062507167694846771
+    second: kobold idle 1-Sheet_31
+  - first:
+      213: -2370948245075039188
+    second: kobold idle 1-Sheet_32
+  - first:
+      213: -7335113610837620871
+    second: kobold idle 1-Sheet_33
+  - first:
+      213: -5229987810911154832
+    second: kobold idle 1-Sheet_34
+  - first:
+      213: 8501402790154201753
+    second: kobold idle 1-Sheet_35
+  - first:
+      213: -4219749256074440604
+    second: kobold idle 1-Sheet_36
+  - first:
+      213: -7766153775744418090
+    second: kobold idle 1-Sheet_37
+  - first:
+      213: -5845279351139004275
+    second: kobold idle 1-Sheet_38
+  - first:
+      213: 2696236047246184167
+    second: kobold idle 1-Sheet_39
+  - first:
+      213: 6232434037048465350
+    second: kobold idle 1-Sheet_40
+  - first:
+      213: 1727910517828950883
+    second: kobold idle 1-Sheet_41
+  - first:
+      213: 63881936632257704
+    second: kobold idle 1-Sheet_42
+  - first:
+      213: -1356185356743189498
+    second: kobold idle 1-Sheet_43
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: kobold idle 1-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 216
+        height: 243
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 221988cbfe519be70800000000000000
+      internalID: 9131353838874824994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kobold idle 1-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 0
+        width: 216
+        height: 243
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0d58186619d8ea40800000000000000
+      internalID: 5397802843662474506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kobold idle 1-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 0
+        width: 216
+        height: 243
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c092d4d92256c59a0800000000000000
+      internalID: -6243003784099976948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kobold idle 1-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 0
+        width: 216
+        height: 243
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4881b584ade19c90800000000000000
+      internalID: -7164684241296324532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kobold idle 1-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 0
+        width: 216
+        height: 243
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0631aaf6a5957ddc0800000000000000
+      internalID: -3614321930986187936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kobold idle 1-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 0
+        width: 216
+        height: 243
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7476ac97dc7a26c10800000000000000
+      internalID: 2045381681733068615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kobold idle 1-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 1296
+        y: 0
+        width: 216
+        height: 243
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6110f371d210dbb60800000000000000
+      internalID: 7763362625831764246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kobold idle 1-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 1512
+        y: 0
+        width: 216
+        height: 243
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9964f0ee64c6dcd50800000000000000
+      internalID: 6759177667650471577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kobold idle 1-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 1728
+        y: 0
+        width: 216
+        height: 243
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d3aed32e2f65e070800000000000000
+      internalID: 8135030545875641301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kobold idle 1-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 1944
+        y: 0
+        width: 216
+        height: 243
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc96a9fa24e295a60800000000000000
+      internalID: 7663207104896461263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kobold idle 1-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 2160
+        y: 0
+        width: 216
+        height: 243
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8ce93e2a4a192b10800000000000000
+      internalID: 1957124418974641293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kobold idle 1-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 2376
+        y: 0
+        width: 216
+        height: 243
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab993bc30f87756c0800000000000000
+      internalID: -4154719158020105798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kobold idle 1-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 2592
+        y: 0
+        width: 216
+        height: 243
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f50048a8e7b39a0b0800000000000000
+      internalID: -5716972837294309281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kobold idle 1-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 2808
+        y: 0
+        width: 216
+        height: 243
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79747eeeb0580bc10800000000000000
+      internalID: 2067298515262326679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kobold idle 1-Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 3024
+        y: 0
+        width: 216
+        height: 243
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e0d19a465a7f1440800000000000000
+      internalID: 4908776629893976288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kobold idle 1-Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 3240
+        y: 0
+        width: 216
+        height: 243
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1cdbda03e7e50da0800000000000000
+      internalID: -5979117967938692070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kobold idle 1-Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 3456
+        y: 0
+        width: 216
+        height: 243
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9a038e21d57b0870800000000000000
+      internalID: 8650137050584124060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kobold idle 1-Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 3672
+        y: 0
+        width: 216
+        height: 243
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18fa3e18b5c52d720800000000000000
+      internalID: 2869457460679389057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kobold idle 1-Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 3888
+        y: 0
+        width: 216
+        height: 243
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cca2b14e9a633b10800000000000000
+      internalID: 1960027490775903426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kobold idle 1-Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 4104
+        y: 0
+        width: 216
+        height: 243
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3cf8223ed486ba90800000000000000
+      internalID: -7298500056248157123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kobold idle 1-Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 0
+        width: 216
+        height: 243
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6a7fa2e444503960800000000000000
+      internalID: 7579650827702205035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kobold idle 1-Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 4536
+        y: 0
+        width: 216
+        height: 243
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 364423773bf5d76d0800000000000000
+      internalID: -2991129353100573597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kobold idle 1-Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 4752
+        y: 0
+        width: 216
+        height: 243
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d7cc669c14c3d7d0800000000000000
+      internalID: -2894754508407257134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kobold idle 1-Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 4968
+        y: 0
+        width: 216
+        height: 243
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b042ee351379ef9a0800000000000000
+      internalID: -6197349799097916405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kobold idle 1-Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 5184
+        y: 0
+        width: 216
+        height: 243
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f1d2146aaaab4220800000000000000
+      internalID: 2471256469342966257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kobold idle 1-Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 5400
+        y: 0
+        width: 216
+        height: 243
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21755fdf4dde6a570800000000000000
+      internalID: 8477724847621101330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kobold idle 1-Sheet_26
+      rect:
+        serializedVersion: 2
+        x: 5616
+        y: 0
+        width: 216
+        height: 243
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 891f9d5096283bd60800000000000000
+      internalID: 7904805158546698648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kobold idle 1-Sheet_27
+      rect:
+        serializedVersion: 2
+        x: 5832
+        y: 0
+        width: 216
+        height: 243
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c8e74a02f6255930800000000000000
+      internalID: 4131251054178724039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kobold idle 1-Sheet_28
+      rect:
+        serializedVersion: 2
+        x: 6048
+        y: 0
+        width: 216
+        height: 243
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 334ef3eb6247ae040800000000000000
+      internalID: 4677678872727118899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kobold idle 1-Sheet_29
+      rect:
+        serializedVersion: 2
+        x: 6264
+        y: 0
+        width: 216
+        height: 243
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6492bd6dfebc9d1c0800000000000000
+      internalID: -4478324123480938170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kobold idle 1-Sheet_30
+      rect:
+        serializedVersion: 2
+        x: 6480
+        y: 0
+        width: 216
+        height: 243
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b569507fec3f5e00800000000000000
+      internalID: 1035613438398260660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kobold idle 1-Sheet_31
+      rect:
+        serializedVersion: 2
+        x: 6696
+        y: 0
+        width: 216
+        height: 243
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33bfd715d87c3ef60800000000000000
+      internalID: 8062507167694846771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kobold idle 1-Sheet_32
+      rect:
+        serializedVersion: 2
+        x: 6912
+        y: 0
+        width: 216
+        height: 243
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2c67770223b81fd0800000000000000
+      internalID: -2370948245075039188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5f3c7d5fbe0fc9d4987c7c802b5726af
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":215.0,"y":1.0},"gridSpriteSize":{"x":216.0,"y":243.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      kobold idle 1-Sheet_0: 9131353838874824994
+      kobold idle 1-Sheet_1: 5397802843662474506
+      kobold idle 1-Sheet_10: 1957124418974641293
+      kobold idle 1-Sheet_11: -4154719158020105798
+      kobold idle 1-Sheet_12: -5716972837294309281
+      kobold idle 1-Sheet_13: 2067298515262326679
+      kobold idle 1-Sheet_14: 4908776629893976288
+      kobold idle 1-Sheet_15: -5979117967938692070
+      kobold idle 1-Sheet_16: 8650137050584124060
+      kobold idle 1-Sheet_17: 2869457460679389057
+      kobold idle 1-Sheet_18: 1960027490775903426
+      kobold idle 1-Sheet_19: -7298500056248157123
+      kobold idle 1-Sheet_2: -6243003784099976948
+      kobold idle 1-Sheet_20: 7579650827702205035
+      kobold idle 1-Sheet_21: -2991129353100573597
+      kobold idle 1-Sheet_22: -2894754508407257134
+      kobold idle 1-Sheet_23: -6197349799097916405
+      kobold idle 1-Sheet_24: 2471256469342966257
+      kobold idle 1-Sheet_25: 8477724847621101330
+      kobold idle 1-Sheet_26: 7904805158546698648
+      kobold idle 1-Sheet_27: 4131251054178724039
+      kobold idle 1-Sheet_28: 4677678872727118899
+      kobold idle 1-Sheet_29: -4478324123480938170
+      kobold idle 1-Sheet_3: -7164684241296324532
+      kobold idle 1-Sheet_30: 1035613438398260660
+      kobold idle 1-Sheet_31: 8062507167694846771
+      kobold idle 1-Sheet_32: -2370948245075039188
+      kobold idle 1-Sheet_4: -3614321930986187936
+      kobold idle 1-Sheet_5: 2045381681733068615
+      kobold idle 1-Sheet_6: 7763362625831764246
+      kobold idle 1-Sheet_7: 6759177667650471577
+      kobold idle 1-Sheet_8: 8135030545875641301
+      kobold idle 1-Sheet_9: 7663207104896461263
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

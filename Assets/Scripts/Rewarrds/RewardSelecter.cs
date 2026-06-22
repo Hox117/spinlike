@@ -3,13 +3,20 @@ using UnityEngine;
 
 public class RewardSelecter : MonoBehaviour
 {
-    [SerializeField] List<Ficha> ListaDeRecompensasPosibles;
+    [SerializeField] List<FichaData> ListaDeRecompensasPosibles;
+    List<FichaData> ListaDeRecompensas = new List<FichaData>();
     void Awake()
     {
+        for (int i = 0 ; i < 3 ; i++)
+        {
+            ListaDeRecompensas.Add(ListaDeRecompensasPosibles[Random.Range(0,ListaDeRecompensasPosibles.Count - 1)]);
+        }
         
     }
     void Start()
     {
+        RewardInitializer initializer = this.gameObject.GetComponent<RewardInitializer>();
         
+        initializer.setListaDeFichas(ListaDeRecompensas);
     }
 }

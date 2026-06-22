@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Initializer : MonoBehaviour
+public class RewardInitializer : MonoBehaviour
 {
     IInventoryService inventoryService;
     ITurnService turnService;
@@ -17,11 +17,18 @@ public class Initializer : MonoBehaviour
         turnService = AppContainer.Get<ITurnService>();
         
     }
+
     void Start()
     {
+        List<Ficha> listaFichasReales = new List<Ficha>();
+        int numeroSegmentos = ListaDeFichas.Count;
 
-        if(inventoryService.getListaFichas().Count < 1) inventoryService.cargarInventario(ListaDeFichas);
-        if(!turnService.IsPlayerTurn())turnService.ChangeTurn();
-        
+        foreach (FichaData fichadata in ListaDeFichas)
+        {
+            Ficha ficha = new Ficha(fichadata);
+            listaFichasReales.Add(ficha);
+        }
+
+        FindAnyObjectByType<Wheel_Manager>().Generate(numeroSegmentos, listaFichasReales);
     }
 }

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b2487b990a63e60ab25ccb4c6f5cf31, type: 3}
+  m_Name: "FichaAutoda\xF1oMedio"
+  m_EditorClassIdentifier: Assembly-CSharp::Ficha
+  colorPrincipal: {r: 0, g: 0, b: 0, a: 0}
+  colorSecundario: {r: 0, g: 0, b: 0, a: 0}
+  sprite: {fileID: 1284078919682861982, guid: 864f634b73f009548984363d25ac8d7b, type: 3}
+  actions:
+  - type: 2
+    value: -2
+    duration: 0
+  description: 
+  audioClip: {fileID: 8300000, guid: 2f7dc0820c8759679b13e77bda8e1388, type: 3}

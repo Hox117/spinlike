@@ -28,30 +28,39 @@ public class SegmentController : MonoBehaviour ,ISelectionable
         //Esto se regenera al volver a lanzar por lo que vuelve a ser true al regenerarse
         if (_isSelected)
         {
-            Debug.Log("Gambleame esta " + ficha.id);
             audioService.PlaySound(ficha.audioClip);
             _isSelected = false;
-            switch (ficha.tipoDeFicha)
-            {
-                case ActionTypes.attack:
-                    if (ficha.valor >= 0)
-                        enemyService.getFirstEnemy().OnHit(ficha.valor);
-                    else
-                        characterService.takeDamage(Math.Abs(ficha.valor) );
-                    break;
-                case ActionTypes.defense:
-                    characterService.addShield(ficha.valor);
-                    break;
-                case ActionTypes.BuffAttack:
-                    break;
-                case ActionTypes.debuff:
-                    characterService.takeDamage(-ficha.valor);
-                    break;
-                case ActionTypes.menu:
 
-                    sceneService.LoadScene((SceneNames) ficha.valor);
-                    break;
+
+            foreach (Action action in ficha.actions)
+            {
+                switch (action.type)
+                {
+                    case ActionTypes.attack:
+                        if (action.value >= 0)
+                            enemyService.getFirstEnemy().OnHit(action.value );
+                        else
+                            characterService.takeDamage(Math.Abs(action.value ) );
+                        break;
+                    case ActionTypes.defense:
+                        characterService.addShield(action.value );
+                        break;
+                    case ActionTypes.BuffAttack:
+                        break;
+                    case ActionTypes.BuffDefense:
+                        break;
+                    case ActionTypes.debuff:
+                        characterService.takeDamage(-action.value );
+                        break;
+                    case ActionTypes.menu:
+                
+                        sceneService.LoadScene((SceneNames) action.value );
+                        break;
+                }
             }
+
+
+            
 
             
             turnService.ChangeTurn();

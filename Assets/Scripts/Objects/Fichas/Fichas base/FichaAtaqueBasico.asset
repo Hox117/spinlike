@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b2487b990a63e60ab25ccb4c6f5cf31, type: 3}
-  m_Name: FichaAtaqueCritico
+  m_Name: FichaAtaqueBasico
   m_EditorClassIdentifier: Assembly-CSharp::Ficha
-  colorPrincipal: {r: 0.12834764, g: 1, b: 0, a: 1}
-  colorSecundario: {r: 0, g: 0.35789, b: 0.020428458, a: 1}
-  valor: 5
-  sprite: {fileID: -1179575431438197405, guid: f9a3ed498f20f9348984cdd8a155f970, type: 3}
-  tipoDeFicha: 0
-  id: 2
-  useDescription: 0
+  colorPrincipal: {r: 1, g: 0, b: 0, a: 1}
+  colorSecundario: {r: 0.26945668, g: 0, b: 0, a: 1}
+  sprite: {fileID: 1436520230527447110, guid: ddc7c4bf5a1ab814292390c6781e2d87, type: 3}
+  actions:
+  - type: 0
+    value: 1
+    duration: 0
   description: 
-  audioClip: {fileID: 8300000, guid: 7b806b3ce5d9d22368d52c3d48f9c8b5, type: 3}
+  audioClip: {fileID: 8300000, guid: 6034d582877215875906802a4ee31310, type: 3}

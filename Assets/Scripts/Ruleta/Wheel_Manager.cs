@@ -13,8 +13,9 @@ public class Wheel_Manager : MonoBehaviour
     [SerializeField] Material _material;
     [SerializeField] private TMPro.TMP_FontAsset _fontPersonalizada;
 
+
     [ContextMenu("Generate")]
-    public void Generate(int _numeroDeSegmentos,  List<UnityEngine.Color[]> colores, List<string> texto, List<Sprite> sprite, List<Ficha> fichas)
+    public void Generate(int _numeroDeSegmentos,  List<Ficha> fichas)
     {
         if (_isGenerating) return;
 
@@ -37,11 +38,11 @@ public class Wheel_Manager : MonoBehaviour
                 i,
                 start,
                 end,
-                colores[i],
+                fichas[i].colorPrincipal,
+                fichas[i].colorSecundario,
                 Radios,
                 _arcSubdivisions,
-                texto[i],
-                sprite[i],
+                fichas[i].sprite,
                 fichas[i]
             );
         }
@@ -53,10 +54,10 @@ public class Wheel_Manager : MonoBehaviour
         int index,
         float startAngle,
         float endAngle,
-        UnityEngine.Color[] colores,
+        UnityEngine.Color colorPrincipal, 
+        UnityEngine.Color colorSecundario,
         (float radioInterior, float radioExterior) Radios,
         int _arcSubdivisions,
-        string textoSegmento,
         Sprite spriteObjeto,
         Ficha ficha)
     {
@@ -71,13 +72,14 @@ public class Wheel_Manager : MonoBehaviour
 
         MeshRenderer meshRenderer = segment.AddComponent<MeshRenderer>();
 
-        if (_material != null) meshRenderer.sharedMaterial = _material;
+        if (_material != null) meshRenderer.sharedMaterial = _material;   
 
         Mesh mesh =
             BuildSlice(
                 startAngle,
                 endAngle,
-               colores,
+               colorPrincipal,
+               colorSecundario,
                Radios,
                _arcSubdivisions
             );
@@ -106,9 +108,7 @@ public class Wheel_Manager : MonoBehaviour
 
         TMPro.TextMeshPro tmp = textGO.AddComponent<TMPro.TextMeshPro>();
 
-
-        if(!ficha.useDescription)    tmp.text = textoSegmento;
-        else                         tmp.text = ficha.description; 
+        tmp.text = ficha.description; 
 
         tmp.alignment = TMPro.TextAlignmentOptions.Center;
         tmp.fontSize = 4f; 
@@ -147,7 +147,7 @@ public class Wheel_Manager : MonoBehaviour
         segment.layer = LayerMask.NameToLayer("Segment");
     }
 
-    Mesh BuildSlice(float start, float end, UnityEngine.Color[] colores, (float radioInterior, float radioExterior) Radios, int _arcSubdivisions)
+    Mesh BuildSlice(float start, float end, UnityEngine.Color colorPrincipal, UnityEngine.Color colorSecundario, (float radioInterior, float radioExterior) Radios, int _arcSubdivisions)
     {
         Mesh mesh = new Mesh();
 
@@ -176,8 +176,8 @@ public class Wheel_Manager : MonoBehaviour
                 ));
 
 
-            colors.Add(colores[0]);
-            colors.Add(colores[1]);
+            colors.Add(colorPrincipal);
+            colors.Add(colorSecundario);
         }
 
         for (int i = 0; i < _arcSubdivisions; i++)

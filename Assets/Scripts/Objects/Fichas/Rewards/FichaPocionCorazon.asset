@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b2487b990a63e60ab25ccb4c6f5cf31, type: 3}
-  m_Name: FichaFalloCritico
+  m_Name: FichaPocionCorazon
   m_EditorClassIdentifier: Assembly-CSharp::Ficha
-  colorPrincipal: {r: 0, g: 0, b: 0, a: 1}
-  colorSecundario: {r: 0.325265, g: 0.2940597, b: 0.2940597, a: 1}
-  valor: -1
-  sprite: {fileID: 1284078919682861982, guid: 864f634b73f009548984363d25ac8d7b, type: 3}
-  tipoDeFicha: 2
-  id: 4
-  useDescription: 0
+  colorPrincipal: {r: 1, g: 0, b: 0.7531514, a: 0}
+  colorSecundario: {r: 0, g: 0, b: 0, a: 0}
+  sprite: {fileID: -6872065083077148219, guid: 94c4bdd54154a4b438f220026cc46b07, type: 3}
+  actions:
+  - type: 4
+    value: 0
+    duration: 0
   description: 
-  audioClip: {fileID: 8300000, guid: 2f7dc0820c8759679b13e77bda8e1388, type: 3}
+  audioClip: {fileID: 0}

@@ -1,16 +1,15 @@
+using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Ficha", menuName = "Scriptable Objects/Ficha")]
-public class Ficha : ScriptableObject
+[CreateAssetMenu(fileName = "Ficha", menuName = "Scriptable Objects/FichaData")]
+public class FichaData : ScriptableObject
 {
     public Color colorPrincipal;
     public Color colorSecundario;
-    public int valor;
     public Sprite sprite;
-    public ActionTypes tipoDeFicha;
-    public int id;
 
-    public bool useDescription;
+    public List<Action> actions;
+
     public string description;
 
     public AudioClip audioClip;

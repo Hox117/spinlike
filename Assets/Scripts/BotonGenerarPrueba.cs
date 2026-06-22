@@ -8,7 +8,7 @@ public class BotonGenerarPrueba : MonoBehaviour
     ITurnService turnService;
     public int numeroSegmentos = 3;
     public List<Color[]> colores;
-    public List<string> textos;
+    //public List<string> textos;
     public List<Sprite> sprites;
 
     [SerializeField] private int SpinSpeed = 300;
@@ -29,7 +29,7 @@ public class BotonGenerarPrueba : MonoBehaviour
         {
             this.gameObject.SetActive(true);
             colores = new List<Color[]>();
-            textos = new List<string>();
+            //textos = new List<string>();
             sprites = new List<Sprite>();
 
 
@@ -41,15 +41,9 @@ public class BotonGenerarPrueba : MonoBehaviour
             List<Ficha> listaFichas = inventoryService.getListaFichas();
             numeroSegmentos = listaFichas.Count;
 
-            for (int i = 0; i < numeroSegmentos; i++)
-            {
-                colores.Add(new Color[]{ listaFichas[i].colorPrincipal, listaFichas[i].colorSecundario });
-                textos.Add(listaFichas[i].valor.ToString());
-                sprites.Add(listaFichas[i].sprite);
-            }
             //para cada ficha sacamos su color y color secundario
 
-            FindAnyObjectByType<Wheel_Manager>().Generate(numeroSegmentos, colores,textos,sprites, listaFichas);
+            FindAnyObjectByType<Wheel_Manager>().Generate(numeroSegmentos, listaFichas);
         }
        
     }

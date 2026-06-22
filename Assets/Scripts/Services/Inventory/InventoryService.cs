@@ -4,23 +4,33 @@ using UnityEngine;
 
 public class InventoryService : IInventoryService
 {
-    public List<Ficha> listaFichas;
+    public List<Ficha> listaFichas = new List<Ficha>();
     public PotionData[] potionList= new PotionData[3];
+
+    public void AddFicha(FichaData ficha)
+    {
+        Ficha fichanueva = new Ficha(ficha);
+        listaFichas.Add(fichanueva);
+    }
 
     public void AddFicha(Ficha ficha)
     {
         listaFichas.Add(ficha);
     }
 
+    public void cargarInventario(List<FichaData> listaCompletaFichas)
+    {
+        foreach (FichaData data in listaCompletaFichas)
+        {
+            AddFicha(data);
+        }
+    }
     public void cargarInventario(List<Ficha> listaCompletaFichas)
     {
-        listaFichas = listaCompletaFichas;
-    }
-
-    public bool CheckFicha(Ficha ficha)
-    {
-        if(listaFichas.Contains(ficha))return true;
-        else return false;
+        foreach (Ficha data in listaCompletaFichas)
+        {
+            AddFicha(data);
+        }
     }
 
     public List<Ficha> getListaFichas()
@@ -83,13 +93,9 @@ public class InventoryService : IInventoryService
 
     }
 
-    public void UpdateFicha(Ficha ficha, int index)
+    public void UpdateFicha(FichaData ficha, int index)
     {
-        listaFichas[index] = ficha;
-        foreach (var item in listaFichas)
-        {
-            Debug.Log("Ficha en inventario: " + item.name + "\n - Valor: " + item.valor);
-        }
+        listaFichas[index] = new Ficha(ficha);
         
     }
 }

@@ -32,7 +32,7 @@ public class PotionSlotUI : MonoBehaviour
 
         icon.enabled = true;
         icon.sprite = potion.Sprite;
-        
+         
     }
 
     public void OnClick()

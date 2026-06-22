@@ -82,4 +82,14 @@ public class InventoryService : IInventoryService
         return full;
 
     }
+
+    public void UpdateFicha(Ficha ficha, int index)
+    {
+        listaFichas[index] = ficha;
+        foreach (var item in listaFichas)
+        {
+            Debug.Log("Ficha en inventario: " + item.name + "\n - Valor: " + item.valor);
+        }
+        
+    }
 }

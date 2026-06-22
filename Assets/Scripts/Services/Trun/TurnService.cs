@@ -5,10 +5,12 @@ public class TurnService : ITurnService
     private bool _isPlayerTurn = true;
     private IEventService eventService;
     private IEnemyService enemyService;
+    private IRouletteService rouletteService;
     public TurnService()
     {
         eventService = AppContainer.Get<IEventService>();
         enemyService = AppContainer.Get<IEnemyService>();
+        rouletteService = AppContainer.Get<IRouletteService>();
     }
 
     public void ChangeTurn()
@@ -19,7 +21,9 @@ public class TurnService : ITurnService
         if (_isPlayerTurn)
         {
             enemyService.resetTurns();
+            rouletteService.ResetSpeed();
             Debug.Log("Turno del jugador");
+
         }
         else
         {

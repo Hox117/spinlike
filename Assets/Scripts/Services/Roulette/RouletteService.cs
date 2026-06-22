@@ -2,26 +2,12 @@ using UnityEngine;
 
 public class RouletteService : IRouletteService
 {
-    private bool _status = true;
     private int speed = 300;
     private int stop = 30;
 
     private int baseSpeed = 300;
     private int baseStop = 30;
-    public bool GetRouletteStatus()
-    {
-        return _status;
-    }
-
-    public void StopRoulette()
-    {
-        _status = false;
-    }
-
-    public void StartRoulette()
-    {
-        _status = true;
-    }
+   
 
     public void ChangeSpeed(int newSpeed)
     {

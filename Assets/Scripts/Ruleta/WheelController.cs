@@ -6,6 +6,7 @@ public class WheelController : MonoBehaviour
 {
 
     IRouletteService rouletteService;
+    IEventService eventService;
     IAudioService audioService;
     ITurnService turnService;
     [SerializeField] AudioClip audioSpin;
@@ -19,6 +20,7 @@ public class WheelController : MonoBehaviour
         rouletteService = AppContainer.Get<IRouletteService>();
         turnService = AppContainer.Get<ITurnService>();
         audioService = AppContainer.Get<IAudioService>();
+        eventService = AppContainer.Get<IEventService>();
     }
 
     public void StopSpin()
@@ -36,21 +38,20 @@ public class WheelController : MonoBehaviour
             StartCoroutine(letItRide());
 
             audioService.PlayLoopSound(audioSpin, pitchSpin);
-            rouletteService.StartRoulette();
         }
         
     }
     private IEnumerator StopRoulette()
     {
-        while (rouletteService.GetSpeed() >= 0.1f)
+        while (rouletteService.GetSpeed() >= 0)
         {
             rouletteService.ChangeSpeed(rouletteService.GetSpeed() - rouletteService.GetStop());
             yield return new WaitForSeconds(0.2f);
         }
-        rouletteService.StopRoulette();
+        
         audioService.StopSound(audioSpin);
         audioService.PlaySound(audioStopSpin);
-        
+        eventService.Publish(new StopWheelEvent());  
         StopAllCoroutines();
         
     }

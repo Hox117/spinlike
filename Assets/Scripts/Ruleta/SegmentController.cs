@@ -36,21 +36,23 @@ public class SegmentController : MonoBehaviour ,ISelectionable
             {
                 switch (action.type)
                 {
-                    case FichaTypes.attack:
+                    case ActionTypes.attack:
                         if (action.value >= 0)
                             enemyService.getFirstEnemy().OnHit(action.value );
                         else
                             characterService.takeDamage(Math.Abs(action.value ) );
                         break;
-                    case FichaTypes.defense:
+                    case ActionTypes.defense:
                         characterService.addShield(action.value );
                         break;
-                    case FichaTypes.buff:
+                    case ActionTypes.BuffAttack:
                         break;
-                    case FichaTypes.debuff:
+                    case ActionTypes.BuffDefense:
+                        break;
+                    case ActionTypes.debuff:
                         characterService.takeDamage(-action.value );
                         break;
-                    case FichaTypes.menu:
+                    case ActionTypes.menu:
                 
                         sceneService.LoadScene((SceneNames) action.value );
                         break;

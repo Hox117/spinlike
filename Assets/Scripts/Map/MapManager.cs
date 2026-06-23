@@ -21,6 +21,8 @@ public class MapManager : MonoBehaviour
 
     [SerializeField] private Transform posInicial;
 
+    private Vector2 pIposInicial;
+
 
     [SerializeField] private int longitud = 3;
 
@@ -41,6 +43,7 @@ public class MapManager : MonoBehaviour
         _eventService = AppContainer.Get<IEventService>();
         _eventService.Subscribe<RouletterMapTileSelectedEvent>(AdvanceTile);
         generateMap();
+        pIposInicial = posInicial.position;
 
     }
 
@@ -166,6 +169,7 @@ public class MapManager : MonoBehaviour
         _mapService.ResetMap();
         clearChilds();
         StopAllCoroutines();
+        posInicial.transform.position = pIposInicial;
         if (_mapService.GetMoving() == true) _mapService.ToggleMoving();
     }
 

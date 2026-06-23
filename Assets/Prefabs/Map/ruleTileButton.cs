@@ -1,11 +1,8 @@
 
 using System.Collections;
 using System.Collections.Generic;
-using System.Data;
 using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ruleTileButton : MonoBehaviour
 {
@@ -65,7 +62,7 @@ public class ruleTileButton : MonoBehaviour
     IEnumerator Spin(WheelController ruleta)
     {
         ruleta.StartSpin();
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(UnityEngine.Random.Range(0.1f, 2f));
         ruleta.StopSpin();
         
     }

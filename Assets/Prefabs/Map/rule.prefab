@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6308107444760262096}
   - component: {fileID: 5923756905535895746}
   - component: {fileID: 3027478119778853866}
+  - component: {fileID: 1006927865788106569}
   m_Layer: 5
   m_Name: rule
   m_TagString: Untagged
@@ -119,4 +120,29 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5923756905535895746}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1006927865788106569}
+        m_TargetAssemblyTypeName: ruleTileButton, Assembly-CSharp
+        m_MethodName: MakeRuleta
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1006927865788106569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 873132830282093326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 263db1d6576b82b4c8755e608c9ba0e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ruleTileButton
+  ruleta: {fileID: 8709978783878759837, guid: 1119dfe8b1c5d544595b5166f5dd66b7, type: 3}

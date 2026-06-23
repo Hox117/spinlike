@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b2487b990a63e60ab25ccb4c6f5cf31, type: 3}
-  m_Name: FichaPlayMenu
-  m_EditorClassIdentifier: Assembly-CSharp::Ficha
-  colorPrincipal: {r: 1, g: 0.67214376, b: 0, a: 1}
-  colorSecundario: {r: 1, g: 0.7112604, b: 0, a: 1}
-  sprite: {fileID: 0}
+  m_Name: Elite_Ficha
+  m_EditorClassIdentifier: Assembly-CSharp::FichaData
+  colorPrincipal: {r: 1, g: 0.97169805, b: 0.97169805, a: 1}
+  colorSecundario: {r: 1, g: 0.9789194, b: 0.65723264, a: 1}
+  sprite: {fileID: 1284078919682861982, guid: 841b6f295ca4e5445936463a057d9d71, type: 3}
   actions: []
-  description: PLAY
-  audioClip: {fileID: 8300000, guid: e1d0cc6cf7e324b179131fd540ec28a5, type: 3}
+  description: elite
+  audioClip: {fileID: 0}

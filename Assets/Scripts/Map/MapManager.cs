@@ -1,13 +1,17 @@
-using Unity.VisualScripting;
-using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.UI;
 using Unity.Mathematics;
+using Unity.VisualScripting;
+using UnityEditor.MPE;
+using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.UI.Extensions;
 
 public class MapManager : MonoBehaviour
 {
     private IMapService _mapService;
+
+    private IEventService _eventService;
 
     public List<(MapTypess, int altura, int ancho)> map;
 
@@ -26,19 +30,25 @@ public class MapManager : MonoBehaviour
     [SerializeField] private float EspaciadoAncho = 200;
 
     [SerializeField] private UILineRenderer lineRenderer;
+
+    [SerializeField] private Image PlayerTile;
+
+    
+    private GameObject PlayerInstanciado;
     void Start()
     {
         _mapService = AppContainer.Get<IMapService>();
-
+        _eventService = AppContainer.Get<IEventService>();
+        _eventService.Subscribe<RouletterMapTileSelectedEvent>(AdvanceTile);
         generateMap();
 
     }
 
     public void generateMap()
     {
-        if (_mapService != null)
+        if (_mapService != null && posInicial.childCount == 0)
         {
-            if (_mapService.ReadMap() == null)
+            if (_mapService.ReadMap() == null || _mapService.ReadMap().Count ==0)
             {
                 _mapService.generateMap(longitud, ancho);
             }
@@ -64,7 +74,7 @@ public class MapManager : MonoBehaviour
 
         }
 
-        for (int i = 2; i < _mapService.returnLongitud(); i++)
+        for (int i = 2; i < (_mapService.returnLongitud() - 1); i++)
         {
             createRoulette(i);
         }
@@ -72,7 +82,7 @@ public class MapManager : MonoBehaviour
         for (int i = 1; i < _mapService.returnLongitud(); i++)
         {
             var origenes = returnListado(i);
-            var destinos = returnListado(i+1);
+            var destinos = returnListado(i + 1);
             var ruleta = returnRuleta(i);
 
             // SI hay ruleta → Tile → Ruleta → Tile siguiente
@@ -96,7 +106,8 @@ public class MapManager : MonoBehaviour
                         );
                     }
                 }
-            }else if (destinos != null)
+            }
+            else if (destinos != null)
             {
                 // SI NO hay ruleta → Tile → Tile
                 foreach (var origen in origenes)
@@ -112,6 +123,14 @@ public class MapManager : MonoBehaviour
             }
         }
 
+
+        PlayerInstanciado = Instantiate(PlayerTile, posInicial.transform.position, quaternion.identity).gameObject;
+        PlayerInstanciado.transform.SetParent(posInicial);
+        PlayerInstanciado.name = ($"Player_{_mapService.GetPosicionJugador().altura}_{_mapService.GetPosicionJugador().ancho}");
+        PlayerInstanciado.transform.position = returnTile(_mapService.GetPosicionJugador().altura, _mapService.GetPosicionJugador().ancho).transform.position;
+
+
+        posInicial.GetComponent<DragMap>().CalcularLimites();
     }
 
 
@@ -132,6 +151,7 @@ public class MapManager : MonoBehaviour
         tile.transform.SetParent(posInicial);
         tile.name = ($"Tile_{map[index].altura}_{map[index].ancho}");
         tile.sprite = tileImage(map[index].Item1);
+        tile.GetComponent<MapTile>().SetType(map[index].Item1);
     }
 
 
@@ -145,6 +165,8 @@ public class MapManager : MonoBehaviour
     {
         _mapService.ResetMap();
         clearChilds();
+        StopAllCoroutines();
+        if (_mapService.GetMoving() == true) _mapService.ToggleMoving();
     }
 
     private void clearChilds()
@@ -199,7 +221,11 @@ public class MapManager : MonoBehaviour
         ruleta.transform.SetParent(posInicial);
         ruleta.name = ($"Ruleta_{alto}");
 
-
+        if (ruleta.GetComponent<ruleTileButton>() != null)
+        {
+            ruleta.GetComponent<ruleTileButton>().AddListadoOpciones(returnListado(alto+1));
+            ruleta.GetComponent<ruleTileButton>().setPosicion(alto);
+        }
 
 
     }
@@ -237,6 +263,18 @@ public class MapManager : MonoBehaviour
         return listado;
     }
 
+    private GameObject returnTile(int altura, int ancho)
+    {
+        foreach (Transform child in posInicial.transform)
+        {
+            if (child.name == ($"Tile_{altura}_{ancho}"))
+            {
+                return child.gameObject;
+            }
+        }
+        return null;
+    }
+
     private void CrearLineas(Transform posInicialVertex, Transform posFinal)
     {
         Vector2[] vertex = new Vector2[2];
@@ -251,11 +289,126 @@ public class MapManager : MonoBehaviour
 
     }
 
+    public void AdvanceTile()
+    {
+        int alturaPlayer = _mapService.GetPosicionJugador().altura;
+        int anchoPlayer = _mapService.GetPosicionJugador().ancho;
+        
+        var destino = returnTile(alturaPlayer + 1, 1);
+        var ruleta = returnRuleta(alturaPlayer);
 
 
+        if (destino != null && ruleta == null && PlayerInstanciado != null && !_mapService.GetMoving() )
+        {
+            _mapService.ToggleMoving();
+            StartCoroutine(MovePlayer(PlayerInstanciado.transform, destino, 2,true));
+            _mapService.SetPositionPlayer(alturaPlayer + 1, 1);
+            
+        }
+    }
+
+    public void AdvanceTile(GameEventBase index)
+    {
+        int alturaPlayer = _mapService.GetPosicionJugador().altura;
+        int anchoPlayer = _mapService.GetPosicionJugador().ancho;
+
+        RouletterMapTileSelectedEvent indexado = (RouletterMapTileSelectedEvent)index;
+
+        GameObject destino = null;
+
+       foreach (Transform child in posInicial)
+        {
+            if (child.name == $"Tile_{alturaPlayer + 1}_{indexado.ordenHIjo + 1}")
+            {
+                destino = child.gameObject;
+                
+            }
+        }
+
+        var ruleta = returnRuleta(alturaPlayer);
 
 
+        if (destino != null  && PlayerInstanciado != null && !_mapService.GetMoving() && ruleta != null)
+        {
+         
+                _mapService.ToggleMoving();
+            
+            
+           StartCoroutine(MovePlayerTroughRoulette(PlayerInstanciado.transform,ruleta, destino, 1));
+
+            _mapService.SetPositionPlayer(alturaPlayer+1, indexado.ordenHIjo+1);
+
+        }
+    }
 
 
+    IEnumerator MovePlayer(Transform Player,GameObject destino,float duracion, bool lastMovement)
+    {
+        Vector2 inicio = Player.position;
+
+        float tiempo = 0;
+
+        while (tiempo < duracion)
+        {
+            tiempo += Time.deltaTime;
+
+            Player.position =
+                Vector2.Lerp(
+                    inicio,
+                    destino.transform.position,
+                    tiempo / duracion
+                );
+
+            yield return null;
+        }
+
+        Player.position = destino.transform.position;
+
+        if (destino.TryGetComponent<MapTile>(out var tile))
+        {
+            tile.Execute();
+        }
+        if (lastMovement)
+        {
+            if (_mapService.GetMoving())
+            {
+                _mapService.ToggleMoving();
+            }
+        }
+    }
+
+    IEnumerator MovePlayerTroughRoulette(Transform Player,  GameObject ruleta, GameObject destino, float duracion)
+    {
+        if (ruleta != null)
+        {
+            yield return StartCoroutine(MovePlayer(Player, ruleta,duracion,false));
+        }
+
+        yield return StartCoroutine(MovePlayer(Player, destino, duracion,true));
+
+        if (_mapService.GetMoving())
+        {
+            _mapService.ToggleMoving();
+        }
+    }
+
+
+ 
+
+    public void cleanScreen()
+    {
+        clearChilds();
+    }
+
+    public void OnDestroy()
+    {
+        _eventService.Unsubscribe<RouletterMapTileSelectedEvent>(AdvanceTile);
+    }
 }
+
+
+
+
+
+
 

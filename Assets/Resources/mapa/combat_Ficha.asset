@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b2487b990a63e60ab25ccb4c6f5cf31, type: 3}
-  m_Name: FichaPlayMenu
-  m_EditorClassIdentifier: Assembly-CSharp::Ficha
-  colorPrincipal: {r: 1, g: 0.67214376, b: 0, a: 1}
-  colorSecundario: {r: 1, g: 0.7112604, b: 0, a: 1}
-  sprite: {fileID: 0}
+  m_Name: combat_Ficha
+  m_EditorClassIdentifier: Assembly-CSharp::FichaData
+  colorPrincipal: {r: 1, g: 0.36163503, b: 0.36163503, a: 1}
+  colorSecundario: {r: 1, g: 0, b: 0, a: 1}
+  sprite: {fileID: 1436520230527447110, guid: 396990f2af9f0f14791e8a514bd6bcd8, type: 3}
   actions: []
-  description: PLAY
-  audioClip: {fileID: 8300000, guid: e1d0cc6cf7e324b179131fd540ec28a5, type: 3}
+  description: Combat
+  audioClip: {fileID: 0}

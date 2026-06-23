@@ -9,11 +9,13 @@ public class MapService : IMapService
 {
     List<(MapTypess, int altura, int ancho)> map = new List<(MapTypess, int, int)>();
 
-    private (int altura, int ancho) posicionJugador;
+    private (int altura, int ancho) posicionJugador = (1,1);
 
     private int longitudMapa = 0;
 
     private int anchoMapa = 0;
+
+    private bool moving = false;
 
     public List<(MapTypess, int altura, int ancho)> generateMap(int longitud,int ancho)
     {
@@ -98,7 +100,7 @@ public class MapService : IMapService
     public void ResetMap()
     {
         map.Clear();
-        posicionJugador = (0, 0);
+        posicionJugador = (1, 1);
         
     }
 
@@ -112,5 +114,12 @@ public class MapService : IMapService
         return anchoMapa;
     }
 
-
+    public void ToggleMoving()
+    {
+        moving = !moving;
+    }
+    public bool GetMoving()
+    {
+        return moving;
+    }
 }

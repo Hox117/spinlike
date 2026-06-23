@@ -13,4 +13,7 @@ public interface IMapService
 
     public int returnLongitud();
     public int returnAncho();
+
+    public void ToggleMoving();
+    public bool GetMoving();
 }

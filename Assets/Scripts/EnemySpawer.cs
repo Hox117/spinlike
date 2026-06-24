@@ -12,12 +12,9 @@ public class EnemySpawner : MonoBehaviour
     void Awake()
     {
         enemyService = AppContainer.Get<IEnemyService>();
-    }
-    void Start()
-    {
         Vector3 posicionSpawn = transform.position;
 
-        
+
 
         foreach (GameObject enemy in enemies)
         {
@@ -26,5 +23,9 @@ public class EnemySpawner : MonoBehaviour
         }
 
         enemyService.setEnemyList(ActiveEnemies);
+    }
+    void Start()
+    {
+   
     }
 }

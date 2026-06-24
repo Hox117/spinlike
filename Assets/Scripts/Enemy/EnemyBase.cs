@@ -216,16 +216,20 @@ public class EnemyBase : MonoBehaviour, IHittable
 
         if (life <= 0) {
 
+            if (sliderVidaInstanciado != null) { 
             sliderVidaInstanciado.value = 0;
             sliderVidaInstanciado.GetComponentInChildren<TextMeshProUGUI>().text = "0";
-
+            }
             Die();
             return;
         }
         else
         {
-            sliderVidaInstanciado.value = life;
-            sliderVidaInstanciado.GetComponentInChildren<TextMeshProUGUI>().text = life.ToString();
+            if (sliderVidaInstanciado != null)
+            {
+                sliderVidaInstanciado.value = life;
+                sliderVidaInstanciado.GetComponentInChildren<TextMeshProUGUI>().text = life.ToString();
+            }
         }
         Debug.Log("me dañaste, me quedan " + life);
 

@@ -20,6 +20,7 @@ public class TurnService : ITurnService
 
         if (_isPlayerTurn)
         {
+            if (enemyService == null) Debug.LogError("enemyService no instanciado");
             enemyService.resetTurns();
             rouletteService.ResetSpeed();
             Debug.Log("Turno del jugador");

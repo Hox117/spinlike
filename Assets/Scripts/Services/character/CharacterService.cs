@@ -7,7 +7,7 @@ public class CharacterService : ICharacterService
     IEventService eventService;
     public CharacterService() { 
         life = 10;
-        shield = 0;
+        shield = 10;
         eventService = AppContainer.Get<IEventService>();
     }
     public void resetPlayer() { }

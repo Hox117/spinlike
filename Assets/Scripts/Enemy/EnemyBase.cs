@@ -22,8 +22,6 @@ public class EnemyBase : MonoBehaviour, IHittable
 
     int life;
     int shield;
-    int AttackMod = 0;
-    int ShieldMod = 0;
     bool dead;
     Action AccionElegida;
     List<Action> PossibleActions;
@@ -50,7 +48,6 @@ public class EnemyBase : MonoBehaviour, IHittable
     {
         life = enemyData.Life;
         shield = enemyData.Shield;
-        AttackMod = enemyData.attackMod;
         PossibleActions = enemyData.ActionList;
 
         instantiateSlider();

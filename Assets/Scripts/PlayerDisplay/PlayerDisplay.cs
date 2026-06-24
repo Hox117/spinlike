@@ -7,8 +7,11 @@ public class PlayerDisplay : MonoBehaviour
     [SerializeField] Slider sliderVida;
     Slider sliderVidaInstanciado;
 
+    int lastLife = 0;
+
     ICharacterService characterService;
     IEventService eventService;
+    Animator playerAnimator;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,6 +19,8 @@ public class PlayerDisplay : MonoBehaviour
         instantiateSlider();
         eventService = AppContainer.Get<IEventService>();
         eventService.Subscribe<UpdatePlayerUI>(updateUI);
+        playerAnimator = GetComponent<Animator>();
+        eventService.Subscribe<PlayerAttackEvent>(Attack);
     }
 
     private void instantiateSlider()
@@ -48,24 +53,45 @@ public class PlayerDisplay : MonoBehaviour
 
         sliderVidaInstanciado = barra.GetComponent<Slider>();
 
-        sliderVidaInstanciado.GetComponentInChildren<TextMeshProUGUI>().text = characterService.getLife().ToString();
+        lastLife = characterService.getLife();
+        sliderVidaInstanciado.GetComponentInChildren<TextMeshProUGUI>().text = lastLife.ToString();
         sliderVidaInstanciado.GetComponentInChildren<TextMeshProUGUI>().enableAutoSizing = true;
         sliderVidaInstanciado.GetComponentInChildren<TextMeshProUGUI>().fontSizeMax = 30;
 
 
-        sliderVidaInstanciado.maxValue = characterService.getLife();
-        sliderVidaInstanciado.value = characterService.getLife();
+        sliderVidaInstanciado.maxValue = lastLife;
+        sliderVidaInstanciado.value = lastLife;
 
         sliderVidaInstanciado.minValue = 0;
     }
 
     private void updateUI(GameEventBase e)
     {
-        sliderVidaInstanciado.value = characterService.getLife();
+        updateVIdaUI();
+        if (lastLife <= 0)
+        {
+            playerAnimator.SetBool("isDead", true);
+        }
+        
+        
+        
     }
+
+    private void updateVIdaUI()
+    {
+        lastLife = characterService.getLife();
+        sliderVidaInstanciado.value = lastLife;
+        sliderVidaInstanciado.GetComponentInChildren<TextMeshProUGUI>().text = lastLife.ToString();
+    }
+    private void Attack(GameEventBase e)
+    {
+        playerAnimator.SetTrigger("Attack");
+    }
+
     private void OnDestroy()
     {
         eventService.Unsubscribe<UpdatePlayerUI>(updateUI);
+        eventService.Unsubscribe<PlayerAttackEvent>(Attack);
     }
 
 }

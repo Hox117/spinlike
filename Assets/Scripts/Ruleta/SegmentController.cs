@@ -42,8 +42,10 @@ public class SegmentController : MonoBehaviour ,ISelectionable, IRewardable
                 switch (action.type)
                 {
                     case ActionTypes.attack:
-                        if (action.value >= 0)
+                        if (action.value >= 0) { 
                             enemyService.getFirstEnemy().OnHit(action.value );
+                            eventService.Publish(new PlayerAttackEvent());
+                        }
                         else
                             characterService.takeDamage(Math.Abs(action.value ) );
                         break;

@@ -61,7 +61,7 @@ GameObject:
   - component: {fileID: 7145897627362857357}
   - component: {fileID: 8154778924749596703}
   m_Layer: 5
-  m_Name: Barra Vida
+  m_Name: Barra Vida Jugador
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

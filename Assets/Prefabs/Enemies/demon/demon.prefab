@@ -128,3 +128,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   enemyData: {fileID: 11400000, guid: 63520f8aa46383d458c48e52603562b2, type: 2}
+  sliderVida: {fileID: 7145897627362857357, guid: a12271fef1c65ae4cb77ce4fb5969198, type: 3}
+  isTurnEnded: 0

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b2487b990a63e60ab25ccb4c6f5cf31, type: 3}
+  m_Name: Heal_Ficha
+  m_EditorClassIdentifier: Assembly-CSharp::FichaData
+  colorPrincipal: {r: 1, g: 0.35534585, b: 0.8639832, a: 1}
+  colorSecundario: {r: 1, g: 0.62578607, b: 0.8965478, a: 1}
+  sprite: {fileID: -6872065083077148219, guid: 75b168aaaa7727a449e368e5df7f0022, type: 3}
+  actions: []
+  description: heal
+  audioClip: {fileID: 0}

@@ -6,17 +6,17 @@ using UnityEngine.UIElements;
 public class WheelController : MonoBehaviour
 {
 
-    IRouletteService rouletteService;
-    IEventService eventService;
-    IAudioService audioService;
+    protected IRouletteService rouletteService;
+    protected IEventService eventService;
+    protected IAudioService audioService;
     ITurnService turnService;
-    [SerializeField] AudioClip audioSpin;
-    [SerializeField] AudioClip audioStopSpin;
+    [SerializeField] protected AudioClip audioSpin;
+    [SerializeField] protected AudioClip audioStopSpin;
     [SerializeField] float pitchSpin = 1;
     
 
 
-    void Awake()
+    protected virtual void Awake()
     {
         rouletteService = AppContainer.Get<IRouletteService>();
         turnService = AppContainer.Get<ITurnService>();
@@ -55,7 +55,7 @@ public class WheelController : MonoBehaviour
         }
 
     }
-    private IEnumerator StopRoulette()
+    protected virtual IEnumerator StopRoulette()
     {
         while (rouletteService.GetSpeed() >= 0)
         {
@@ -70,7 +70,7 @@ public class WheelController : MonoBehaviour
         
     }
 
-    private IEnumerator letItRide()
+    protected virtual IEnumerator letItRide()
     {
         rouletteService.ResetSpeed();
         

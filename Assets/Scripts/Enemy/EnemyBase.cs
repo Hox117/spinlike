@@ -1,11 +1,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyBase : MonoBehaviour, IHittable
 {
     [SerializeField]Enemy enemyData;
+    [SerializeField] Slider sliderVida;
+    Slider sliderVidaInstanciado;
 
     int life;
     int shield;
@@ -27,6 +33,7 @@ public class EnemyBase : MonoBehaviour, IHittable
         turnService = AppContainer.Get<ITurnService>();
         characterService = AppContainer.Get<ICharacterService>();
 
+
     }
     void Start()
     {
@@ -34,9 +41,44 @@ public class EnemyBase : MonoBehaviour, IHittable
         shield = enemyData.Shield;
         AttackMod = enemyData.attackMod;
         animator = GetComponent<Animator>();
-        
+
+        instantiateSlider();
         eventService.Subscribe<TurnChangeEvent>(TakeAction);
 
+    }
+
+    private void instantiateSlider()
+    {
+        var canvas = FindAnyObjectByType<Canvas>();
+
+        RectTransform barra =
+            Instantiate(
+                sliderVida.GetComponent<RectTransform>(),
+                canvas.transform
+            );
+
+        Vector3 pantalla =
+            Camera.main.WorldToScreenPoint(
+                transform.position + Vector3.up
+            );
+
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            canvas.GetComponent<RectTransform>(),
+            pantalla,
+            null, // ← IMPORTANTE
+            out Vector2 posicionUI
+        );
+
+        barra.anchoredPosition = posicionUI;
+
+        sliderVidaInstanciado =
+            barra.GetComponent<Slider>();
+
+        sliderVidaInstanciado.maxValue =
+            life;
+        sliderVidaInstanciado.value = life;
+
+        sliderVidaInstanciado.minValue = 0;
     }
 
     private void TakeAction(GameEventBase game = null)
@@ -93,6 +135,8 @@ public class EnemyBase : MonoBehaviour, IHittable
     {
         //TODO: quitarle primero da�o al escudo si hay
         life -= damage;
+        sliderVidaInstanciado.value = life;
+        sliderVidaInstanciado.GetComponentInChildren<TextMeshProUGUI>().text = life.ToString();
         if (life <= 0) {
             Die();
             return;
@@ -114,6 +158,7 @@ public class EnemyBase : MonoBehaviour, IHittable
     public IEnumerator Disappear()
     {
         yield return new WaitForSeconds(2f);
+        Destroy(sliderVidaInstanciado.gameObject);
         Destroy(gameObject);
     }
 }

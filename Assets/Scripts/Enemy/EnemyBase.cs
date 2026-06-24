@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 using static UnityEngine.Rendering.DebugUI;
@@ -22,6 +23,7 @@ public class EnemyBase : MonoBehaviour, IHittable
 
     int life;
     int shield;
+    Guid guid;
     bool dead;
     Action AccionElegida;
     List<Action> PossibleActions;
@@ -35,17 +37,20 @@ public class EnemyBase : MonoBehaviour, IHittable
     ITurnService turnService;
     IEventService eventService;
     ISceneService sceneService;
+    IBuffService buffService;
     void Awake()
     {
         enemyService = AppContainer.Get<IEnemyService>();
         eventService = AppContainer.Get<IEventService>();
         turnService = AppContainer.Get<ITurnService>();
         characterService = AppContainer.Get<ICharacterService>();
+        buffService = AppContainer.Get<IBuffService>();
         sceneService = AppContainer.Get<ISceneService>();
         sprites = Resources.LoadAll<Sprite>($"mapa");
     }
     void Start()
     {
+        guid = Guid.NewGuid();
         life = enemyData.Life;
         shield = enemyData.Shield;
         PossibleActions = enemyData.ActionList;
@@ -154,20 +159,25 @@ public class EnemyBase : MonoBehaviour, IHittable
         switch (AccionElegida.type)
         {
             case ActionTypes.attack:
-                characterService.takeDamage(AccionElegida.value + AttackMod);
+                Buff attackBuff = buffService.GetBuff(guid, BuffType.attack);
+                int attackMod = attackBuff != null ? attackBuff.value : 0;
+                characterService.takeDamage(AccionElegida.value + attackMod);
                 animator.SetTrigger("Attack");
                 Debug.Log($"El jugador recibe {AccionElegida.value} de daño");
                 break;
             case ActionTypes.defense:
-                shield += AccionElegida.value + ShieldMod;
+                Buff defenceBuff = buffService.GetBuff(guid, BuffType.defense);
+                int defenseMod = defenceBuff != null ? defenceBuff.value : 0;
+                characterService.takeDamage(AccionElegida.value + defenseMod);
+                shield += AccionElegida.value + defenseMod;
                 Debug.Log($"{this.gameObject.name} recibe {AccionElegida.value} de escudo");
                 break;
             case ActionTypes.BuffAttack:
-                AttackMod = AccionElegida.value;
+                buffService.AddBuff(new Buff(BuffType.attack, AccionElegida.value, AccionElegida.duration, guid));
                 Debug.Log($"{this.gameObject.name} recibe {AccionElegida.value} de bufo al ataque durante {AccionElegida.duration} turnos");
                 break;
             case ActionTypes.BuffDefense:
-                ShieldMod = AccionElegida.value;
+                buffService.AddBuff(new Buff(BuffType.defense, AccionElegida.value, AccionElegida.duration, guid));
                 Debug.Log($"{this.gameObject.name} recibe {AccionElegida.value} de bufo a la defensa durante {AccionElegida.duration} turnos");
                 break;
             case ActionTypes.Heal:
@@ -251,14 +261,15 @@ public class EnemyBase : MonoBehaviour, IHittable
         Debug.Log("me Mori");
         enemyService.removeFirstEnemy();
         eventService.Unsubscribe<TurnChangeEvent>(TakeAction);
-
-        if(enemyService.getEnemyList().Count <= 0) StartCoroutine(RewardChange());
+        buffService.RemoveBuffByGUID(guid); 
+        if (enemyService.getEnemyList().Count <= 0) StartCoroutine(RewardChange());
 
         StartCoroutine("Disappear");
     }
 
     public IEnumerator RewardChange()
     {
+        buffService.ClearBuffList();
         yield return new WaitForSeconds(2f);
         sceneService.LoadScene(SceneNames.RewardScene);
     }

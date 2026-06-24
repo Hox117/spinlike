@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public interface ICharacterService
@@ -8,4 +9,5 @@ public interface ICharacterService
     void addShield(int value);
     public int getLife();
     public int getShield();
+    public Guid getGuid();
 }

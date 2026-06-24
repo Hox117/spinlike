@@ -13,7 +13,7 @@ public class Wheel_Manager : MonoBehaviour
     [SerializeField] private TMPro.TMP_FontAsset _fontPersonalizada;
     IInventoryService inventoryService;
 
-    private void Start()
+    protected virtual void Start()
     {
         inventoryService = AppContainer.Get<IInventoryService>();
         List<Color[]> colores = new List<Color[]>();

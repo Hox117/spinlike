@@ -9,8 +9,11 @@ public class EnemyBase : MonoBehaviour, IHittable
 
     int life;
     int shield;
-    int AttackMod;
+    int AttackMod = 0;
+    int ShieldMod = 0;
     bool dead;
+    Action AccionElegida;
+    List<Action> PossibleActions;
 
     public bool isTurnEnded = false;
 
@@ -28,13 +31,14 @@ public class EnemyBase : MonoBehaviour, IHittable
         turnService = AppContainer.Get<ITurnService>();
         characterService = AppContainer.Get<ICharacterService>();
         sceneService = AppContainer.Get<ISceneService>();
-
     }
     void Start()
     {
         life = enemyData.Life;
         shield = enemyData.Shield;
         AttackMod = enemyData.attackMod;
+        PossibleActions = enemyData.ActionList;
+
         animator = GetComponent<Animator>();
         
         eventService.Subscribe<TurnChangeEvent>(TakeAction);
@@ -43,8 +47,11 @@ public class EnemyBase : MonoBehaviour, IHittable
 
     private void TakeAction(GameEventBase game = null)
     {
-        if(turnService.IsPlayerTurn())return;
- 
+        if (turnService.IsPlayerTurn())
+        {
+            AccionElegida = PossibleActions[UnityEngine.Random.Range(0, PossibleActions.Count)];
+            return;
+        }
         StartCoroutine(ExecuteTurn());
 
     }
@@ -60,10 +67,33 @@ public class EnemyBase : MonoBehaviour, IHittable
 
         List<GameObject> listaEnemigos = enemyService.getEnemyList();
 
-        characterService.takeDamage(1);
-        Debug.Log("El jugador recibe 1 de daño");
+        switch (AccionElegida.type)
+        {
+            case ActionTypes.attack:
+                characterService.takeDamage(AccionElegida.value + AttackMod);
+                Debug.Log($"El jugador recibe {AccionElegida.value} de daño");
+                break;
+            case ActionTypes.defense:
+                shield += AccionElegida.value + ShieldMod;
+                Debug.Log($"{this.gameObject.name} recibe {AccionElegida.value} de escudo");
+                break;
+            case ActionTypes.BuffAttack:
+                AttackMod = AccionElegida.value;
+                Debug.Log($"{this.gameObject.name} recibe {AccionElegida.value} de bufo al ataque durante {AccionElegida.duration} turnos");
+                break;
+            case ActionTypes.BuffDefense:
+                ShieldMod = AccionElegida.value;
+                Debug.Log($"{this.gameObject.name} recibe {AccionElegida.value} de bufo a la defensa durante {AccionElegida.duration} turnos");
+                break;
+            case ActionTypes.Heal:
+                life += AccionElegida.value;
+                Debug.Log($"{this.gameObject.name} se cura {AccionElegida.duration} ");
+                break;
 
-        for(int i = 0; i < listaEnemigos.Count ; i++)
+        }
+
+
+        for (int i = 0; i < listaEnemigos.Count ; i++)
         {
             EnemyBase enemy = listaEnemigos[i].GetComponent<EnemyBase>();
             

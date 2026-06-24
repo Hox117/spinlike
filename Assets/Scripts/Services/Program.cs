@@ -23,6 +23,7 @@ public static class Program
         AppContainer.Register<IEnemyService>(() => new EnemyService());    
         AppContainer.Register<ITurnService>(() => new TurnService());
         AppContainer.Register<IMapService>(() => new MapService());
+        AppContainer.Register<IBuffService>(() => new BuffService());
     }
 }
   

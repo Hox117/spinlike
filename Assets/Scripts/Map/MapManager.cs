@@ -133,7 +133,7 @@ public class MapManager : MonoBehaviour
         PlayerInstanciado.transform.position = returnTile(_mapService.GetPosicionJugador().altura, _mapService.GetPosicionJugador().ancho).transform.position;
 
 
-        posInicial.GetComponent<DragMap>().CalcularLimites();
+        posInicial.GetComponentInParent<DragMap>().CalcularLimites();
     }
 
 

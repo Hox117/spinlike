@@ -1,50 +1,54 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DragMap : MonoBehaviour,
-    
-    IDragHandler
+public class DragMap : MonoBehaviour, IDragHandler
 {
-    private RectTransform rect;
+    [SerializeField]
+    private RectTransform mapa;
 
     private float minY;
     private float maxY;
 
-    private IMapService _mapService;
+    private IMapService mapService;
 
-    void Awake()
+    void Start()
     {
-        rect = GetComponent<RectTransform>();
+        mapService =
+            AppContainer.Get<IMapService>();
 
-        _mapService = AppContainer.Get<IMapService>();
         CalcularLimites();
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (_mapService != null)
-        {
-            if (_mapService.GetMoving()) return;
-            Vector2 pos = rect.anchoredPosition;
+        if (
+            mapService != null &&
+            mapService.GetMoving()
+        )
+            return;
 
-            pos.y += eventData.delta.y;
+        Vector2 pos =
+            mapa.anchoredPosition;
 
-            pos.y = Mathf.Clamp(
+        pos.y += eventData.delta.y;
+
+        pos.y =
+            Mathf.Clamp(
                 pos.y,
                 minY,
                 maxY
             );
 
-            rect.anchoredPosition = pos;
-        }
+        mapa.anchoredPosition =
+            pos;
     }
 
     public void CalcularLimites()
     {
-        float hijoMasAlto = 0;
-        float hijoMasBajo = 0;
+        float hijoMasAlto = float.MinValue;
+        float hijoMasBajo = float.MaxValue;
 
-        foreach (RectTransform child in rect)
+        foreach (RectTransform child in mapa)
         {
             hijoMasAlto =
                 Mathf.Max(
@@ -61,5 +65,7 @@ public class DragMap : MonoBehaviour,
 
         minY = -hijoMasAlto;
         maxY = -hijoMasBajo;
+
+        Debug.Log($"Limites: {minY} / {maxY}");
     }
 }

@@ -15,13 +15,14 @@ public class Initializer : MonoBehaviour
     {
         inventoryService = AppContainer.Get<IInventoryService>();
         turnService = AppContainer.Get<ITurnService>();
-        
+        if (inventoryService.getListaFichas().Count < 1) inventoryService.cargarInventario(ListaDeFichas);
+        if (!turnService.IsPlayerTurn()) turnService.ChangeTurn();
+
     }
     void Start()
     {
 
-        if(inventoryService.getListaFichas().Count < 1) inventoryService.cargarInventario(ListaDeFichas);
-        if(!turnService.IsPlayerTurn())turnService.ChangeTurn();
+
         
     }
 }

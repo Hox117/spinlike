@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class WheelController : MonoBehaviour
 {
@@ -34,7 +35,7 @@ public class WheelController : MonoBehaviour
         }
         
     }
-    public void StartSpin()
+    public void StartSpin(EventBase e=null)
     {
         if (turnService.IsPlayerTurn())
         {
@@ -43,6 +44,16 @@ public class WheelController : MonoBehaviour
             audioService.PlayLoopSound(audioSpin, pitchSpin);
         }
         
+    }
+    public void StartSpin()
+    {
+        if (turnService.IsPlayerTurn())
+        {
+            StartCoroutine(letItRide());
+
+            audioService.PlayLoopSound(audioSpin, pitchSpin);
+        }
+
     }
     private IEnumerator StopRoulette()
     {

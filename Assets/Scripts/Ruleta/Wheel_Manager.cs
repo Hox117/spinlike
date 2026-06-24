@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -12,8 +11,26 @@ public class Wheel_Manager : MonoBehaviour
     [SerializeField]  int _arcSubdivisions;
     [SerializeField] Material _material;
     [SerializeField] private TMPro.TMP_FontAsset _fontPersonalizada;
+    IInventoryService inventoryService;
+
+    private void Start()
+    {
+        inventoryService = AppContainer.Get<IInventoryService>();
+        List<Color[]> colores = new List<Color[]>();
+        //textos = new List<string>();
+        List<Sprite> sprites = new List<Sprite>();
 
 
+
+        inventoryService.ramdomizeList();
+
+        List<Ficha> listaFichas = inventoryService.getListaFichas();
+        int numeroSegmentos = listaFichas.Count;
+
+        //para cada ficha sacamos su color y color secundario
+
+        Generate(numeroSegmentos, listaFichas);
+    }
     [ContextMenu("Generate")]
     public void Generate(int _numeroDeSegmentos,  List<Ficha> fichas)
     {

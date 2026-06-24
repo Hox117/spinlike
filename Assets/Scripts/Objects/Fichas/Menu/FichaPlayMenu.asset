@@ -15,6 +15,9 @@ MonoBehaviour:
   colorPrincipal: {r: 1, g: 0.67214376, b: 0, a: 1}
   colorSecundario: {r: 1, g: 0.7112604, b: 0, a: 1}
   sprite: {fileID: 0}
-  actions: []
+  actions:
+  - type: 3
+    value: 1
+    duration: 0
   description: PLAY
   audioClip: {fileID: 8300000, guid: e1d0cc6cf7e324b179131fd540ec28a5, type: 3}

@@ -9,7 +9,7 @@ public class RewardSelecter : MonoBehaviour
     {
         for (int i = 0 ; i < 3 ; i++)
         {
-            ListaDeRecompensas.Add(ListaDeRecompensasPosibles[Random.Range(0,ListaDeRecompensasPosibles.Count - 1)]);
+            ListaDeRecompensas.Add(ListaDeRecompensasPosibles[Random.Range(0,ListaDeRecompensasPosibles.Count)]);
         }
         
     }

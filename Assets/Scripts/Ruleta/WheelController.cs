@@ -23,7 +23,10 @@ public class WheelController : MonoBehaviour
         audioService = AppContainer.Get<IAudioService>();
         eventService = AppContainer.Get<IEventService>();
     }
-
+    void Start()
+    {
+        StartSpin();
+    }
     public void StopSpin()
     {
         if (turnService.IsPlayerTurn())

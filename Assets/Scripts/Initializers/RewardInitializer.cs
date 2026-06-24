@@ -20,6 +20,8 @@ public class RewardInitializer : MonoBehaviour
 
     void Start()
     {
+        if(!turnService.IsPlayerTurn())turnService.ChangeTurn();
+        
         List<Ficha> listaFichasReales = new List<Ficha>();
         int numeroSegmentos = ListaDeFichas.Count;
 

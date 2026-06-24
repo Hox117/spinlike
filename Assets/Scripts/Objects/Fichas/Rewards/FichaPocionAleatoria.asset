@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b2487b990a63e60ab25ccb4c6f5cf31, type: 3}
-  m_Name: FichaPocionCorazon
+  m_Name: FichaPocionAleatoria
   m_EditorClassIdentifier: Assembly-CSharp::Ficha
-  colorPrincipal: {r: 1, g: 0, b: 0.7531514, a: 0}
-  colorSecundario: {r: 0, g: 0, b: 0, a: 0}
+  colorPrincipal: {r: 1, g: 0, b: 0.7531514, a: 1}
+  colorSecundario: {r: 0, g: 0, b: 0, a: 1}
   sprite: {fileID: -6872065083077148219, guid: 94c4bdd54154a4b438f220026cc46b07, type: 3}
   actions:
   - type: 4
     value: 0
     duration: 0
-  description: 
-  audioClip: {fileID: 0}
+  description: Potion
+  audioClip: {fileID: 8300000, guid: 249d92ee2df50f04bac74828970f2cc6, type: 3}

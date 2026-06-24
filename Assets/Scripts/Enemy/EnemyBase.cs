@@ -26,12 +26,14 @@ public class EnemyBase : MonoBehaviour, IHittable
     IEnemyService enemyService;
     ITurnService turnService;
     IEventService eventService;
+    ISceneService sceneService;
     void Awake()
     {
         enemyService = AppContainer.Get<IEnemyService>();
         eventService = AppContainer.Get<IEventService>();
         turnService = AppContainer.Get<ITurnService>();
         characterService = AppContainer.Get<ICharacterService>();
+        sceneService = AppContainer.Get<ISceneService>();
 
 
     }
@@ -153,11 +155,21 @@ public class EnemyBase : MonoBehaviour, IHittable
         Debug.Log("me Mori");
         enemyService.removeFirstEnemy();
         eventService.Unsubscribe<TurnChangeEvent>(TakeAction);
+
+        if(enemyService.getEnemyList().Count <= 0) StartCoroutine(RewardChange());
+
         StartCoroutine("Disappear");
     }
-    public IEnumerator Disappear()
+
+    public IEnumerator RewardChange()
     {
         yield return new WaitForSeconds(2f);
+        sceneService.LoadScene(SceneNames.RewardScene);
+    }
+
+    public IEnumerator Disappear()
+    {
+        yield return new WaitForSeconds(3f);
         Destroy(sliderVidaInstanciado.gameObject);
         Destroy(gameObject);
     }

@@ -1,0 +1,611 @@
+fileFormatVersion: 2
+guid: 5da09240bab755346bf1c5fb88c3776e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5647823396445028820
+    second: player die 1-Sheet_0
+  - first:
+      213: -8201521716747629149
+    second: player die 1-Sheet_1
+  - first:
+      213: 1537958881527381866
+    second: player die 1-Sheet_2
+  - first:
+      213: 4629344280874238671
+    second: player die 1-Sheet_3
+  - first:
+      213: -2688260962627053952
+    second: player die 1-Sheet_4
+  - first:
+      213: -1114081917522281937
+    second: player die 1-Sheet_5
+  - first:
+      213: -2676860090661559700
+    second: player die 1-Sheet_6
+  - first:
+      213: 3013519997751190015
+    second: player die 1-Sheet_7
+  - first:
+      213: 245137709331272817
+    second: player die 1-Sheet_8
+  - first:
+      213: -6683585502671519080
+    second: player die 1-Sheet_9
+  - first:
+      213: -7927813981586575792
+    second: player die 1-Sheet_10
+  - first:
+      213: 610076422276938946
+    second: player die 1-Sheet_11
+  - first:
+      213: -8755063953329255427
+    second: player die 1-Sheet_12
+  - first:
+      213: 5231151511088070134
+    second: player die 1-Sheet_13
+  - first:
+      213: -1910136584439944845
+    second: player die 1-Sheet_14
+  - first:
+      213: 3143229152046456226
+    second: player die 1-Sheet_15
+  - first:
+      213: -3125535785804233587
+    second: player die 1-Sheet_16
+  - first:
+      213: 2449399863160509249
+    second: player die 1-Sheet_17
+  - first:
+      213: 1162574005630360357
+    second: player die 1-Sheet_18
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: player die 1-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 9
+        width: 64
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d10f33a479116e40800000000000000
+      internalID: 5647823396445028820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player die 1-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 11
+        width: 80
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ad0b9fb3775e2e80800000000000000
+      internalID: -8201521716747629149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player die 1-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 9
+        width: 57
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6fb89c447de75510800000000000000
+      internalID: 1537958881527381866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player die 1-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 13
+        width: 52
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc2ce7c981cbe3040800000000000000
+      internalID: 4629344280874238671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player die 1-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 10
+        width: 49
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0869013c5e061bad0800000000000000
+      internalID: -2688260962627053952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player die 1-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 7
+        width: 51
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2af56f066cf980f0800000000000000
+      internalID: -1114081917522281937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player die 1-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 16
+        width: 91
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c62a2be1ee1e9dad0800000000000000
+      internalID: -2676860090661559700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player die 1-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 902
+        y: 32
+        width: 106
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff1ee7db87c22d920800000000000000
+      internalID: 3013519997751190015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player die 1-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 1033
+        y: 30
+        width: 109
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1745eb5a277e66300800000000000000
+      internalID: 245137709331272817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player die 1-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 1160
+        y: 29
+        width: 111
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 892405f75622f33a0800000000000000
+      internalID: -6683585502671519080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player die 1-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 1285
+        y: 27
+        width: 120
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05e2826ef2fbaf190800000000000000
+      internalID: -7927813981586575792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player die 1-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 1418
+        y: 25
+        width: 113
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cc78a3164d677800800000000000000
+      internalID: 610076422276938946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player die 1-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 1547
+        y: 26
+        width: 113
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfb8bf388b3cf7680800000000000000
+      internalID: -8755063953329255427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player die 1-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 1673
+        y: 27
+        width: 116
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fdf6a06598c89840800000000000000
+      internalID: 5231151511088070134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player die 1-Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 1803
+        y: 26
+        width: 113
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 379aaf395e4dd75e0800000000000000
+      internalID: -1910136584439944845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player die 1-Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 1929
+        y: 27
+        width: 116
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ad916f924efe9b20800000000000000
+      internalID: 3143229152046456226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player die 1-Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 2059
+        y: 26
+        width: 113
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d840e5a33cddf94d0800000000000000
+      internalID: -3125535785804233587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player die 1-Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 2185
+        y: 27
+        width: 116
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1439294b2340ef120800000000000000
+      internalID: 2449399863160509249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: player die 1-Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 2315
+        y: 26
+        width: 113
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52b53b606ea422010800000000000000
+      internalID: 1162574005630360357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      player die 1-Sheet_0: 5647823396445028820
+      player die 1-Sheet_1: -8201521716747629149
+      player die 1-Sheet_10: -7927813981586575792
+      player die 1-Sheet_11: 610076422276938946
+      player die 1-Sheet_12: -8755063953329255427
+      player die 1-Sheet_13: 5231151511088070134
+      player die 1-Sheet_14: -1910136584439944845
+      player die 1-Sheet_15: 3143229152046456226
+      player die 1-Sheet_16: -3125535785804233587
+      player die 1-Sheet_17: 2449399863160509249
+      player die 1-Sheet_18: 1162574005630360357
+      player die 1-Sheet_2: 1537958881527381866
+      player die 1-Sheet_3: 4629344280874238671
+      player die 1-Sheet_4: -2688260962627053952
+      player die 1-Sheet_5: -1114081917522281937
+      player die 1-Sheet_6: -2676860090661559700
+      player die 1-Sheet_7: 3013519997751190015
+      player die 1-Sheet_8: 245137709331272817
+      player die 1-Sheet_9: -6683585502671519080
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5730514542562261760}
   - component: {fileID: 6176765393987519393}
   m_Layer: 5
-  m_Name: image
+  m_Name: imageTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a5d45147575ade34e8b24fc5a2ecd8d8, type: 3}
+  m_Sprite: {fileID: 4730436257702157328, guid: 4041fc106cf4f5742b8be61b178fb1b7, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -88,3 +88,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0db028f065d436418e35b1bb2262c2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapTile
+  Enemies:
+  - {fileID: 6526243973607553605, guid: 3ec9a32be44be7b4e97f640532b442d6, type: 3}
+  - {fileID: 692017666852082830, guid: ff48dc5a596f6af4dbe8d4848c1b7634, type: 3}
+  - {fileID: 1585901335445220382, guid: ae30e104580e4b141b6ca0ad5af000d0, type: 3}
+  - {fileID: 6080867390571636927, guid: eac615549b618aa4a8e928a19865b509, type: 3}
+  Bosses:
+  - {fileID: 692017666852082830, guid: ff48dc5a596f6af4dbe8d4848c1b7634, type: 3}
+  - {fileID: 6526243973607553605, guid: 3ec9a32be44be7b4e97f640532b442d6, type: 3}
+  - {fileID: 6080867390571636927, guid: eac615549b618aa4a8e928a19865b509, type: 3}
+  - {fileID: 6080867390571636927, guid: eac615549b618aa4a8e928a19865b509, type: 3}

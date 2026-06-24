@@ -62,6 +62,7 @@ public class PlayerDisplay : MonoBehaviour
     private void updateUI(GameEventBase e)
     {
         sliderVidaInstanciado.value = characterService.getLife();
+        sliderVidaInstanciado.GetComponentInChildren<TextMeshProUGUI>().text = characterService.getLife().ToString();
     }
     private void OnDestroy()
     {

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5990385056550453192}
   - component: {fileID: 4319308282357208750}
   - component: {fileID: 5104760497398245005}
+  - component: {fileID: 5365114097720423577}
   m_Layer: 0
   m_Name: slime
   m_TagString: Untagged
@@ -114,3 +115,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5365114097720423577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6080867390571636927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b72f0cde51e916438baee1afdc49e6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyBase
+  enemyData: {fileID: 11400000, guid: b9f6af7ae28025f4bace395d28d5ba3c, type: 2}
+  sliderVida: {fileID: 7145897627362857357, guid: a6f941543398efa43ba5ff0c9d3e160f, type: 3}
+  ImageNextAttack: {fileID: 4257660599916460724, guid: eb36658cff713034e8713e0e16c8cb6d, type: 3}
+  ValueNextAttack: {fileID: 65837306497527589, guid: 58a2d2d4b0a006b4d98020b29e92d7ad, type: 3}
+  isTurnEnded: 0

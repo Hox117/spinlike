@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 8331685784495073868}
   - component: {fileID: 3464468990085218712}
   - component: {fileID: 1328910604891535215}
+  - component: {fileID: -1435488460736003615}
   m_Layer: 0
-  m_Name: hombre topo attack 1-Sheet_0
+  m_Name: Topo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 692017666852082830}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.4735572, y: -3.3839622, z: 3.7506719}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -114,3 +115,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-1435488460736003615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692017666852082830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b72f0cde51e916438baee1afdc49e6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyBase
+  enemyData: {fileID: 11400000, guid: 30bab1f93fbabb34ca753a4a486c4d8d, type: 2}
+  sliderVida: {fileID: 7145897627362857357, guid: a6f941543398efa43ba5ff0c9d3e160f, type: 3}
+  ImageNextAttack: {fileID: 4257660599916460724, guid: eb36658cff713034e8713e0e16c8cb6d, type: 3}
+  ValueNextAttack: {fileID: 65837306497527589, guid: 58a2d2d4b0a006b4d98020b29e92d7ad, type: 3}
+  isTurnEnded: 0

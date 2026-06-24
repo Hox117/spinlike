@@ -157,6 +157,7 @@ public class EnemyBase : MonoBehaviour, IHittable
         {
             case ActionTypes.attack:
                 characterService.takeDamage(AccionElegida.value + AttackMod);
+                animator.SetTrigger("Attack");
                 Debug.Log($"El jugador recibe {AccionElegida.value} de daño");
                 break;
             case ActionTypes.defense:
@@ -259,6 +260,8 @@ public class EnemyBase : MonoBehaviour, IHittable
     {
         yield return new WaitForSeconds(3f);
         Destroy(sliderVidaInstanciado.gameObject);
+        Destroy(ImageNextAttackInstanciado.gameObject);
+        Destroy(ValueNextAttackInstanciado.gameObject);
         Destroy(gameObject);
     }
 }

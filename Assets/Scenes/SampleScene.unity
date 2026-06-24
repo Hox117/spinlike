@@ -450,7 +450,6 @@ GameObject:
   - component: {fileID: 372682548}
   - component: {fileID: 372682547}
   - component: {fileID: 372682546}
-  - component: {fileID: 372682549}
   - component: {fileID: 372682545}
   m_Layer: 5
   m_Name: SpinRoulette
@@ -590,21 +589,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 372682543}
   m_CullTransparentMesh: 1
---- !u!114 &372682549
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 372682543}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0e5bc1326abfd2df90a79574a08e55c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WheelController
-  audioSpin: {fileID: 8300000, guid: d6d6b8d0b28be9918b8066b43daa1161, type: 3}
-  audioStopSpin: {fileID: 0}
-  pitchSpin: 1
 --- !u!114 &478881958 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6357899126973648188, guid: 4baa848023235c9a09bc24652242774f, type: 3}

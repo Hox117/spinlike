@@ -4,11 +4,11 @@ public class CharacterService : ICharacterService
 {
     int life;
     int shield;
-    EventService eventService;
+    IEventService eventService;
     public CharacterService() { 
         life = 10;
         shield = 0;
-        eventService = AppContainer.Get<EventService>();
+        eventService = AppContainer.Get<IEventService>();
     }
     public void resetPlayer() { }
     public void heal(int value)

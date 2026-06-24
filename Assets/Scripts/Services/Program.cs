@@ -22,6 +22,7 @@ public static class Program
         AppContainer.Register<IRouletteService>(() => new RouletteService());
         AppContainer.Register<IEnemyService>(() => new EnemyService());    
         AppContainer.Register<ITurnService>(() => new TurnService());
+        AppContainer.Register<IBuffService>(() => new BuffService());
     }
 }
   

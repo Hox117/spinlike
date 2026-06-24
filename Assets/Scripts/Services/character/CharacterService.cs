@@ -14,6 +14,8 @@ public class CharacterService : ICharacterService
     public void heal(int value)
     {
         life += value;
+        UpdatePlayerUI updateEvent = new UpdatePlayerUI();
+        eventService.Publish(updateEvent);
         Debug.Log(life);
     }
 

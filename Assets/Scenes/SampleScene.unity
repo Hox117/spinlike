@@ -1380,7 +1380,7 @@ Transform:
   m_GameObject: {fileID: 1109573485}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.47, y: -4, z: 0}
+  m_LocalPosition: {x: 0.47, y: -2.81, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1400,6 +1400,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   enemies:
   - {fileID: 6526243973607553605, guid: 3ec9a32be44be7b4e97f640532b442d6, type: 3}
+  - {fileID: 692017666852082830, guid: ff48dc5a596f6af4dbe8d4848c1b7634, type: 3}
+  - {fileID: 6080867390571636927, guid: eac615549b618aa4a8e928a19865b509, type: 3}
+  - {fileID: 1585901335445220382, guid: ae30e104580e4b141b6ca0ad5af000d0, type: 3}
   ActiveEnemies: []
   space: 1.5
 --- !u!1 &1286060466

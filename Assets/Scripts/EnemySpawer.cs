@@ -12,20 +12,32 @@ public class EnemySpawner : MonoBehaviour
     void Awake()
     {
         enemyService = AppContainer.Get<IEnemyService>();
-        Vector3 posicionSpawn = transform.position;
+       
 
 
-
-        foreach (GameObject enemy in enemies)
-        {
-            ActiveEnemies.Add(Instantiate(enemy, posicionSpawn, Quaternion.identity, transform));
-            posicionSpawn += Vector3.right * space;
-        }
-
-        enemyService.setEnemyList(ActiveEnemies);
     }
-    void Start()
+    private void Start()
     {
-   
-    }
+        Vector3 posicionSpawn = transform.position;
+        if (enemyService.getEnemyList() != null && enemyService.getEnemyList().Count >0)
+        {
+            foreach (GameObject enemy in enemyService.getEnemyList())
+            {
+                ActiveEnemies.Add(Instantiate(enemy, posicionSpawn, Quaternion.identity, transform));
+                posicionSpawn += Vector3.right * space;
+            }
+        }
+        else
+        {
+            foreach (GameObject enemy in enemies)
+            {
+                ActiveEnemies.Add(Instantiate(enemy, posicionSpawn, Quaternion.identity, transform));
+                posicionSpawn += Vector3.right * space;
+            }
+        }
+        enemyService.setEnemyList(ActiveEnemies);
+
+    
+}
+
 }

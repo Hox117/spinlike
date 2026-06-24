@@ -4,6 +4,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Unity.VisualScripting;
 
 /// <summary>
 /// Servicio encargado de gestionar la carga y navegación entre escenas del juego.
@@ -63,29 +64,50 @@ public class SceneService :ISceneService
     /// <param name="sceneName">Nombre de la escena a cargar como string.</param>
     private IEnumerator LoadSceneRutine(string sceneName)
     {
-        GameObject canvasObj = new GameObject("LoadingCanvas");
-        Object.DontDestroyOnLoad(canvasObj);
-        Canvas canvas = canvasObj.AddComponent<Canvas>();
-        canvas.renderMode = RenderMode.ScreenSpaceOverlay;
-        canvas.sortingOrder = 9999;
-        CanvasScaler scaler = canvasObj.AddComponent<CanvasScaler>();
-        scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
-        scaler.referenceResolution = new Vector2(1920, 1080);
-        canvasObj.AddComponent<GraphicRaycaster>();
-        
-        GameObject loadingScreen = Object.Instantiate(prefab, canvas.transform);
-        CanvasGroup canvasGroup = loadingScreen.GetComponent<CanvasGroup>();
-        if (canvasGroup == null)
-            canvasGroup = loadingScreen.AddComponent<CanvasGroup>();
-        yield return Fade(canvasGroup, 0, 1, 0.5f);
-        AsyncOperation operation =SceneManager.LoadSceneAsync(sceneName);
-        operation.allowSceneActivation = false;
-        while (operation.progress < 0.9f)
+        Canvas CanvaComponent = Canvas.FindAnyObjectByType<Canvas>();
+        if (CanvaComponent != null) {
+            GameObject loadingScreen = Object.Instantiate(prefab, CanvaComponent.transform);
+            CanvasGroup canvasGroup = loadingScreen.GetComponent<CanvasGroup>();
+            if (canvasGroup == null)
+                canvasGroup = loadingScreen.AddComponent<CanvasGroup>();
+            yield return Fade(canvasGroup, 0, 1, 0.5f);
+            AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
+            operation.allowSceneActivation = false;
+            while (operation.progress < 0.9f)
+                yield return null;
+            operation.allowSceneActivation = true;
             yield return null;
-        operation.allowSceneActivation = true;
-        yield return null;
-        yield return Fade(canvasGroup, 1, 0, 0.5f);
-        Object.Destroy(canvasObj);
+            yield return Fade(canvasGroup, 1, 0, 0.5f);
+            Object.Destroy(loadingScreen);
+            yield break;
+        }
+        if (CanvaComponent == null)
+        {
+            GameObject canvasObj = new GameObject("LoadingCanvas");
+            Object.DontDestroyOnLoad(canvasObj);
+            Canvas canvas = canvasObj.AddComponent<Canvas>();
+            canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+            canvas.sortingOrder = 9999;
+            CanvasScaler scaler = canvasObj.AddComponent<CanvasScaler>();
+            scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+            scaler.referenceResolution = new Vector2(1920, 1080);
+            canvasObj.AddComponent<GraphicRaycaster>();
+
+            GameObject loadingScreen = Object.Instantiate(prefab, canvas.transform);
+            CanvasGroup canvasGroup = loadingScreen.GetComponent<CanvasGroup>();
+            if (canvasGroup == null)
+                canvasGroup = loadingScreen.AddComponent<CanvasGroup>();
+            yield return Fade(canvasGroup, 0, 1, 0.5f);
+            AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
+            operation.allowSceneActivation = false;
+            while (operation.progress < 0.9f)
+                yield return null;
+            operation.allowSceneActivation = true;
+            yield return null;
+            yield return Fade(canvasGroup, 1, 0, 0.5f);
+            Object.Destroy(canvasObj);
+            yield break;
+        }
     }
 
     /// <summary>
@@ -98,18 +120,19 @@ public class SceneService :ISceneService
     private IEnumerator Fade(CanvasGroup canvasGroup, float start, float end, float duration) {
         float time = 0;
 
-        while (time < duration+0.2f)
+        while (time < duration)
         {
+            if (canvasGroup == null)
+                yield break;
+
             time += Time.deltaTime;
-
-            float t = time / duration;
-
-            canvasGroup.alpha = Mathf.Lerp(start, end, t);
+            canvasGroup.alpha = Mathf.Lerp(start, end, time / duration);
 
             yield return null;
         }
 
-        canvasGroup.alpha = end;
+        if (canvasGroup != null)
+            canvasGroup.alpha = end;
     }
 
 }

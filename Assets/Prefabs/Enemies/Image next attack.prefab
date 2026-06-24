@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 269249143168852017}
   - component: {fileID: 2040462134044342482}
   - component: {fileID: 4257660599916460724}
-  - component: {fileID: -1698026406249665102}
   m_Layer: 5
   m_Name: Image next attack
   m_TagString: Untagged
@@ -76,15 +75,3 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &-1698026406249665102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7704570372641120852}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db4e9743572c179448f66b8b96574926, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TestAutodestroy

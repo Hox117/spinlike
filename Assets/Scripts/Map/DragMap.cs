@@ -63,8 +63,8 @@ public class DragMap : MonoBehaviour, IDragHandler
                 );
         }
 
-        minY = -hijoMasAlto;
-        maxY = -hijoMasBajo;
+        minY = -hijoMasAlto+466;
+        maxY = -hijoMasBajo -410;
 
         Debug.Log($"Limites: {minY} / {maxY}");
     }

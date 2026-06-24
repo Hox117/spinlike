@@ -33,7 +33,7 @@ public class MapTile : MonoBehaviour
                 damage();
                 break;
                 case MapTypess.combat:
-                setListEnemiesBase(Random.Range(0, 3));
+                setListEnemiesBase(Random.Range(1, 3));
                 changeSceneCombat(); 
                 break;
             case MapTypess.Reward:
@@ -43,7 +43,7 @@ public class MapTile : MonoBehaviour
                 Heal();
                 break;
             case MapTypess.Elite:
-                setListEnemiesBase(Random.Range(0, 4));
+                setListEnemiesBase(Random.Range(1, 4));
                 changeSceneCombat();
                 break;
             case MapTypess.Boss:

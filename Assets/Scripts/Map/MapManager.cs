@@ -372,6 +372,7 @@ public class MapManager : MonoBehaviour
         {
             tile.Execute();
         }
+        pIposInicial = posInicial.position;
         if (lastMovement)
         {
             if (_mapService.GetMoving())

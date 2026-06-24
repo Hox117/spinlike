@@ -128,3 +128,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerDisplay
   sliderVida: {fileID: 7145897627362857357, guid: a12271fef1c65ae4cb77ce4fb5969198, type: 3}
+  sliderEscudo: {fileID: 7145897627362857357, guid: b9e85eb659c6b4d48815a7a081b633ef, type: 3}

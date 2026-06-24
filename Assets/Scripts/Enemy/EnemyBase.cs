@@ -5,6 +5,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.Rendering.DebugUI;
 
 public class EnemyBase : MonoBehaviour, IHittable
 {
@@ -211,9 +212,18 @@ public class EnemyBase : MonoBehaviour, IHittable
     public void OnHit(int damage)
     {
         //TODO: quitarle primero da�o al escudo si hay
-        life -= damage;
+        for (int i = 1; i <= damage; i++)
+        {
+            if (shield > 0)
+            {
+                shield--;
+            }
+            else
+            {
+                life--;
+            }
+        }
 
-        
 
         if (life <= 0) {
 

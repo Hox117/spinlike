@@ -21,7 +21,16 @@ public class CharacterService : ICharacterService
 
     public void takeDamage(int value)
     {//TODO: quitarle primero daño al escudo si hay
-        life -= value;
+       if (shield > value)
+        {
+            shield -= value;
+        }
+        else
+        {
+            life += shield - value;
+            shield = 0;
+        }
+        
         Debug.Log(life);
 
         UpdatePlayerUI updateEvent = new UpdatePlayerUI();
@@ -33,12 +42,19 @@ public class CharacterService : ICharacterService
     }
     public void addShield(int value) { 
         shield+=value;
+        UpdatePlayerUI updateEvent = new UpdatePlayerUI();
+        eventService.Publish(updateEvent);
         Debug.Log("escudo de "+shield+" puntos");  
     }
 
     public int getLife()
     {
         return life;
+    }
+
+    public int getShield()
+    {
+        return shield;
     }
    
 }

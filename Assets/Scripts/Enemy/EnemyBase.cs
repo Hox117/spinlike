@@ -14,10 +14,15 @@ public class EnemyBase : MonoBehaviour, IHittable
     [SerializeField] Slider sliderVida;
     [SerializeField] Image ImageNextAttack;
     [SerializeField] TextMeshProUGUI ValueNextAttack;
+    [SerializeField] Slider sliderEscudo;
+
+    Slider sliderEscudoInstanciado;
+    TextMeshProUGUI textoEscudoInstanciad;
 
     TextMeshProUGUI ValueNextAttackInstanciado;
     Image ImageNextAttackInstanciado;
     Slider sliderVidaInstanciado;
+
 
     Sprite[] sprites;
 
@@ -81,6 +86,10 @@ public class EnemyBase : MonoBehaviour, IHittable
                 sliderVida.GetComponent<RectTransform>(),
                 canvas.transform
             );
+
+        RectTransform barraEscudo = Instantiate(sliderEscudo.GetComponent<RectTransform>(), canvas.transform);
+
+
         RectTransform imagenAtaque =
             Instantiate(
                 ImageNextAttack.GetComponent<RectTransform>(),
@@ -104,6 +113,7 @@ public class EnemyBase : MonoBehaviour, IHittable
         );
 
         barra.anchoredPosition = posicionUI;
+        barraEscudo.anchoredPosition = posicionUI;
 
         float scale = canvas.scaleFactor;
         //AQUI GABRIEL
@@ -111,17 +121,67 @@ public class EnemyBase : MonoBehaviour, IHittable
         ValorAtaque.anchoredPosition = new Vector2(posicionUI.x - 20f, posicionUI.y + 60f);
 
         sliderVidaInstanciado = barra.GetComponent<Slider>();
+        sliderEscudoInstanciado = barraEscudo.GetComponent<Slider>();
         ImageNextAttackInstanciado = imagenAtaque.GetComponent<Image>();
         ValueNextAttackInstanciado = ValorAtaque.GetComponent<TextMeshProUGUI>();
+
+
         sliderVidaInstanciado.GetComponentInChildren<TextMeshProUGUI>().text = life.ToString();
+        sliderEscudoInstanciado.GetComponentInChildren<TextMeshProUGUI>().text = shield.ToString();
+
+
         sliderVidaInstanciado.GetComponentInChildren<TextMeshProUGUI>().enableAutoSizing = true;
         sliderVidaInstanciado.GetComponentInChildren<TextMeshProUGUI>().fontSizeMax = 30;
+
+        sliderEscudoInstanciado.GetComponentInChildren<TextMeshProUGUI>().enableAutoSizing = true;
+        sliderEscudoInstanciado.GetComponentInChildren<TextMeshProUGUI>().fontSizeMax = 30;
 
 
         sliderVidaInstanciado.maxValue = life;
         sliderVidaInstanciado.value = life;
 
         sliderVidaInstanciado.minValue = 0;
+
+        sliderEscudoInstanciado.maxValue = 0.1f;
+        sliderEscudoInstanciado.value = shield;
+        sliderEscudoInstanciado.minValue = 0;
+
+        textoEscudoInstanciad = sliderEscudoInstanciado.GetComponentInChildren<TextMeshProUGUI>();
+
+        RectTransform fillVida =
+      sliderVidaInstanciado.fillRect;
+
+        RectTransform fillAreaEscudo =
+            sliderEscudoInstanciado.fillRect.parent
+                as RectTransform;
+
+        // Meter el área del escudo dentro del fill de vida
+        fillAreaEscudo.SetParent(
+            fillVida,
+            false
+        );
+
+        // Ocupar exactamente el espacio del fill
+        fillAreaEscudo.anchorMin =
+            Vector2.zero;
+
+        fillAreaEscudo.anchorMax =
+            Vector2.one;
+
+        fillAreaEscudo.offsetMin =
+            Vector2.zero;
+
+        fillAreaEscudo.offsetMax =
+            Vector2.zero;
+
+        fillAreaEscudo.localScale =
+            Vector3.one;
+
+        fillAreaEscudo.anchoredPosition =
+            Vector2.zero;
+
+        // Encima visualmente
+        fillAreaEscudo.SetAsLastSibling();
     }
 
     private void elegirAccion()
@@ -170,6 +230,7 @@ public class EnemyBase : MonoBehaviour, IHittable
                 int defenseMod = defenceBuff != null ? defenceBuff.value : 0;
                 characterService.takeDamage(AccionElegida.value + defenseMod);
                 shield += AccionElegida.value + defenseMod;
+                updateEscudoUI();
                 Debug.Log($"{this.gameObject.name} recibe {AccionElegida.value} de escudo");
                 break;
             case ActionTypes.BuffAttack:
@@ -215,6 +276,20 @@ public class EnemyBase : MonoBehaviour, IHittable
         if(turnoEnemigoListo)turnService.ChangeTurn();    
     }
 
+    private void updateEscudoUI()
+    {
+        
+        if (sliderEscudoInstanciado.maxValue < shield && sliderEscudoInstanciado.maxValue < life)
+        {
+
+            sliderEscudoInstanciado.maxValue = shield;
+        }
+
+
+        
+        sliderEscudoInstanciado.value = shield;
+        textoEscudoInstanciad.text = shield.ToString();
+    }
 
     public void OnHit(int damage)
     {
@@ -249,6 +324,7 @@ public class EnemyBase : MonoBehaviour, IHittable
                 sliderVidaInstanciado.GetComponentInChildren<TextMeshProUGUI>().text = life.ToString();
             }
         }
+        updateEscudoUI();
         Debug.Log("me dañaste, me quedan " + life);
 
     }

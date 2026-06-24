@@ -6,6 +6,7 @@ public enum SceneNames
 {
    StartScene,
    SampleScene,
-   RewardScene
+   RewardScene,
+   Map
 
 }

@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 2a7c35407626af1419ff575ff6ee0bbd
+guid: 5843539f2c091404d8868aa2f62964fa
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4850450716589517615
-    second: ruleta base_0
+      213: 4405195622028027188
+    second: escudo 1_0
+  - first:
+      213: -486409989379103457
+    second: escudo 1_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +40,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -46,7 +49,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -75,7 +78,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ruleta base_0
+      name: escudo 1_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 1
-        width: 147
-        height: 143
+        x: 22
+        y: 15
+        width: 82
+        height: 104
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +118,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1d49425a5ccbfacb0800000000000000
-      internalID: -4850450716589517615
+      spriteID: 43526191416622d30800000000000000
+      internalID: 4405195622028027188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: escudo 1_1
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 18
+        width: 32
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f156bd711bcef39f0800000000000000
+      internalID: -486409989379103457
       vertices: []
       indices: 
       edges: []
@@ -125,7 +150,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ruleta base_0: -4850450716589517615
+      escudo 1_0: 4405195622028027188
+      escudo 1_1: -486409989379103457
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

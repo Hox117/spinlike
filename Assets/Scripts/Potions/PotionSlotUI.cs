@@ -88,4 +88,9 @@ public class PotionSlotUI : MonoBehaviour
         
 
     }
+
+    private void OnDestroy()
+    {
+        eventService.Unsubscribe<PotionChangeEvent>(Refresh);
+    }
 }

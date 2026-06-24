@@ -13,6 +13,15 @@ MonoBehaviour:
   m_Name: Demon
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   Life: 5
-  MoveList: []
+  ActionList:
+  - type: 0
+    value: 1
+    duration: 0
+  - type: 1
+    value: 1
+    duration: 0
+  - type: 6
+    value: 1
+    duration: 3
   Shield: 0
   attackMod: 0

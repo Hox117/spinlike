@@ -61,7 +61,7 @@ GameObject:
   - component: {fileID: 7145897627362857357}
   - component: {fileID: 8154778924749596703}
   m_Layer: 5
-  m_Name: Barra Vida
+  m_Name: Barra  Vida Enemigo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -277,8 +277,8 @@ MonoBehaviour:
   _gradientMode: 0
   _gradientDir: 1
   _overwriteAllColor: 0
-  _vertex1: {r: 0, g: 1, b: 0.108454704, a: 1}
-  _vertex2: {r: 1, g: 0, b: 0.005662918, a: 1}
+  _vertex1: {r: 1, g: 0, b: 0, a: 1}
+  _vertex2: {r: 1, g: 0.68867916, b: 0.68867916, a: 1}
 --- !u!1 &6657079985511742024
 GameObject:
   m_ObjectHideFlags: 0

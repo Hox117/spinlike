@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,7 +10,14 @@ public class EnemyBase : MonoBehaviour, IHittable
 {
     [SerializeField]Enemy enemyData;
     [SerializeField] Slider sliderVida;
+    [SerializeField] Image ImageNextAttack;
+    [SerializeField] TextMeshProUGUI ValueNextAttack;
+
+    TextMeshProUGUI ValueNextAttackInstanciado;
+    Image ImageNextAttackInstanciado;
     Slider sliderVidaInstanciado;
+
+    Sprite[] sprites;
 
     int life;
     int shield;
@@ -37,8 +43,7 @@ public class EnemyBase : MonoBehaviour, IHittable
         turnService = AppContainer.Get<ITurnService>();
         characterService = AppContainer.Get<ICharacterService>();
         sceneService = AppContainer.Get<ISceneService>();
-
-
+        sprites = Resources.LoadAll<Sprite>($"mapa");
     }
     void Start()
     {
@@ -47,10 +52,20 @@ public class EnemyBase : MonoBehaviour, IHittable
         AttackMod = enemyData.attackMod;
         PossibleActions = enemyData.ActionList;
 
+        instantiateSlider();
+
         animator = GetComponent<Animator>();
 
-        instantiateSlider();
+        elegirAccion();
+
         eventService.Subscribe<TurnChangeEvent>(TakeAction);
+
+    }
+
+    private Sprite ActionImage(ActionTypes tipo)
+    {
+
+        return Resources.Load<Sprite>($"Actions/{tipo.ToString()}");
 
     }
 
@@ -63,7 +78,16 @@ public class EnemyBase : MonoBehaviour, IHittable
                 sliderVida.GetComponent<RectTransform>(),
                 canvas.transform
             );
-
+        RectTransform imagenAtaque =
+            Instantiate(
+                ImageNextAttack.GetComponent<RectTransform>(),
+                canvas.transform
+            );
+        RectTransform ValorAtaque =
+            Instantiate(
+                ValueNextAttack.GetComponent<RectTransform>(),
+                canvas.transform
+            );
         Vector3 pantalla =
             Camera.main.WorldToScreenPoint(
                 transform.position + Vector3.up
@@ -72,27 +96,42 @@ public class EnemyBase : MonoBehaviour, IHittable
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
             canvas.GetComponent<RectTransform>(),
             pantalla,
-            null, // ← IMPORTANTE
+            null,
             out Vector2 posicionUI
         );
 
         barra.anchoredPosition = posicionUI;
 
-        sliderVidaInstanciado =
-            barra.GetComponent<Slider>();
+        float scale = canvas.scaleFactor;
+        //AQUI GABRIEL
+        imagenAtaque.anchoredPosition = new Vector2(posicionUI.x + 40f / scale, posicionUI.y + imagenAtaque.localPosition.y / 2 / scale);
+        ValorAtaque.anchoredPosition = new Vector2(posicionUI.x - 40f / scale, posicionUI.y + ValorAtaque.localPosition.y / 2 / scale);
 
-        sliderVidaInstanciado.maxValue =
-            life;
+        sliderVidaInstanciado = barra.GetComponent<Slider>();
+        ImageNextAttackInstanciado = imagenAtaque.GetComponent<Image>();
+        ValueNextAttackInstanciado = ValorAtaque.GetComponent<TextMeshProUGUI>();
+
+        sliderVidaInstanciado.maxValue = life;
         sliderVidaInstanciado.value = life;
 
         sliderVidaInstanciado.minValue = 0;
     }
 
+    private void elegirAccion()
+    {
+        AccionElegida = PossibleActions[UnityEngine.Random.Range(0, PossibleActions.Count)];
+
+        ValueNextAttackInstanciado.text = AccionElegida.value.ToString();
+        ImageNextAttackInstanciado.sprite = ActionImage(AccionElegida.type);
+    }
     private void TakeAction(GameEventBase game = null)
     {
         if (turnService.IsPlayerTurn())
         {
-            AccionElegida = PossibleActions[UnityEngine.Random.Range(0, PossibleActions.Count)];
+            elegirAccion();
+
+
+
             return;
         }
         StartCoroutine(ExecuteTurn());
@@ -168,13 +207,23 @@ public class EnemyBase : MonoBehaviour, IHittable
     {
         //TODO: quitarle primero da�o al escudo si hay
         life -= damage;
-        sliderVidaInstanciado.value = life;
-        sliderVidaInstanciado.GetComponentInChildren<TextMeshProUGUI>().text = life.ToString();
+
+        
+
         if (life <= 0) {
+
+            sliderVidaInstanciado.value = 0;
+            sliderVidaInstanciado.GetComponentInChildren<TextMeshProUGUI>().text = "0";
+
             Die();
             return;
         }
-        Debug.Log("me dañaste, me quedan " + life );
+        else
+        {
+            sliderVidaInstanciado.value = life;
+            sliderVidaInstanciado.GetComponentInChildren<TextMeshProUGUI>().text = life.ToString();
+        }
+        Debug.Log("me dañaste, me quedan " + life);
 
     }
 

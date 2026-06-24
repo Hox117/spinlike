@@ -6,4 +6,5 @@ public interface ICharacterService
     void heal(int value);
     void takeDamage(int value);
     void addShield(int value);
+    public int getLife();
 }

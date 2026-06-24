@@ -4,9 +4,11 @@ public class MapTile : MonoBehaviour
 {
     private MapTypess tileType;
     private ISceneService sceneService;
+    private ICharacterService characterService;
     private void Start()
     {
         sceneService = AppContainer.Get<ISceneService>();
+        characterService = AppContainer.Get<ICharacterService>();
     }
     public void SetType(MapTypess tipoAPoner)
     {
@@ -20,10 +22,18 @@ public class MapTile : MonoBehaviour
 
         switch (tileType)
         {
+            case MapTypess.Damage:
+                damage();
+                break;
             default:
                 combat();
                 break;
         }
+    }
+
+    private void damage()
+    {
+        characterService.takeDamage(1);
     }
 
     public MapTypess getTileType()

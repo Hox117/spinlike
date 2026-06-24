@@ -65,9 +65,9 @@ public class WheelController : MonoBehaviour
         
         audioService.StopSound(audioSpin);
         audioService.PlaySound(audioStopSpin);
-        eventService.Publish(new StopWheelEvent());  
-        StopAllCoroutines();
         
+        StopAllCoroutines();
+        eventService.Publish(new StopWheelEvent());
     }
 
     protected virtual IEnumerator letItRide()

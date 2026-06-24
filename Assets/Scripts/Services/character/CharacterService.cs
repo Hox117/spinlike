@@ -4,9 +4,11 @@ public class CharacterService : ICharacterService
 {
     int life;
     int shield;
+    EventService eventService;
     public CharacterService() { 
         life = 10;
         shield = 0;
+        eventService = AppContainer.Get<EventService>();
     }
     public void resetPlayer() { }
     public void heal(int value)
@@ -19,6 +21,10 @@ public class CharacterService : ICharacterService
     {//TODO: quitarle primero daño al escudo si hay
         life -= value;
         Debug.Log(life);
+
+        UpdatePlayerUI updateEvent = new UpdatePlayerUI();
+        eventService.Publish(updateEvent);
+
         if (life <= 0) {
             Debug.Log("el jugador a muerto");
         }
@@ -26,6 +32,11 @@ public class CharacterService : ICharacterService
     public void addShield(int value) { 
         shield+=value;
         Debug.Log("escudo de "+shield+" puntos");  
+    }
+
+    public int getLife()
+    {
+        return life;
     }
    
 }

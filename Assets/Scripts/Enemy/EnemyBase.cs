@@ -104,12 +104,16 @@ public class EnemyBase : MonoBehaviour, IHittable
 
         float scale = canvas.scaleFactor;
         //AQUI GABRIEL
-        imagenAtaque.anchoredPosition = new Vector2(posicionUI.x + 40f / scale, posicionUI.y + imagenAtaque.localPosition.y / 2 / scale);
-        ValorAtaque.anchoredPosition = new Vector2(posicionUI.x - 40f / scale, posicionUI.y + ValorAtaque.localPosition.y / 2 / scale);
+        imagenAtaque.anchoredPosition = new Vector2(posicionUI.x + 20f, posicionUI.y + +60f);
+        ValorAtaque.anchoredPosition = new Vector2(posicionUI.x - 20f, posicionUI.y + 60f);
 
         sliderVidaInstanciado = barra.GetComponent<Slider>();
         ImageNextAttackInstanciado = imagenAtaque.GetComponent<Image>();
         ValueNextAttackInstanciado = ValorAtaque.GetComponent<TextMeshProUGUI>();
+        sliderVidaInstanciado.GetComponentInChildren<TextMeshProUGUI>().text = life.ToString();
+        sliderVidaInstanciado.GetComponentInChildren<TextMeshProUGUI>().enableAutoSizing = true;
+        sliderVidaInstanciado.GetComponentInChildren<TextMeshProUGUI>().fontSizeMax = 30;
+
 
         sliderVidaInstanciado.maxValue = life;
         sliderVidaInstanciado.value = life;

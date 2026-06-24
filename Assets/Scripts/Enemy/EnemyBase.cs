@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,12 +10,22 @@ public class EnemyBase : MonoBehaviour, IHittable
 {
     [SerializeField]Enemy enemyData;
     [SerializeField] Slider sliderVida;
+    [SerializeField] Image ImageNextAttack;
+    [SerializeField] TextMeshProUGUI ValueNextAttack;
+
+    TextMeshProUGUI ValueNextAttackInstanciado;
+    Image ImageNextAttackInstanciado;
     Slider sliderVidaInstanciado;
+
+    Sprite[] sprites;
 
     int life;
     int shield;
-    int AttackMod;
+    int AttackMod = 0;
+    int ShieldMod = 0;
     bool dead;
+    Action AccionElegida;
+    List<Action> PossibleActions;
 
     public bool isTurnEnded = false;
 
@@ -34,18 +43,29 @@ public class EnemyBase : MonoBehaviour, IHittable
         turnService = AppContainer.Get<ITurnService>();
         characterService = AppContainer.Get<ICharacterService>();
         sceneService = AppContainer.Get<ISceneService>();
-
-
+        sprites = Resources.LoadAll<Sprite>($"mapa");
     }
     void Start()
     {
         life = enemyData.Life;
         shield = enemyData.Shield;
         AttackMod = enemyData.attackMod;
-        animator = GetComponent<Animator>();
+        PossibleActions = enemyData.ActionList;
 
         instantiateSlider();
+
+        animator = GetComponent<Animator>();
+
+        elegirAccion();
+
         eventService.Subscribe<TurnChangeEvent>(TakeAction);
+
+    }
+
+    private Sprite ActionImage(ActionTypes tipo)
+    {
+
+        return Resources.Load<Sprite>($"Actions/{tipo.ToString()}");
 
     }
 
@@ -58,7 +78,16 @@ public class EnemyBase : MonoBehaviour, IHittable
                 sliderVida.GetComponent<RectTransform>(),
                 canvas.transform
             );
-
+        RectTransform imagenAtaque =
+            Instantiate(
+                ImageNextAttack.GetComponent<RectTransform>(),
+                canvas.transform
+            );
+        RectTransform ValorAtaque =
+            Instantiate(
+                ValueNextAttack.GetComponent<RectTransform>(),
+                canvas.transform
+            );
         Vector3 pantalla =
             Camera.main.WorldToScreenPoint(
                 transform.position + Vector3.up
@@ -67,26 +96,48 @@ public class EnemyBase : MonoBehaviour, IHittable
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
             canvas.GetComponent<RectTransform>(),
             pantalla,
-            null, // ← IMPORTANTE
+            null,
             out Vector2 posicionUI
         );
 
         barra.anchoredPosition = posicionUI;
 
-        sliderVidaInstanciado =
-            barra.GetComponent<Slider>();
+        float scale = canvas.scaleFactor;
+        //AQUI GABRIEL
+        imagenAtaque.anchoredPosition = new Vector2(posicionUI.x + 20f, posicionUI.y + +60f);
+        ValorAtaque.anchoredPosition = new Vector2(posicionUI.x - 20f, posicionUI.y + 60f);
 
-        sliderVidaInstanciado.maxValue =
-            life;
+        sliderVidaInstanciado = barra.GetComponent<Slider>();
+        ImageNextAttackInstanciado = imagenAtaque.GetComponent<Image>();
+        ValueNextAttackInstanciado = ValorAtaque.GetComponent<TextMeshProUGUI>();
+        sliderVidaInstanciado.GetComponentInChildren<TextMeshProUGUI>().text = life.ToString();
+        sliderVidaInstanciado.GetComponentInChildren<TextMeshProUGUI>().enableAutoSizing = true;
+        sliderVidaInstanciado.GetComponentInChildren<TextMeshProUGUI>().fontSizeMax = 30;
+
+
+        sliderVidaInstanciado.maxValue = life;
         sliderVidaInstanciado.value = life;
 
         sliderVidaInstanciado.minValue = 0;
     }
 
+    private void elegirAccion()
+    {
+        AccionElegida = PossibleActions[UnityEngine.Random.Range(0, PossibleActions.Count)];
+
+        ValueNextAttackInstanciado.text = AccionElegida.value.ToString();
+        ImageNextAttackInstanciado.sprite = ActionImage(AccionElegida.type);
+    }
     private void TakeAction(GameEventBase game = null)
     {
-        if(turnService.IsPlayerTurn())return;
- 
+        if (turnService.IsPlayerTurn())
+        {
+            elegirAccion();
+
+
+
+            return;
+        }
         StartCoroutine(ExecuteTurn());
 
     }
@@ -102,10 +153,33 @@ public class EnemyBase : MonoBehaviour, IHittable
 
         List<GameObject> listaEnemigos = enemyService.getEnemyList();
 
-        characterService.takeDamage(1);
-        Debug.Log("El jugador recibe 1 de daño");
+        switch (AccionElegida.type)
+        {
+            case ActionTypes.attack:
+                characterService.takeDamage(AccionElegida.value + AttackMod);
+                Debug.Log($"El jugador recibe {AccionElegida.value} de daño");
+                break;
+            case ActionTypes.defense:
+                shield += AccionElegida.value + ShieldMod;
+                Debug.Log($"{this.gameObject.name} recibe {AccionElegida.value} de escudo");
+                break;
+            case ActionTypes.BuffAttack:
+                AttackMod = AccionElegida.value;
+                Debug.Log($"{this.gameObject.name} recibe {AccionElegida.value} de bufo al ataque durante {AccionElegida.duration} turnos");
+                break;
+            case ActionTypes.BuffDefense:
+                ShieldMod = AccionElegida.value;
+                Debug.Log($"{this.gameObject.name} recibe {AccionElegida.value} de bufo a la defensa durante {AccionElegida.duration} turnos");
+                break;
+            case ActionTypes.Heal:
+                life += AccionElegida.value;
+                Debug.Log($"{this.gameObject.name} se cura {AccionElegida.duration} ");
+                break;
 
-        for(int i = 0; i < listaEnemigos.Count ; i++)
+        }
+
+
+        for (int i = 0; i < listaEnemigos.Count ; i++)
         {
             EnemyBase enemy = listaEnemigos[i].GetComponent<EnemyBase>();
             
@@ -137,13 +211,27 @@ public class EnemyBase : MonoBehaviour, IHittable
     {
         //TODO: quitarle primero da�o al escudo si hay
         life -= damage;
-        sliderVidaInstanciado.value = life;
-        sliderVidaInstanciado.GetComponentInChildren<TextMeshProUGUI>().text = life.ToString();
+
+        
+
         if (life <= 0) {
+
+            if (sliderVidaInstanciado != null) { 
+            sliderVidaInstanciado.value = 0;
+            sliderVidaInstanciado.GetComponentInChildren<TextMeshProUGUI>().text = "0";
+            }
             Die();
             return;
         }
-        Debug.Log("me dañaste, me quedan " + life );
+        else
+        {
+            if (sliderVidaInstanciado != null)
+            {
+                sliderVidaInstanciado.value = life;
+                sliderVidaInstanciado.GetComponentInChildren<TextMeshProUGUI>().text = life.ToString();
+            }
+        }
+        Debug.Log("me dañaste, me quedan " + life);
 
     }
 

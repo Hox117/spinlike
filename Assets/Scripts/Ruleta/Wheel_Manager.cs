@@ -135,7 +135,7 @@ public class Wheel_Manager : MonoBehaviour
         tmp.alignment = TMPro.TextAlignmentOptions.Center;
         tmp.fontSize = 4f; 
         tmp.sortingOrder = 1;
-        Debug.Log("Font asignada: " + (_fontPersonalizada != null ? _fontPersonalizada.name : "NULL"));
+        
 
         if (_fontPersonalizada != null)
         {

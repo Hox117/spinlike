@@ -6,7 +6,7 @@ using UnityEngine;
 public class Enemy : ScriptableObject
 {
     public int Life;
-    public List<Move> MoveList;
+    public List<Action> ActionList;
     public int Shield;
     public int attackMod;
 }

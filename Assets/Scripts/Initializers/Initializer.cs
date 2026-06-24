@@ -34,4 +34,9 @@ public class Initializer : MonoBehaviour
             ruleta.GenerateRoulette();
         }
     }
+
+    private void OnDestroy()
+    {
+        eventService.Unsubscribe<TurnChangeEvent>(AleatorizarRuleta);
+    }
 }

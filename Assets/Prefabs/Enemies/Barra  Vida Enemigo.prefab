@@ -60,8 +60,9 @@ GameObject:
   - component: {fileID: 1382117144786852106}
   - component: {fileID: 7145897627362857357}
   - component: {fileID: 8154778924749596703}
+  - component: {fileID: 1950609171633952917}
   m_Layer: 5
-  m_Name: Barra Vida
+  m_Name: Barra  Vida Enemigo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -149,6 +150,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2595599258744579108}
   m_CullTransparentMesh: 1
+--- !u!114 &1950609171633952917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2595599258744579108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db4e9743572c179448f66b8b96574926, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TestAutodestroy
 --- !u!1 &2991932797299917787
 GameObject:
   m_ObjectHideFlags: 0
@@ -277,8 +290,8 @@ MonoBehaviour:
   _gradientMode: 0
   _gradientDir: 1
   _overwriteAllColor: 0
-  _vertex1: {r: 0, g: 1, b: 0.108454704, a: 1}
-  _vertex2: {r: 1, g: 0, b: 0.005662918, a: 1}
+  _vertex1: {r: 1, g: 0, b: 0, a: 1}
+  _vertex2: {r: 1, g: 0.68867916, b: 0.68867916, a: 1}
 --- !u!1 &6657079985511742024
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,12 +384,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 1
+  m_fontSize: 22.24
   m_fontSizeBase: 1
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 0
-  m_fontSizeMax: 72
+  m_fontSizeMax: 22.24
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512

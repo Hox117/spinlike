@@ -12,6 +12,12 @@ public class RewardArrowController : MonoBehaviour
         eventService.Subscribe<StopWheelEvent>(checkPiece);
 
     }
+
+    private void OnDestroy()
+    {
+        eventService.Unsubscribe<StopWheelEvent>(checkPiece);
+    }
+
     void checkPiece(GameEventBase e) {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right, 0.7f, layerMask);
         Ficha ficha = hit.collider.GetComponent<SegmentController>().getFicha();

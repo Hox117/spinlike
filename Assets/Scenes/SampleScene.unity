@@ -1277,6 +1277,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8897363c4be803e40be737f9fb381eb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: "Assembly-CSharp::BotonDa\xF1arJugador"
+--- !u!114 &983239973 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9138970276418470668, guid: 4baa848023235c9a09bc24652242774f, type: 3}
+  m_PrefabInstance: {fileID: 6858941877722513636}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfeb1dbcfe6b49d40b68ba6ccd8230e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Wheel_Manager
 --- !u!1 &988876604
 GameObject:
   m_ObjectHideFlags: 0
@@ -1592,6 +1603,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 00ada442c28eeab7193140222e5035e5, type: 2}
   - {fileID: 11400000, guid: 3894f8339ce669fe5b9530997cb456a8, type: 2}
   - {fileID: 11400000, guid: 3894f8339ce669fe5b9530997cb456a8, type: 2}
+  ruleta: {fileID: 983239973}
 --- !u!4 &1306956747
 Transform:
   m_ObjectHideFlags: 0

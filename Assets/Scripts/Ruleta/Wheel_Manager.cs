@@ -21,7 +21,12 @@ public class Wheel_Manager : MonoBehaviour
         List<Sprite> sprites = new List<Sprite>();
 
 
+        GenerateRoulette();
 
+
+    }
+
+    public void GenerateRoulette() {
         inventoryService.ramdomizeList();
 
         List<Ficha> listaFichas = inventoryService.getListaFichas();

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b2487b990a63e60ab25ccb4c6f5cf31, type: 3}
   m_Name: Heal_Ficha
   m_EditorClassIdentifier: Assembly-CSharp::FichaData
-  colorPrincipal: {r: 1, g: 0.35534585, b: 0.8639832, a: 1}
-  colorSecundario: {r: 1, g: 0.62578607, b: 0.8965478, a: 1}
-  sprite: {fileID: -6872065083077148219, guid: 75b168aaaa7727a449e368e5df7f0022, type: 3}
+  colorPrincipal: {r: 0.41685864, g: 0.8050314, b: 0.17467652, a: 1}
+  colorSecundario: {r: 0.59187186, g: 1, b: 0.49371064, a: 1}
+  sprite: {fileID: 21300000, guid: 61c89825c92aba442a642ba71a5c6865, type: 3}
   actions: []
-  description: heal
+  description: 
   audioClip: {fileID: 0}

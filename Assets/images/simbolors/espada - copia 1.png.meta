@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 713373e251469d945b6b80f93e05e46a
+guid: d6345b82d371994479cc549097be7c6f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6028322106373186699
-    second: damage 1_0
+      213: -8154565919544576181
+    second: espada - copia 1_0
   - first:
-      213: 1384560707255061823
-    second: damage 1_1
+      213: -6880895400462792030
+    second: espada - copia 1_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: damage 1_0
+      name: espada - copia 1_0
       rect:
         serializedVersion: 2
-        x: 14
-        y: 77
-        width: 28
-        height: 10
+        x: 48
+        y: 3
+        width: 24
+        height: 123
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,20 +118,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b84220e2407e8a350800000000000000
-      internalID: 6028322106373186699
+      spriteID: b47f90c308925de80800000000000000
+      internalID: -8154565919544576181
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: damage 1_1
+      name: espada - copia 1_1
       rect:
         serializedVersion: 2
-        x: 15
-        y: 15
-        width: 98
-        height: 98
+        x: 81
+        y: 7
+        width: 37
+        height: 104
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f3dc6e5a0a2f63310800000000000000
-      internalID: 1384560707255061823
+      spriteID: 2aacbcef6162280a0800000000000000
+      internalID: -6880895400462792030
       vertices: []
       indices: 
       edges: []
@@ -160,8 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      damage 1_0: 6028322106373186699
-      damage 1_1: 1384560707255061823
+      espada - copia 1_0: -8154565919544576181
+      espada - copia 1_1: -6880895400462792030
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

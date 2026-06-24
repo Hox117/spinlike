@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 75b168aaaa7727a449e368e5df7f0022
+guid: 61c89825c92aba442a642ba71a5c6865
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6872065083077148219
-    second: cocoro_0
+      213: -5278734259511242463
+    second: hp_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cocoro_0
+      name: hp_0
       rect:
         serializedVersion: 2
-        x: 23
-        y: 3
-        width: 87
-        height: 115
+        x: 11
+        y: 10
+        width: 105
+        height: 118
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5c142d9773581a0a0800000000000000
-      internalID: -6872065083077148219
+      spriteID: 121d52ea82b2eb6b0800000000000000
+      internalID: -5278734259511242463
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      cocoro_0: -6872065083077148219
+      hp_0: -5278734259511242463
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

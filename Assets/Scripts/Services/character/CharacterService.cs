@@ -1,14 +1,19 @@
 
+using System;
 using UnityEngine;
 public class CharacterService : ICharacterService
 {
     int life;
     int shield;
     IEventService eventService;
+    public Guid guid;
+    IBuffService buffService;
     public CharacterService() { 
         life = 10;
         shield = 10;
         eventService = AppContainer.Get<IEventService>();
+        buffService = AppContainer.Get<IBuffService>();
+        guid= Guid.NewGuid();
     }
     public void resetPlayer() { }
     public void heal(int value)
@@ -41,6 +46,7 @@ public class CharacterService : ICharacterService
         }
     }
     public void addShield(int value) { 
+       
         shield+=value;
         UpdatePlayerUI updateEvent = new UpdatePlayerUI();
         eventService.Publish(updateEvent);
@@ -56,5 +62,9 @@ public class CharacterService : ICharacterService
     {
         return shield;
     }
-   
+
+    public Guid getGuid()
+    {
+        return guid;
+    }
 }

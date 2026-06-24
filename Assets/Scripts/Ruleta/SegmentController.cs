@@ -13,6 +13,7 @@ public class SegmentController : MonoBehaviour ,ISelectionable, IRewardable
     private ITurnService turnService;
     private IInventoryService inventoryService;
     private IEventService eventService;
+    private IBuffService buffService;
     void Awake()
     {
 
@@ -23,7 +24,7 @@ public class SegmentController : MonoBehaviour ,ISelectionable, IRewardable
         inventoryService = AppContainer.Get<IInventoryService>();
         turnService = AppContainer.Get<ITurnService>();
         eventService = AppContainer.Get<IEventService>();
-
+        buffService = AppContainer.Get<IBuffService>();
 
         potionList = Resources.LoadAll<PotionData>("Objects/Potions");
     }
@@ -42,19 +43,31 @@ public class SegmentController : MonoBehaviour ,ISelectionable, IRewardable
                 switch (action.type)
                 {
                     case ActionTypes.attack:
-                        if (action.value >= 0) { 
-                            enemyService.getFirstEnemy().OnHit(action.value );
+                        if (action.value >= 0) {
+                            int attackBuffValue = 0;
+                            Buff attackBuff = buffService.GetBuff(characterService.getGuid(), BuffType.attack);
+                            if (attackBuff != null) {
+                                attackBuffValue = attackBuff.value;
+                            }
+                            enemyService.getFirstEnemy().OnHit(action.value + attackBuffValue);
                             eventService.Publish(new PlayerAttackEvent());
                         }
                         else
                             characterService.takeDamage(Math.Abs(action.value ) );
                         break;
                     case ActionTypes.defense:
+                        int defenseBuffValue = 0;
+                        Buff defenseBuff = buffService.GetBuff(characterService.getGuid(), BuffType.defense);
+                        if (defenseBuff != null) {
+                            defenseBuffValue = defenseBuff.value;
+                        }
                         characterService.addShield(action.value );
                         break;
                     case ActionTypes.BuffAttack:
+                        buffService.AddBuff(new Buff(BuffType.attack, action.value, action.duration, characterService.getGuid()));
                         break;
                     case ActionTypes.BuffDefense:
+                        buffService.AddBuff(new Buff(BuffType.defense, action.value, action.duration, characterService.getGuid()));
                         break;
                     case ActionTypes.debuff:
                         characterService.takeDamage(-action.value );

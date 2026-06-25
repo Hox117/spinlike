@@ -14,7 +14,7 @@ public class WheelController : MonoBehaviour
     [SerializeField] protected AudioClip audioStopSpin;
     [SerializeField] float pitchSpin = 1;
     
-
+    private bool _isSpinning = false;
 
     protected virtual void Awake()
     {
@@ -31,7 +31,12 @@ public class WheelController : MonoBehaviour
     {
         if (turnService.IsPlayerTurn())
         {
-            StartCoroutine(StopRoulette());
+            if (_isSpinning)
+            {
+                _isSpinning=false;
+                StartCoroutine(StopRoulette());
+            }
+            
         }
         
     }
@@ -40,7 +45,7 @@ public class WheelController : MonoBehaviour
         if (turnService.IsPlayerTurn())
         {
             StartCoroutine(letItRide());
-
+            _isSpinning = true;
             audioService.PlayLoopSound(audioSpin, pitchSpin);
         }
         
@@ -50,7 +55,7 @@ public class WheelController : MonoBehaviour
         if (turnService.IsPlayerTurn())
         {
             StartCoroutine(letItRide());
-
+            _isSpinning = true;
             audioService.PlayLoopSound(audioSpin, pitchSpin);
         }
 

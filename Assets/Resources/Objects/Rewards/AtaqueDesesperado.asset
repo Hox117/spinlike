@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b2487b990a63e60ab25ccb4c6f5cf31, type: 3}
+  m_Name: AtaqueDesesperado
+  m_EditorClassIdentifier: Assembly-CSharp::FichaData
+  colorPrincipal: {r: 1, g: 0, b: 0, a: 1}
+  colorSecundario: {r: 0, g: 0, b: 0, a: 1}
+  sprite: {fileID: -6683585502671519080, guid: 5da09240bab755346bf1c5fb88c3776e, type: 3}
+  actions:
+  - type: 0
+    value: 10
+    duration: 0
+  - type: 2
+    value: -1
+    duration: 0
+  description: 10 / -1
+  audioClip: {fileID: 8300000, guid: 7b806b3ce5d9d22368d52c3d48f9c8b5, type: 3}

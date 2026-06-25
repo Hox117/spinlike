@@ -43,7 +43,7 @@ public class MapTile : MonoBehaviour
                 Heal();
                 break;
             case MapTypess.Elite:
-                setListEnemiesBase(Random.Range(1, 4));
+                setListEnemiesBase(Random.Range(2, 5));
                 changeSceneCombat();
                 break;
             case MapTypess.Boss:

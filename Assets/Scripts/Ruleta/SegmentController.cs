@@ -72,6 +72,9 @@ public class SegmentController : MonoBehaviour ,ISelectionable, IRewardable
                     case ActionTypes.debuff:
                         characterService.takeDamage(-action.value );
                         break;
+                    case ActionTypes.Heal:
+                        characterService.heal(action.value);
+                        break;
                     case ActionTypes.menu:
                 
                         sceneService.LoadScene((SceneNames) action.value );
@@ -103,24 +106,14 @@ public class SegmentController : MonoBehaviour ,ISelectionable, IRewardable
             audioService.PlaySound(ficha.audioClip);
             _isSelected = false;
 
-
-            foreach (Action action in ficha.actions)
+            switch (ficha.actions[0].type)
             {
-                switch (action.type)
-                {
-                    case ActionTypes.attack:
-                        inventoryService.AddFicha(ficha);
-                        break;
-                    case ActionTypes.defense:
-                        inventoryService.AddFicha(ficha);
-                        break;
-                    case ActionTypes.debuff:
-                        inventoryService.AddFicha(ficha);
-                        break;
-                    case ActionTypes.Heal:
-                        GenerarPocion();
-                        break;
-                }
+                case ActionTypes.Heal:
+                    GenerarPocion();
+                    break;
+                default:
+                    inventoryService.AddFicha(ficha);
+                    break;
             }
         }
     }

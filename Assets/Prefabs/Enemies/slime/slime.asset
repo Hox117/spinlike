@@ -19,7 +19,7 @@ MonoBehaviour:
     duration: 0
   - type: 6
     value: 4
-    duration: 0
+    duration: 1
   - type: 4
     value: 2
     duration: 0

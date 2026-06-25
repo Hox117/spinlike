@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class BuffService : IBuffService
 {
-   List<Buff> _buffs;
+    List<Buff> _buffs;
     IEventService _eventService;
     public BuffService() { 
-    _buffs = new List<Buff>();
+        _buffs = new List<Buff>();
         _eventService = AppContainer.Get<IEventService>();
     }
     public void AddBuff(Buff buff)
@@ -20,7 +20,15 @@ public class BuffService : IBuffService
         _buffs.Add(buff);
         _eventService.Publish(new UpdatePlayerUI());
     }
+    public void AddBuff(Buff buff, bool dontDestoy)
+    {
+        if(!dontDestoy) _buffs.RemoveAll(b =>
+                                        b.Owner == buff.Owner &&
+                                        b.buffType == buff.buffType);
 
+        _buffs.Add(buff);
+        _eventService.Publish(new UpdatePlayerUI());
+    }
     public void ClearBuffList()
     {
        _buffs.Clear();

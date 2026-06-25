@@ -19,5 +19,5 @@ MonoBehaviour:
   - type: 1
     value: 3
     duration: 0
-  description: 
+  description: 3
   audioClip: {fileID: 8300000, guid: 7bc908cfe94fb36f78e12922ff60c2e6, type: 3}

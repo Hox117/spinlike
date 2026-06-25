@@ -19,9 +19,14 @@ MonoBehaviour:
     duration: 0
   - type: 6
     value: 4
-    duration: 1
+    duration: 2
   - type: 4
     value: 2
     duration: 0
   Shield: 0
   attackMod: 0
+  AttackAudio: {fileID: 8300000, guid: 694e2b332c20209488ae27f1393ecbe7, type: 3}
+  DamagedSound: {fileID: 8300000, guid: 91405604ddde1b74abc1a8b3c3e5e9ce, type: 3}
+  DieSound: {fileID: 8300000, guid: ff30ebdc8faa1144dabfa4878ff285f5, type: 3}
+  DefenseSound: {fileID: 8300000, guid: 159686d5803fc2746a333af771a95f7f, type: 3}
+  BuffSound: {fileID: 8300000, guid: b48d319bc79ec47458041ce824875d01, type: 3}

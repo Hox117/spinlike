@@ -51,6 +51,7 @@ public class EnemyBase : MonoBehaviour, IHittable
     IEventService eventService;
     ISceneService sceneService;
     IBuffService buffService;
+    IAudioService audioService;
     void Awake()
     {
         enemyService = AppContainer.Get<IEnemyService>();
@@ -59,6 +60,7 @@ public class EnemyBase : MonoBehaviour, IHittable
         characterService = AppContainer.Get<ICharacterService>();
         buffService = AppContainer.Get<IBuffService>();
         sceneService = AppContainer.Get<ISceneService>();
+        audioService = AppContainer.Get<IAudioService>();
         sprites = Resources.LoadAll<Sprite>($"mapa");
     }
     void Start()
@@ -240,6 +242,7 @@ public class EnemyBase : MonoBehaviour, IHittable
                 Buff attackBuff = buffService.GetBuff(guid, BuffType.attack);
                 int attackMod = attackBuff != null ? attackBuff.value : 0;
                 characterService.takeDamage(AccionElegida.value + attackMod);
+                audioService.PlaySound(enemyData.AttackAudio);
                 animator.SetTrigger("Attack");
                 Debug.Log($"El jugador recibe {AccionElegida.value} de daño");
                 break;
@@ -248,15 +251,18 @@ public class EnemyBase : MonoBehaviour, IHittable
                 int defenseMod = defenceBuff != null ? defenceBuff.value : 0;
                 characterService.takeDamage(AccionElegida.value + defenseMod);
                 shield += AccionElegida.value + defenseMod;
+                audioService.PlaySound(enemyData.DefenseSound);
                 updateEscudoUI();
                 Debug.Log($"{this.gameObject.name} recibe {AccionElegida.value} de escudo");
                 break;
             case ActionTypes.BuffAttack:
+                audioService.PlaySound(enemyData.BuffSound);
                 buffService.AddBuff(new Buff(BuffType.attack, AccionElegida.value, AccionElegida.duration, guid));
                 Debug.Log($"{this.gameObject.name} recibe {AccionElegida.value} de bufo al ataque durante {AccionElegida.duration} turnos");
                 
                 break;
             case ActionTypes.BuffDefense:
+                audioService.PlaySound(enemyData.BuffSound);
                 buffService.AddBuff(new Buff(BuffType.defense, AccionElegida.value, AccionElegida.duration, guid));
                 Debug.Log($"{this.gameObject.name} recibe {AccionElegida.value} de bufo a la defensa durante {AccionElegida.duration} turnos");
                 
@@ -264,6 +270,7 @@ public class EnemyBase : MonoBehaviour, IHittable
                 break;
             case ActionTypes.Heal:
                 life += AccionElegida.value;
+                audioService.PlaySound(enemyData.DefenseSound);
                 Debug.Log($"{this.gameObject.name} se cura {AccionElegida.duration} ");
                 updateEscudoUI();
                 sliderVidaInstanciado.value = life;
@@ -340,12 +347,15 @@ public class EnemyBase : MonoBehaviour, IHittable
             sliderVidaInstanciado.GetComponentInChildren<TextMeshProUGUI>().text = "0";
             }
             Die();
+
+            audioService.PlaySound(enemyData.DieSound);
             return;
         }
         else
         {
             if (sliderVidaInstanciado != null)
             {
+                audioService.PlaySound(enemyData.DamagedSound);
                 sliderVidaInstanciado.value = life;
                 sliderVidaInstanciado.GetComponentInChildren<TextMeshProUGUI>().text = life.ToString();
             }

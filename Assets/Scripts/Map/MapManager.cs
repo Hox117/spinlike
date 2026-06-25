@@ -12,6 +12,7 @@ public class MapManager : MonoBehaviour
     private IMapService _mapService;
 
     private IEventService _eventService;
+    private IAudioService _audioService;
 
     public List<(MapTypess, int altura, int ancho)> map;
 
@@ -21,6 +22,7 @@ public class MapManager : MonoBehaviour
 
     [SerializeField] private Transform posInicial;
 
+    [SerializeField] private AudioClip backGroundMusic;
     private Vector2 pIposInicial;
 
 
@@ -41,12 +43,13 @@ public class MapManager : MonoBehaviour
     {
         _mapService = AppContainer.Get<IMapService>();
         _eventService = AppContainer.Get<IEventService>();
+        _audioService = AppContainer.Get<IAudioService>();
+
         _eventService.Subscribe<RouletterMapTileSelectedEvent>(AdvanceTile);
         generateMap();
         pIposInicial = posInicial.position;
-
+        _audioService.PlayLoopSound(backGroundMusic);
     }
-
     public void generateMap()
     {
         if (_mapService != null && posInicial.childCount == 0)
@@ -408,6 +411,12 @@ public class MapManager : MonoBehaviour
     public void OnDestroy()
     {
         _eventService.Unsubscribe<RouletterMapTileSelectedEvent>(AdvanceTile);
+        _audioService.StopMusic();
+
+    }
+    private void OnDisable()
+    {
+        _audioService.StopMusic();
     }
 }
 

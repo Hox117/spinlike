@@ -57,7 +57,7 @@ public class MapTile : MonoBehaviour
 
     private void damage()
     {
-        characterService.takeDamage(Random.Range(1,6));
+        characterService.takeDamage(Random.Range(1, characterService.getLife()));
     }
 
     public MapTypess getTileType()

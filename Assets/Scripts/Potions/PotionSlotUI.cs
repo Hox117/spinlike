@@ -13,6 +13,8 @@ public class PotionSlotUI : MonoBehaviour
     private IAudioService audioService;
     private IRouletteService rouletteService;
     private IEventService eventService;
+    private IBuffService BuffSer;
+    private IEnemyService enemyService;
     private void Start()
     {
         inventoryService = AppContainer.Get<IInventoryService>();
@@ -21,6 +23,8 @@ public class PotionSlotUI : MonoBehaviour
         rouletteService = AppContainer.Get<IRouletteService>();
         eventService = AppContainer.Get<IEventService>();
         eventService.Subscribe<PotionChangeEvent>(Refresh);
+        enemyService = AppContainer.Get<IEnemyService>();
+        BuffSer = AppContainer.Get<IBuffService>();  
         Refresh();
     }
 
@@ -69,14 +73,16 @@ public class PotionSlotUI : MonoBehaviour
                     rouletteService.ChangeSpeed((int)Math.Floor(rouletteService.GetSpeed()*0.5f));
                     break;
                 case ActionTypes.BuffAttack:
-                    //characterService.addBuffAttack(action.value, action.duration);
+                    Buff buffatq = new Buff(BuffType.attack, action.value, action.duration,characterService.getGuid() );
+                    BuffSer.AddBuff(buffatq);  
                     break;
                 case ActionTypes.BuffDefense:
-                    //characterService.addBuffDefense(action.value, action.duration);
+                    Buff buffdef = new Buff(BuffType.defense, action.value, action.duration, characterService.getGuid());
+                    BuffSer.AddBuff(buffdef);
                     break;
 
                 case ActionTypes.attack:
-                    Debug.Log("pocion aun en desarrollo");
+                    enemyService.getFirstEnemy().OnHit(action.value);
                     break;
                 default:
                     Debug.Log("pocion aun en desarrollo");

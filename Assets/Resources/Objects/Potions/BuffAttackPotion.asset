@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BuffAttackPotion
   m_EditorClassIdentifier: Assembly-CSharp::PotionData
   Name: BuffAttack
-  Sprite: {fileID: 5291881858394707114, guid: 51a8d57e86c25d045b65714cf60d4e99, type: 3}
+  Sprite: {fileID: 21300000, guid: 51a8d57e86c25d045b65714cf60d4e99, type: 3}
   actions:
   - type: 6
     value: 2

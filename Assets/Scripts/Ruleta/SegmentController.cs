@@ -61,7 +61,7 @@ public class SegmentController : MonoBehaviour ,ISelectionable, IRewardable
                         if (defenseBuff != null) {
                             defenseBuffValue = defenseBuff.value;
                         }
-                        characterService.addShield(action.value );
+                        characterService.addShield(action.value + defenseBuffValue);
                         break;
                     case ActionTypes.BuffAttack:
                         buffService.AddBuff(new Buff(BuffType.attack, action.value, action.duration, characterService.getGuid()));

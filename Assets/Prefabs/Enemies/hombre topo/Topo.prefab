@@ -131,4 +131,5 @@ MonoBehaviour:
   sliderVida: {fileID: 7145897627362857357, guid: a6f941543398efa43ba5ff0c9d3e160f, type: 3}
   ImageNextAttack: {fileID: 4257660599916460724, guid: eb36658cff713034e8713e0e16c8cb6d, type: 3}
   ValueNextAttack: {fileID: 65837306497527589, guid: 58a2d2d4b0a006b4d98020b29e92d7ad, type: 3}
+  sliderEscudo: {fileID: 7145897627362857357, guid: b9e85eb659c6b4d48815a7a081b633ef, type: 3}
   isTurnEnded: 0

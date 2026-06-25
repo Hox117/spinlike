@@ -1,7 +1,8 @@
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
-public class SegmentController : MonoBehaviour ,ISelectionable, IRewardable
+using UnityEngine.EventSystems;
+public class SegmentController : MonoBehaviour ,ISelectionable, IRewardable, IHoverable, IPointerEnterHandler, IPointerExitHandler
 {
     private PotionData[] potionList;
     private Ficha ficha;
@@ -11,6 +12,7 @@ public class SegmentController : MonoBehaviour ,ISelectionable, IRewardable
     private ISceneService sceneService;
     private IAudioService audioService;
     private ITurnService turnService;
+    private IRouletteService rouletteService;
     private IInventoryService inventoryService;
     private IEventService eventService;
     private IBuffService buffService;
@@ -25,7 +27,7 @@ public class SegmentController : MonoBehaviour ,ISelectionable, IRewardable
         turnService = AppContainer.Get<ITurnService>();
         eventService = AppContainer.Get<IEventService>();
         buffService = AppContainer.Get<IBuffService>();
-
+        rouletteService = AppContainer.Get<IRouletteService>();
         potionList = Resources.LoadAll<PotionData>("Objects/Potions");
     }
 
@@ -37,7 +39,7 @@ public class SegmentController : MonoBehaviour ,ISelectionable, IRewardable
             audioService.PlaySound(ficha.audioClip);
             _isSelected = false;
 
-
+                        rouletteService.ToogleStatus(false);
             foreach (Action action in ficha.actions)
             {
                 switch (action.type)
@@ -70,7 +72,7 @@ public class SegmentController : MonoBehaviour ,ISelectionable, IRewardable
                         buffService.AddBuff(new Buff(BuffType.defense, action.value, action.duration, characterService.getGuid()));
                         break;
                     case ActionTypes.debuff:
-                        characterService.takeDamage(-action.value );
+                        characterService.takeDamage(Math.Abs(action.value));
                         break;
                     case ActionTypes.Heal:
                         characterService.heal(action.value);
@@ -139,5 +141,27 @@ public class SegmentController : MonoBehaviour ,ISelectionable, IRewardable
         Debug.Log($"Se ha añadido la poción: {randomPotion.Name}");
         eventService.Publish(new PotionChangeEvent());
 
+    }
+
+    public void onHover()
+    {
+        if (rouletteService.GetStatus()==true ) return;
+            TooltipManager.Instance.Show(ficha.nombre, ficha.description);
+        
+    }
+
+    public void onExitHover()
+    {
+       TooltipManager.Instance.Hide();
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        onHover();
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        onExitHover();
     }
 }

@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3c87da44aa846546912b3fcbf18f9bc, type: 3}
   m_Name: ShieldPotion
   m_EditorClassIdentifier: Assembly-CSharp::PotionData
-  Name: Shield
+  Name: Shield potion
   Sprite: {fileID: -587063887920262363, guid: e9af45bbdf8854e4f8a5193068aa22a3, type: 3}
   actions:
   - type: 1
     value: 3
     duration: 0
+  description: Add user 3 point of shield

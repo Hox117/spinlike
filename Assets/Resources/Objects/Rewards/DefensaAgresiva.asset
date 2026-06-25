@@ -15,6 +15,7 @@ MonoBehaviour:
   colorPrincipal: {r: 0, g: 0.1464374, b: 1, a: 1}
   colorSecundario: {r: 1, g: 0, b: 0, a: 1}
   sprite: {fileID: -626345360347661066, guid: f2eb5bb6f2c1aae4b8d922eb9b05f59e, type: 3}
+  nombre: Agressive defense
   actions:
   - type: 1
     value: 4
@@ -22,5 +23,5 @@ MonoBehaviour:
   - type: 0
     value: 2
     duration: 0
-  description: 4 / 2
+  description: Give you 4 point shield and deal 2 point of damage
   audioClip: {fileID: 8300000, guid: 7bc908cfe94fb36f78e12922ff60c2e6, type: 3}

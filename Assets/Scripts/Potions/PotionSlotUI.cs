@@ -1,9 +1,10 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class PotionSlotUI : MonoBehaviour
+public class PotionSlotUI : MonoBehaviour , IHoverable, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private int slotIndex;
     [SerializeField] private Image icon;
@@ -40,7 +41,6 @@ public class PotionSlotUI : MonoBehaviour
 
         icon.enabled = true;
         icon.sprite = potion.Sprite;
-         
     }
 
     public void OnClick()
@@ -53,7 +53,7 @@ public class PotionSlotUI : MonoBehaviour
         UsePotion(potion);
 
         inventoryService.RemovePotion(slotIndex);
-
+        onExitHover();
         Refresh();
     }
 
@@ -96,5 +96,29 @@ public class PotionSlotUI : MonoBehaviour
     private void OnDestroy()
     {
         eventService.Unsubscribe<PotionChangeEvent>(Refresh);
+    }
+
+    public void onHover()
+    {
+        PotionData potion = inventoryService.GetPotion(slotIndex);
+        if (potion != null)
+        {
+            TooltipManager.Instance.Show(potion.Name, potion.description);
+        }
+    }
+
+    public void onExitHover()
+    {
+       TooltipManager.Instance.Hide();
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        onHover();
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        onExitHover();
     }
 }

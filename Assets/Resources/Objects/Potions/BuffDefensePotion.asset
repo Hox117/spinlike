@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3c87da44aa846546912b3fcbf18f9bc, type: 3}
   m_Name: BuffDefensePotion
   m_EditorClassIdentifier: Assembly-CSharp::PotionData
-  Name: DefenseAttack
+  Name: Buff defense potion
   Sprite: {fileID: -3432594409446856061, guid: 2b582e746b08dc347bd6aa9c1c9ddccd, type: 3}
   actions:
   - type: 7
-    value: 2
+    value: 4
     duration: 3
+  description: Apply the user a 4 points defense buff

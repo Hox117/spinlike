@@ -24,6 +24,8 @@ public static class Program
         AppContainer.Register<ITurnService>(() => new TurnService());
         AppContainer.Register<IMapService>(() => new MapService());
         AppContainer.Register<IBuffService>(() => new BuffService());
+        GameObject mouseControler = new GameObject("MouseController");
+        Object.DontDestroyOnLoad(mouseControler);
     }
 }
   

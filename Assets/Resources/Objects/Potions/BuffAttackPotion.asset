@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3c87da44aa846546912b3fcbf18f9bc, type: 3}
   m_Name: BuffAttackPotion
   m_EditorClassIdentifier: Assembly-CSharp::PotionData
-  Name: BuffAttack
+  Name: Buff attack potion
   Sprite: {fileID: 21300000, guid: 51a8d57e86c25d045b65714cf60d4e99, type: 3}
   actions:
   - type: 6
-    value: 2
+    value: 4
     duration: 3
+  description: Apply the user a 4 points attack buff

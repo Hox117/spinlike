@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3c87da44aa846546912b3fcbf18f9bc, type: 3}
   m_Name: HealPotion
   m_EditorClassIdentifier: Assembly-CSharp::PotionData
-  Name: Heal
+  Name: Heal potion
   Sprite: {fileID: -6872065083077148219, guid: 94c4bdd54154a4b438f220026cc46b07, type: 3}
   actions:
   - type: 4
     value: 4
     duration: 0
+  description: Heal user 4 points of life

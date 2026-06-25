@@ -74,9 +74,7 @@ public class PotionSlotUI : MonoBehaviour
                 case ActionTypes.BuffDefense:
                     //characterService.addBuffDefense(action.value, action.duration);
                     break;
-                case ActionTypes.debuff:
-                    Debug.Log("pocion aun en desarrollo");
-                    break;
+
                 case ActionTypes.attack:
                     Debug.Log("pocion aun en desarrollo");
                     break;

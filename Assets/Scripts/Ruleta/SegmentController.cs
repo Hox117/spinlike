@@ -3,7 +3,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 public class SegmentController : MonoBehaviour ,ISelectionable, IRewardable
 {
-    [SerializeField] private PotionData[] potionList;
+    private PotionData[] potionList;
     private Ficha ficha;
     private bool _isSelected = true;
     private IEnemyService enemyService;
@@ -129,10 +129,10 @@ public class SegmentController : MonoBehaviour ,ISelectionable, IRewardable
     {
         if (inventoryService.IsPotionsFull())
         {
-            Debug.Log("El inventario de pociones est� lleno");
+            Debug.Log("El inventario de pociones esta lleno");
             return;
         }
-
+        potionList = Resources.LoadAll<PotionData>("Objects/Potions");
         if (potionList == null || potionList.Length == 0)
         {
             Debug.LogWarning("No hay pociones configuradas");
@@ -143,7 +143,7 @@ public class SegmentController : MonoBehaviour ,ISelectionable, IRewardable
 
         inventoryService.AddPotion(randomPotion);
 
-        Debug.Log($"Se ha a�adido la poci�n: {randomPotion.Name}");
+        Debug.Log($"Se ha añadido la poción: {randomPotion.Name}");
         eventService.Publish(new PotionChangeEvent());
 
     }

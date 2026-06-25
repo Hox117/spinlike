@@ -1,8 +1,9 @@
+using UnityEditor.MPE;
 using UnityEngine;
 
 public class BotonGenerarPocion : MonoBehaviour
 {
-    [SerializeField] private PotionData[] potionList;
+   private PotionData[] potionList;
 
     private IInventoryService _inventoryService;
     private IEventService _eventService;
@@ -16,17 +17,17 @@ public class BotonGenerarPocion : MonoBehaviour
     {
         if (_inventoryService.IsPotionsFull())
         {
-            Debug.Log("El inventario de pociones está lleno");
+            Debug.Log("El inventario de pociones esta lleno");
             return;
         }
-
+        potionList = Resources.LoadAll<PotionData>("Objects/Potions");
         if (potionList == null || potionList.Length == 0)
         {
             Debug.LogWarning("No hay pociones configuradas");
             return;
         }
 
-        PotionData randomPotion = potionList[Random.Range(0, potionList.Length)];
+        PotionData randomPotion = potionList[UnityEngine.Random.Range(0, potionList.Length)];
 
         _inventoryService.AddPotion(randomPotion);
 

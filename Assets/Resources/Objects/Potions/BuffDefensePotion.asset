@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3c87da44aa846546912b3fcbf18f9bc, type: 3}
-  m_Name: BuffPotion
+  m_Name: BuffDefensePotion
   m_EditorClassIdentifier: Assembly-CSharp::PotionData
-  Name: Buff
+  Name: BuffAttack
   Sprite: {fileID: 5291881858394707114, guid: 51a8d57e86c25d045b65714cf60d4e99, type: 3}
   actions:
   - type: 6

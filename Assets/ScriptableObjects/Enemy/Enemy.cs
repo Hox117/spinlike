@@ -9,4 +9,10 @@ public class Enemy : ScriptableObject
     public List<Action> ActionList;
     public int Shield;
     public int attackMod;
+
+    public AudioClip AttackAudio;
+    public AudioClip DamagedSound;
+    public AudioClip DieSound;
+    public AudioClip DefenseSound;
+    public AudioClip BuffSound;
 }

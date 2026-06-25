@@ -15,6 +15,8 @@ public class EnemyBase : MonoBehaviour, IHittable
     [SerializeField] Image ImageNextAttack;
     [SerializeField] TextMeshProUGUI ValueNextAttack;
     [SerializeField] Slider sliderEscudo;
+    [SerializeField] Image BufoEscudo;
+    [SerializeField] Image BufoDano;
 
     Slider sliderEscudoInstanciado;
     TextMeshProUGUI textoEscudoInstanciad;
@@ -22,6 +24,12 @@ public class EnemyBase : MonoBehaviour, IHittable
     TextMeshProUGUI ValueNextAttackInstanciado;
     Image ImageNextAttackInstanciado;
     Slider sliderVidaInstanciado;
+
+    Image bufoEscudoInstanciado;
+    Image bufoDanoInstanciado;
+
+    TextMeshProUGUI BufoEscudoTexto;
+    TextMeshProUGUI BufoDanoTexto;
 
 
     Sprite[] sprites;
@@ -100,6 +108,9 @@ public class EnemyBase : MonoBehaviour, IHittable
                 ValueNextAttack.GetComponent<RectTransform>(),
                 canvas.transform
             );
+
+        RectTransform imagenBufoEscudo = Instantiate(BufoEscudo.GetComponent<RectTransform>(), canvas.transform);
+        RectTransform imagenDanoEscudo = Instantiate(BufoDano.GetComponent<RectTransform>(), canvas.transform);
         Vector3 pantalla =
             Camera.main.WorldToScreenPoint(
                 transform.position + Vector3.up
@@ -114,6 +125,8 @@ public class EnemyBase : MonoBehaviour, IHittable
 
         barra.anchoredPosition = posicionUI;
         barraEscudo.anchoredPosition = posicionUI;
+        imagenBufoEscudo.anchoredPosition = posicionUI + Vector2.up * 50 + Vector2.left * 30;
+        imagenDanoEscudo.anchoredPosition = posicionUI + Vector2.up * 50 + Vector2.left * -90;
 
         float scale = canvas.scaleFactor;
         //AQUI GABRIEL
@@ -124,7 +137,8 @@ public class EnemyBase : MonoBehaviour, IHittable
         sliderEscudoInstanciado = barraEscudo.GetComponent<Slider>();
         ImageNextAttackInstanciado = imagenAtaque.GetComponent<Image>();
         ValueNextAttackInstanciado = ValorAtaque.GetComponent<TextMeshProUGUI>();
-
+        bufoEscudoInstanciado = imagenBufoEscudo.GetComponent<Image>();
+        bufoDanoInstanciado = imagenDanoEscudo.GetComponent<Image>();
 
         sliderVidaInstanciado.GetComponentInChildren<TextMeshProUGUI>().text = life.ToString();
         sliderEscudoInstanciado.GetComponentInChildren<TextMeshProUGUI>().text = shield.ToString();
@@ -182,6 +196,14 @@ public class EnemyBase : MonoBehaviour, IHittable
 
         // Encima visualmente
         fillAreaEscudo.SetAsLastSibling();
+
+
+
+
+
+        BufoEscudoTexto = bufoEscudoInstanciado.GetComponentInChildren<TextMeshProUGUI>();
+        BufoDanoTexto = bufoDanoInstanciado.GetComponentInChildren<TextMeshProUGUI>();
+        updatebufos();
     }
 
     private void elegirAccion()
@@ -232,18 +254,25 @@ public class EnemyBase : MonoBehaviour, IHittable
             case ActionTypes.BuffAttack:
                 buffService.AddBuff(new Buff(BuffType.attack, AccionElegida.value, AccionElegida.duration, guid));
                 Debug.Log($"{this.gameObject.name} recibe {AccionElegida.value} de bufo al ataque durante {AccionElegida.duration} turnos");
+                
                 break;
             case ActionTypes.BuffDefense:
                 buffService.AddBuff(new Buff(BuffType.defense, AccionElegida.value, AccionElegida.duration, guid));
                 Debug.Log($"{this.gameObject.name} recibe {AccionElegida.value} de bufo a la defensa durante {AccionElegida.duration} turnos");
+                
+
                 break;
             case ActionTypes.Heal:
                 life += AccionElegida.value;
                 Debug.Log($"{this.gameObject.name} se cura {AccionElegida.duration} ");
+                updateEscudoUI();
+                sliderVidaInstanciado.value = life;
+                sliderVidaInstanciado.GetComponentInChildren<TextMeshProUGUI>().text = life.ToString();
                 break;
 
         }
         enemyService.endTurn(this.gameObject);
+        updatebufos();
     }
 
     private void updateEscudoUI()
@@ -259,6 +288,33 @@ public class EnemyBase : MonoBehaviour, IHittable
         
         sliderEscudoInstanciado.value = shield;
         textoEscudoInstanciad.text = shield.ToString();
+    }
+    private void updatebufos()
+    {
+        if (buffService.GetBuff(guid,BuffType.defense)!= null && buffService.GetBuff(guid, BuffType.defense).duration >0 )
+        {
+            BufoEscudoTexto.text = $"{buffService.GetBuff(guid, BuffType.defense).value}/{buffService.GetBuff(guid, BuffType.defense).duration}";
+            bufoEscudoInstanciado.enabled = true;
+        }
+        else
+        {
+            BufoEscudoTexto.text = " ";
+            bufoEscudoInstanciado.enabled = false;
+        }
+
+        if (buffService.GetBuff(guid, BuffType.attack) != null && buffService.GetBuff(guid, BuffType.attack).duration > 0)
+        {
+            BufoDanoTexto.text = $"{buffService.GetBuff(guid, BuffType.attack).value}/{buffService.GetBuff(guid, BuffType.attack).duration}";
+
+            bufoDanoInstanciado.enabled = true;
+        }
+        else
+        {
+            BufoDanoTexto.text = " ";
+            bufoDanoInstanciado.enabled = false;
+        }
+        
+
     }
 
     public void OnHit(int damage)
@@ -326,6 +382,8 @@ public class EnemyBase : MonoBehaviour, IHittable
         Destroy(sliderVidaInstanciado.gameObject);
         Destroy(ImageNextAttackInstanciado.gameObject);
         Destroy(ValueNextAttackInstanciado.gameObject);
+        Destroy(bufoDanoInstanciado.gameObject);
+        Destroy(bufoEscudoInstanciado.gameObject);
         Destroy(gameObject);
     }
 }

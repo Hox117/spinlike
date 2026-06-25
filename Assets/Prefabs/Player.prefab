@@ -129,3 +129,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerDisplay
   sliderVida: {fileID: 7145897627362857357, guid: a12271fef1c65ae4cb77ce4fb5969198, type: 3}
   sliderEscudo: {fileID: 7145897627362857357, guid: b9e85eb659c6b4d48815a7a081b633ef, type: 3}
+  BufoEscudo: {fileID: 4257660599916460724, guid: d643c969eef46e24388c9770e6a37855, type: 3}
+  BufoDano: {fileID: 4257660599916460724, guid: 3979a5dd4f7dd0a41b13d2059a73dd85, type: 3}

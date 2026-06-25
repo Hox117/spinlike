@@ -6,9 +6,18 @@ public class PlayerDisplay : MonoBehaviour
 {
     [SerializeField] Slider sliderVida;
     [SerializeField] Slider sliderEscudo;
+    [SerializeField] Image BufoEscudo;
+    [SerializeField] Image BufoDano;
+    
     Slider sliderVidaInstanciado;
     Slider sliderEscudoInstanciado;
     TextMeshProUGUI textoEscudoInstanciad;
+
+    Image bufoEscudoInstanciado;
+    Image bufoDanoInstanciado;
+
+    TextMeshProUGUI BufoEscudoTexto;
+    TextMeshProUGUI BufoDanoTexto;
 
     int vida = 0;
     int escudo = 0;
@@ -37,7 +46,10 @@ public class PlayerDisplay : MonoBehaviour
                 canvas.transform
             );
         RectTransform barraEscudo = Instantiate(sliderEscudo.GetComponent<RectTransform>(), canvas.transform);
+        RectTransform imagenBufoEscudo = Instantiate(BufoEscudo.GetComponent<RectTransform>(), canvas.transform);
+        RectTransform imagenDanoEscudo = Instantiate(BufoDano.GetComponent<RectTransform>(), canvas.transform);
 
+        
         Vector3 pantalla =
             Camera.main.WorldToScreenPoint(
                 transform.position + Vector3.up
@@ -52,6 +64,8 @@ public class PlayerDisplay : MonoBehaviour
 
         barra.anchoredPosition = posicionUI;
         barraEscudo.anchoredPosition = posicionUI;
+        imagenBufoEscudo.anchoredPosition = posicionUI + Vector2.up * 50 + Vector2.left * 30;
+        imagenDanoEscudo.anchoredPosition = posicionUI + Vector2.up * 50 + Vector2.left * -90;
 
         float scale = canvas.scaleFactor;
         //AQUI GABRIEL
@@ -59,6 +73,10 @@ public class PlayerDisplay : MonoBehaviour
 
         sliderVidaInstanciado = barra.GetComponent<Slider>();
         sliderEscudoInstanciado = barraEscudo.GetComponent<Slider>();
+
+        bufoEscudoInstanciado = imagenBufoEscudo.GetComponent<Image>();
+        bufoDanoInstanciado = imagenDanoEscudo.GetComponent<Image>();
+        
 
         vida = characterService.getLife();
         escudo = characterService.getShield();
@@ -71,8 +89,10 @@ public class PlayerDisplay : MonoBehaviour
         sliderEscudoInstanciado.GetComponentInChildren<TextMeshProUGUI>().enableAutoSizing = true;
         sliderEscudoInstanciado.GetComponentInChildren<TextMeshProUGUI>().fontSizeMax = 30;
 
-
-
+        BufoEscudoTexto = bufoEscudoInstanciado.GetComponentInChildren<TextMeshProUGUI>();
+        BufoDanoTexto = bufoDanoInstanciado.GetComponentInChildren<TextMeshProUGUI>();
+        updatebufos();
+        
 
         sliderVidaInstanciado.maxValue = vida;
         sliderVidaInstanciado.value = vida;
@@ -125,6 +145,7 @@ public class PlayerDisplay : MonoBehaviour
     {
         updateVIdaUI();
         updateEscudoUI();
+        updatebufos();
         if (vida <= 0)
         {
             playerAnimator.SetBool("isDead", true);
@@ -157,6 +178,34 @@ public class PlayerDisplay : MonoBehaviour
         escudo = characterService.getShield();
         sliderEscudoInstanciado.value = escudo;
         textoEscudoInstanciad.text = escudo.ToString();
+    }
+
+    private void updatebufos()
+    {
+        if (characterService.getBuff( BuffType.defense) != null && characterService.getBuff(BuffType.defense).duration > 0)
+        {
+            BufoEscudoTexto.text = $"{characterService.getBuff(BuffType.defense).value}/{characterService.getBuff(BuffType.defense).duration}";
+            bufoEscudoInstanciado.enabled = true;
+        }
+        else
+        {
+            BufoEscudoTexto.text = " ";
+            bufoEscudoInstanciado.enabled = false;
+        }
+
+        if (characterService.getBuff( BuffType.attack) != null && characterService.getBuff( BuffType.attack).duration > 0)
+        {
+            BufoDanoTexto.text = $"{characterService.getBuff( BuffType.attack).value}/{characterService.getBuff(BuffType.attack).duration}";
+
+            bufoDanoInstanciado.enabled = true;
+        }
+        else
+        {
+            BufoDanoTexto.text = " ";
+            bufoDanoInstanciado.enabled = false;
+        }
+
+
     }
     private void Attack(GameEventBase e)
     {

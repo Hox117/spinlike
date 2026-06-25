@@ -209,12 +209,8 @@ public class EnemyBase : MonoBehaviour, IHittable
 
     private IEnumerator ExecuteTurn()
     {
-        //TODO Revisar esto si da tiempo 100% se puede mejorar me he metido una fumada buena
         yield return new WaitForSeconds(2f);
-        bool turnoEnemigoListo = false;
-        bool SiguienteEnemigo = false;
 
-        List<GameObject> listaEnemigos = enemyService.getEnemyList();
 
         switch (AccionElegida.type)
         {
@@ -247,33 +243,7 @@ public class EnemyBase : MonoBehaviour, IHittable
                 break;
 
         }
-
-
-        for (int i = 0; i < listaEnemigos.Count ; i++)
-        {
-            EnemyBase enemy = listaEnemigos[i].GetComponent<EnemyBase>();
-            
-            if (enemy != null)
-            {
-                if(!enemy.isTurnEnded)
-                {
-                    enemy.isTurnEnded = true;
-                    listaEnemigos[i] = enemy.gameObject;
-                    break;
-                }
-            }
-        }
-
-        enemyService.setEnemyList(listaEnemigos);
-
-        foreach (GameObject enemyGO in listaEnemigos)
-        {
-            EnemyBase enemy = enemyGO.GetComponent<EnemyBase>();
-
-            if(!enemy.isTurnEnded)SiguienteEnemigo = true;
-        }
-        if(!SiguienteEnemigo)turnoEnemigoListo = true;
-        if(turnoEnemigoListo)turnService.ChangeTurn();    
+        enemyService.endTurn(this.gameObject);
     }
 
     private void updateEscudoUI()

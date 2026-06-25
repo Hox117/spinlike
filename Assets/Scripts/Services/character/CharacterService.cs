@@ -67,4 +67,9 @@ public class CharacterService : ICharacterService
     {
         return guid;
     }
+
+    public Buff getBuff(BuffType bufo)
+    {
+        return buffService.GetBuff(guid, bufo);
+    }
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.tvOS;
 
 public class BuffService : IBuffService
 {
@@ -34,12 +35,15 @@ public class BuffService : IBuffService
 
     public void ReduceDuration()
     {
+        Debug.Log($"Antes: {_buffs.Count}");
         foreach (Buff buff in _buffs)
         {
             buff.duration--;
         }
 
-        _buffs.RemoveAll(buff => buff.duration <= 0);
+        int removed = _buffs.RemoveAll(buff => buff.duration <= 0);
+        Debug.Log($"Eliminados: {removed}");
+        Debug.Log($"Después: {_buffs.Count}");
     }
 
     public void RemoveBuffByGUID(Guid GUID)

@@ -451,6 +451,7 @@ GameObject:
   - component: {fileID: 372682547}
   - component: {fileID: 372682546}
   - component: {fileID: 372682545}
+  - component: {fileID: 372682549}
   m_Layer: 5
   m_Name: SpinRoulette
   m_TagString: Untagged
@@ -589,6 +590,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 372682543}
   m_CullTransparentMesh: 1
+--- !u!114 &372682549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372682543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 097bb9ee9c0216a43a06faeb5275458f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DEJAVUGOTTASPINBEFORE
+  wheel: {fileID: 478881958}
 --- !u!114 &478881958 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6357899126973648188, guid: 4baa848023235c9a09bc24652242774f, type: 3}
@@ -1380,7 +1394,7 @@ Transform:
   m_GameObject: {fileID: 1109573485}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.47, y: -2.81, z: 0}
+  m_LocalPosition: {x: -1.37, y: -2.81, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1404,7 +1418,7 @@ MonoBehaviour:
   - {fileID: 6080867390571636927, guid: eac615549b618aa4a8e928a19865b509, type: 3}
   - {fileID: 1585901335445220382, guid: ae30e104580e4b141b6ca0ad5af000d0, type: 3}
   ActiveEnemies: []
-  space: 1.5
+  space: 2.5
 --- !u!1 &1286060466
 GameObject:
   m_ObjectHideFlags: 0

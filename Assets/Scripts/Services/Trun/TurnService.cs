@@ -6,11 +6,13 @@ public class TurnService : ITurnService
     private IEventService eventService;
     private IEnemyService enemyService;
     private IRouletteService rouletteService;
+    private IBuffService buffService;
     public TurnService()
     {
         eventService = AppContainer.Get<IEventService>();
         enemyService = AppContainer.Get<IEnemyService>();
         rouletteService = AppContainer.Get<IRouletteService>();
+        buffService = AppContainer.Get<IBuffService>();
     }
 
     public void ChangeTurn()
@@ -23,6 +25,7 @@ public class TurnService : ITurnService
             if (enemyService == null) Debug.LogError("enemyService no instanciado");
             enemyService.resetTurns();
             rouletteService.ResetSpeed();
+            buffService.ReduceDuration();
             Debug.Log("Turno del jugador");
 
         }

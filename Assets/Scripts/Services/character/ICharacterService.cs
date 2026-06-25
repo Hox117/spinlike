@@ -10,4 +10,6 @@ public interface ICharacterService
     public int getLife();
     public int getShield();
     public Guid getGuid();
+
+    public Buff getBuff(BuffType bufo);
 }

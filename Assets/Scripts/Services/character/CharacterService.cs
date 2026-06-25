@@ -10,7 +10,7 @@ public class CharacterService : ICharacterService
     IBuffService buffService;
     public CharacterService() { 
         life = 10;
-        shield = 10;
+        shield = 0;
         eventService = AppContainer.Get<IEventService>();
         buffService = AppContainer.Get<IBuffService>();
         guid= Guid.NewGuid();

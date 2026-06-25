@@ -30,7 +30,6 @@ public class RewardInitializer : MonoBehaviour
             Ficha ficha = new Ficha(fichadata);
             listaFichasReales.Add(ficha);
         }
-
         FindAnyObjectByType<Wheel_Manager>().Generate(numeroSegmentos, listaFichasReales);
     }
 }

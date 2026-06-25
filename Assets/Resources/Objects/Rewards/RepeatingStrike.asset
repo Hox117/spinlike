@@ -10,14 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b2487b990a63e60ab25ccb4c6f5cf31, type: 3}
-  m_Name: FichaAtaqueBasico
-  m_EditorClassIdentifier: Assembly-CSharp::Ficha
+  m_Name: RepeatingStrike
+  m_EditorClassIdentifier: Assembly-CSharp::FichaData
   colorPrincipal: {r: 1, g: 0, b: 0, a: 1}
-  colorSecundario: {r: 0.26945668, g: 0, b: 0, a: 1}
-  sprite: {fileID: 1436520230527447110, guid: ddc7c4bf5a1ab814292390c6781e2d87, type: 3}
+  colorSecundario: {r: 0.9547169, g: 0.37511617, b: 0.012609419, a: 1}
+  sprite: {fileID: 1436520230527447110, guid: c8f8ddfa59e87fa428cf335c19339bec, type: 3}
   actions:
   - type: 0
-    value: 3
+    value: 1
     duration: 0
-  description: 
+  - type: 0
+    value: 1
+    duration: 0
+  - type: 0
+    value: 1
+    duration: 0
+  - type: 0
+    value: 1
+    duration: 0
+  description: 1 / 1 / 1 / 1
   audioClip: {fileID: 8300000, guid: 6034d582877215875906802a4ee31310, type: 3}

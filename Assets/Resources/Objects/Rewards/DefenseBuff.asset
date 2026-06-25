@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b2487b990a63e60ab25ccb4c6f5cf31, type: 3}
-  m_Name: FichaDefensaBasica
-  m_EditorClassIdentifier: Assembly-CSharp::Ficha
-  colorPrincipal: {r: 0.008547783, g: 0, b: 1, a: 1}
-  colorSecundario: {r: 0, g: 0.8215716, b: 1, a: 1}
-  sprite: {fileID: -3803196367135801590, guid: caa96294ad1844346872b81551b8a079, type: 3}
+  m_Name: DefenseBuff
+  m_EditorClassIdentifier: Assembly-CSharp::FichaData
+  colorPrincipal: {r: 0.52855104, g: 0.52974284, b: 0.9245283, a: 1}
+  colorSecundario: {r: 0.53497326, g: 0.5509833, b: 0.85660374, a: 1}
+  sprite: {fileID: 21300000, guid: 5843539f2c091404d8868aa2f62964fa, type: 3}
   actions:
-  - type: 1
-    value: 3
-    duration: 0
-  description: 
+  - type: 7
+    value: 2
+    duration: 4
+  description: 2
   audioClip: {fileID: 8300000, guid: 7bc908cfe94fb36f78e12922ff60c2e6, type: 3}

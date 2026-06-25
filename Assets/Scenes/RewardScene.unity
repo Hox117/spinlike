@@ -983,11 +983,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4e8004b65badcb86a599c360909452a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  ListaDeRecompensasPosibles:
-  - {fileID: 11400000, guid: 37c2057dd54119ccb90f0dfaa22312d7, type: 2}
-  - {fileID: 11400000, guid: 2a11b17ffc2946d55b01d7de767d9c85, type: 2}
-  - {fileID: 11400000, guid: 81da95a14e2994273a8936346d5f9d66, type: 2}
-  - {fileID: 11400000, guid: 5521ff6123cb1fa7d8878fb0ced630d6, type: 2}
+  ListaDeRecompensasPosibles: []
 --- !u!4 &2101512386
 Transform:
   m_ObjectHideFlags: 0

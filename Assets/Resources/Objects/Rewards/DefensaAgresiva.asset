@@ -10,14 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b2487b990a63e60ab25ccb4c6f5cf31, type: 3}
-  m_Name: FichaDefensaMedia
-  m_EditorClassIdentifier: Assembly-CSharp::Ficha
-  colorPrincipal: {r: 0, g: 0.304458, b: 0.6234137, a: 1}
-  colorSecundario: {r: 0.015744966, g: 0.005391949, b: 0.64243937, a: 1}
-  sprite: {fileID: -3803196367135801590, guid: caa96294ad1844346872b81551b8a079, type: 3}
+  m_Name: DefensaAgresiva
+  m_EditorClassIdentifier: Assembly-CSharp::FichaData
+  colorPrincipal: {r: 0, g: 0.1464374, b: 1, a: 1}
+  colorSecundario: {r: 1, g: 0, b: 0, a: 1}
+  sprite: {fileID: -626345360347661066, guid: f2eb5bb6f2c1aae4b8d922eb9b05f59e, type: 3}
   actions:
   - type: 1
-    value: 3
+    value: 4
     duration: 0
-  description: 3
+  - type: 0
+    value: 2
+    duration: 0
+  description: 4 / 2
   audioClip: {fileID: 8300000, guid: 7bc908cfe94fb36f78e12922ff60c2e6, type: 3}

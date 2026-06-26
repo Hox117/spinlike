@@ -46,6 +46,7 @@ public class WheelController : MonoBehaviour
         {
             StartCoroutine(letItRide());
             _isSpinning = true;
+            rouletteService.ToogleStatus(true);
             audioService.PlayLoopSound(audioSpin, pitchSpin);
         }
         
@@ -56,6 +57,7 @@ public class WheelController : MonoBehaviour
         {
             StartCoroutine(letItRide());
             _isSpinning = true;
+            rouletteService.ToogleStatus(true);
             audioService.PlayLoopSound(audioSpin, pitchSpin);
         }
 
@@ -70,7 +72,7 @@ public class WheelController : MonoBehaviour
         
         audioService.StopSound(audioSpin);
         audioService.PlaySound(audioStopSpin);
-        
+        rouletteService.ToogleStatus(false);
         StopAllCoroutines();
         eventService.Publish(new StopWheelEvent());
     }

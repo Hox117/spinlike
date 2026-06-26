@@ -21,15 +21,6 @@ public class BuffService : IBuffService
         _buffs.Add(buff);
         _eventService.Publish(new UpdatePlayerUI());
     }
-    public void AddBuff(Buff buff, bool dontDestoy)
-    {
-        if(!dontDestoy) _buffs.RemoveAll(b =>
-                                        b.Owner == buff.Owner &&
-                                        b.buffType == buff.buffType);
-
-        _buffs.Add(buff);
-        _eventService.Publish(new UpdatePlayerUI());
-    }
     public void ClearBuffList()
     {
        _buffs.Clear();
@@ -52,6 +43,7 @@ public class BuffService : IBuffService
         int removed = _buffs.RemoveAll(buff => buff.duration <= 0);
         Debug.Log($"Eliminados: {removed}");
         Debug.Log($"Después: {_buffs.Count}");
+        _eventService.Publish(new UpdatePlayerUI());
     }
 
     public void RemoveBuffByGUID(Guid GUID)

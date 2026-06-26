@@ -1,9 +1,10 @@
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
-public class SegmentController : MonoBehaviour ,ISelectionable, IRewardable
+using UnityEngine.EventSystems;
+public class SegmentController : MonoBehaviour ,ISelectionable, IRewardable, IHoverable, IPointerEnterHandler, IPointerExitHandler
 {
-    [SerializeField] private PotionData[] potionList;
+    private PotionData[] potionList;
     private Ficha ficha;
     private bool _isSelected = true;
     private IEnemyService enemyService;
@@ -11,6 +12,7 @@ public class SegmentController : MonoBehaviour ,ISelectionable, IRewardable
     private ISceneService sceneService;
     private IAudioService audioService;
     private ITurnService turnService;
+    private IRouletteService rouletteService;
     private IInventoryService inventoryService;
     private IEventService eventService;
     private IBuffService buffService;
@@ -25,7 +27,7 @@ public class SegmentController : MonoBehaviour ,ISelectionable, IRewardable
         turnService = AppContainer.Get<ITurnService>();
         eventService = AppContainer.Get<IEventService>();
         buffService = AppContainer.Get<IBuffService>();
-
+        rouletteService = AppContainer.Get<IRouletteService>();
         potionList = Resources.LoadAll<PotionData>("Objects/Potions");
     }
 
@@ -37,7 +39,7 @@ public class SegmentController : MonoBehaviour ,ISelectionable, IRewardable
             audioService.PlaySound(ficha.audioClip);
             _isSelected = false;
 
-
+                        rouletteService.ToogleStatus(false);
             foreach (Action action in ficha.actions)
             {
                 switch (action.type)
@@ -61,7 +63,7 @@ public class SegmentController : MonoBehaviour ,ISelectionable, IRewardable
                         if (defenseBuff != null) {
                             defenseBuffValue = defenseBuff.value;
                         }
-                        characterService.addShield(action.value );
+                        characterService.addShield(action.value + defenseBuffValue);
                         break;
                     case ActionTypes.BuffAttack:
                         buffService.AddBuff(new Buff(BuffType.attack, action.value, action.duration, characterService.getGuid()));
@@ -70,7 +72,7 @@ public class SegmentController : MonoBehaviour ,ISelectionable, IRewardable
                         buffService.AddBuff(new Buff(BuffType.defense, action.value, action.duration, characterService.getGuid()));
                         break;
                     case ActionTypes.debuff:
-                        characterService.takeDamage(-action.value );
+                        characterService.takeDamage(Math.Abs(action.value));
                         break;
                     case ActionTypes.Heal:
                         characterService.heal(action.value);
@@ -122,10 +124,10 @@ public class SegmentController : MonoBehaviour ,ISelectionable, IRewardable
     {
         if (inventoryService.IsPotionsFull())
         {
-            Debug.Log("El inventario de pociones est� lleno");
+            Debug.Log("El inventario de pociones esta lleno");
             return;
         }
-
+        potionList = Resources.LoadAll<PotionData>("Objects/Potions");
         if (potionList == null || potionList.Length == 0)
         {
             Debug.LogWarning("No hay pociones configuradas");
@@ -136,8 +138,30 @@ public class SegmentController : MonoBehaviour ,ISelectionable, IRewardable
 
         inventoryService.AddPotion(randomPotion);
 
-        Debug.Log($"Se ha a�adido la poci�n: {randomPotion.Name}");
+        Debug.Log($"Se ha añadido la poción: {randomPotion.Name}");
         eventService.Publish(new PotionChangeEvent());
 
+    }
+
+    public void onHover()
+    {
+        if (rouletteService.GetStatus()==true ) return;
+            TooltipManager.Instance.Show(ficha.nombre, ficha.description);
+        
+    }
+
+    public void onExitHover()
+    {
+       TooltipManager.Instance.Hide();
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        onHover();
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        onExitHover();
     }
 }

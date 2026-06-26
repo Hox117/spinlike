@@ -15,9 +15,10 @@ MonoBehaviour:
   colorPrincipal: {r: 1, g: 0, b: 0, a: 1}
   colorSecundario: {r: 0.26945668, g: 0, b: 0, a: 1}
   sprite: {fileID: 1436520230527447110, guid: ddc7c4bf5a1ab814292390c6781e2d87, type: 3}
+  nombre: Basic attack
   actions:
   - type: 0
     value: 3
     duration: 0
-  description: 3
+  description: make 3 points of damage
   audioClip: {fileID: 8300000, guid: 6034d582877215875906802a4ee31310, type: 3}

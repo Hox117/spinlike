@@ -15,6 +15,7 @@ MonoBehaviour:
   colorPrincipal: {r: 1, g: 0, b: 0, a: 1}
   colorSecundario: {r: 0, g: 0, b: 0, a: 1}
   sprite: {fileID: -6683585502671519080, guid: 5da09240bab755346bf1c5fb88c3776e, type: 3}
+  nombre: Desesperate attack
   actions:
   - type: 0
     value: 10
@@ -22,5 +23,5 @@ MonoBehaviour:
   - type: 2
     value: -1
     duration: 0
-  description: 10 / -1
+  description: 'Make 10 points attack and get 1 point damage '
   audioClip: {fileID: 8300000, guid: 7b806b3ce5d9d22368d52c3d48f9c8b5, type: 3}

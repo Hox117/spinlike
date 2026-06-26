@@ -130,7 +130,7 @@ public class Wheel_Manager : MonoBehaviour
 
         TMPro.TextMeshPro tmp = textGO.AddComponent<TMPro.TextMeshPro>();
 
-        tmp.text = ficha.description; 
+        tmp.text = ficha.segmentData; 
 
         tmp.alignment = TMPro.TextAlignmentOptions.Center;
         tmp.fontSize = 4f; 

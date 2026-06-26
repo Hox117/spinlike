@@ -38,8 +38,6 @@ public class SegmentController : MonoBehaviour ,ISelectionable, IRewardable, IHo
         {
             audioService.PlaySound(ficha.audioClip);
             _isSelected = false;
-
-                        rouletteService.ToogleStatus(false);
             foreach (Action action in ficha.actions)
             {
                 switch (action.type)

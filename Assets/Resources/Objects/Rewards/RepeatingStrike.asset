@@ -16,18 +16,19 @@ MonoBehaviour:
   colorSecundario: {r: 0.9547169, g: 0.37511617, b: 0.012609419, a: 1}
   sprite: {fileID: 1436520230527447110, guid: c8f8ddfa59e87fa428cf335c19339bec, type: 3}
   nombre: repeating strike
+  segmentData: 1/1/1/1
   actions:
   - type: 0
-    value: 2
+    value: 1
     duration: 0
   - type: 0
-    value: 2
+    value: 1
     duration: 0
   - type: 0
-    value: 2
+    value: 1
     duration: 0
   - type: 0
-    value: 2
+    value: 1
     duration: 0
   description: Make 4 differents 2 points attack
   audioClip: {fileID: 8300000, guid: 6034d582877215875906802a4ee31310, type: 3}

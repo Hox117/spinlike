@@ -23,6 +23,7 @@ public class MapManager : MonoBehaviour
     [SerializeField] private Transform posInicial;
 
     [SerializeField] private AudioClip backGroundMusic;
+
    
 
 

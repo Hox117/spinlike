@@ -95,3 +95,5 @@ MonoBehaviour:
   - {fileID: 6080867390571636927, guid: eac615549b618aa4a8e928a19865b509, type: 3}
   Bosses:
   - {fileID: 6526243973607553605, guid: 498d421d5571083418fb740718bf9209, type: 3}
+  healSound: {fileID: 8300000, guid: 249d92ee2df50f04bac74828970f2cc6, type: 3}
+  damageSound: {fileID: 8300000, guid: 2f7dc0820c8759679b13e77bda8e1388, type: 3}

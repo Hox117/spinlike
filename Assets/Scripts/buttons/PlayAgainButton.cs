@@ -7,6 +7,7 @@ public class PlayAgainButton : MonoBehaviour
     ISceneService sceneService;
     IBuffService buffService;
     IInventoryService inventoryService;
+    ITurnService turnService;
     void Start()
     {
         characterService = AppContainer.Get<ICharacterService>();
@@ -14,6 +15,7 @@ public class PlayAgainButton : MonoBehaviour
         mapService = AppContainer.Get<IMapService>();
         buffService = AppContainer.Get<IBuffService>();
         inventoryService = AppContainer.Get<IInventoryService>();
+        turnService = AppContainer.Get<ITurnService>();
     }
     public void PlayAgain()
     {
@@ -23,6 +25,10 @@ public class PlayAgainButton : MonoBehaviour
         sceneService.LoadScene(SceneNames.Map);
         buffService.ClearBuffList();
         inventoryService.removeAllFicha();
+        if (!turnService.IsPlayerTurn())
+        {
+            turnService.ChangeTurn();
+        }
 
         for (int i = 0; i < 3; i++) 
         {   

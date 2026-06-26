@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 6a0f0fb0f2232754a80db53109317b6f, type: 3}
+  m_Sprite: {fileID: -8447134256801830997, guid: 80b0b8b6632d1e9408f26af260993e80, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -103,7 +103,7 @@ Animator:
   m_GameObject: {fileID: 6526243973607553605}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7f112c696098e0142aa501bc96901771, type: 2}
+  m_Controller: {fileID: 9100000, guid: fd8ea9851b863f446bb62d754fd0efed, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -132,4 +132,7 @@ MonoBehaviour:
   ImageNextAttack: {fileID: 4257660599916460724, guid: eb36658cff713034e8713e0e16c8cb6d, type: 3}
   ValueNextAttack: {fileID: 65837306497527589, guid: 58a2d2d4b0a006b4d98020b29e92d7ad, type: 3}
   sliderEscudo: {fileID: 7145897627362857357, guid: b9e85eb659c6b4d48815a7a081b633ef, type: 3}
+  BufoEscudo: {fileID: 4257660599916460724, guid: d643c969eef46e24388c9770e6a37855, type: 3}
+  BufoDano: {fileID: 4257660599916460724, guid: 3979a5dd4f7dd0a41b13d2059a73dd85, type: 3}
+  Explosion: {fileID: 6915140430259212788, guid: ba95fd1bca2805b41ad391d6da825ad7, type: 3}
   isTurnEnded: 0

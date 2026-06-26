@@ -8,14 +8,19 @@ public class MapTile : MonoBehaviour
     private ISceneService sceneService;
     private ICharacterService characterService;
     private IEnemyService enemyService;
+    private IAudioService audioService;
 
     [SerializeField] private List<GameObject> Enemies;
     [SerializeField] private List<GameObject> Bosses;
+
+    [SerializeField] private AudioClip healSound;
+    [SerializeField] private AudioClip damageSound;
     private void Start()
     {
         sceneService = AppContainer.Get<ISceneService>();
         characterService = AppContainer.Get<ICharacterService>();
         enemyService = AppContainer.Get<IEnemyService>();
+        audioService = AppContainer.Get<IAudioService>();
     }
     public void SetType(MapTypess tipoAPoner)
     {
@@ -58,6 +63,7 @@ public class MapTile : MonoBehaviour
     private void damage()
     {
         characterService.takeDamage(Random.Range(1, characterService.getLife()));
+        audioService.PlaySound(damageSound);
     }
 
     public MapTypess getTileType()
@@ -76,6 +82,7 @@ public class MapTile : MonoBehaviour
     private void Heal()
     {
         characterService.heal(Random.Range(1, 10));
+        audioService.PlaySound(healSound);
     }
 
     private void setListEnemiesBase(int numberOfEnemies)

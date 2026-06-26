@@ -15,6 +15,8 @@ MonoBehaviour:
   colorPrincipal: {r: 0.41685864, g: 0.8050314, b: 0.17467652, a: 1}
   colorSecundario: {r: 0.59187186, g: 1, b: 0.49371064, a: 1}
   sprite: {fileID: 21300000, guid: 61c89825c92aba442a642ba71a5c6865, type: 3}
+  nombre: Heal
+  segmentData: 
   actions: []
-  description: 
+  description: You will recive 1 to 7 points of heal
   audioClip: {fileID: 0}

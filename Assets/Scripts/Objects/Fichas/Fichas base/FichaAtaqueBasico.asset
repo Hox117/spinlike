@@ -16,6 +16,7 @@ MonoBehaviour:
   colorSecundario: {r: 0.26945668, g: 0, b: 0, a: 1}
   sprite: {fileID: 1436520230527447110, guid: ddc7c4bf5a1ab814292390c6781e2d87, type: 3}
   nombre: Basic attack
+  segmentData: 3
   actions:
   - type: 0
     value: 3

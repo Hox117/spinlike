@@ -8,9 +8,8 @@ public class Ficha
     public Sprite sprite;
     public string nombre;
     public List<Action> actions;
-
+    public string segmentData;
     public string description;
-
     public AudioClip audioClip;
     public Ficha(FichaData data)
     {
@@ -19,6 +18,7 @@ public class Ficha
         sprite = data.sprite;
         actions = data.actions;
         nombre = data.nombre;
+        segmentData = data.segmentData;
         description = data.description;
         audioClip = data.audioClip;
     }

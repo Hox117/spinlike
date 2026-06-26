@@ -17,7 +17,7 @@ public class EnemyBase : MonoBehaviour, IHittable
     [SerializeField] Slider sliderEscudo;
     [SerializeField] Image BufoEscudo;
     [SerializeField] Image BufoDano;
-
+    [SerializeField] bool isBoss = false;
     [SerializeField] GameObject Explosion;
 
     Slider sliderEscudoInstanciado;
@@ -395,7 +395,8 @@ public class EnemyBase : MonoBehaviour, IHittable
     {
         buffService.ClearBuffList();
         yield return new WaitForSeconds(2f);
-        sceneService.LoadScene(SceneNames.RewardScene);
+        if(!isBoss)sceneService.LoadScene(SceneNames.RewardScene);
+        else sceneService.LoadScene(SceneNames.WIN);
     }
 
     public IEnumerator Disappear()

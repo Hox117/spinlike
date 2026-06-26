@@ -389,7 +389,6 @@ GameObject:
   - component: {fileID: 372682548}
   - component: {fileID: 372682547}
   - component: {fileID: 372682546}
-  - component: {fileID: 372682545}
   - component: {fileID: 372682549}
   m_Layer: 5
   m_Name: SpinRoulette
@@ -418,23 +417,6 @@ RectTransform:
   m_AnchoredPosition: {x: -594.2657, y: 44.5134}
   m_SizeDelta: {x: 171.754, y: 55.8588}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &372682545
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 372682543}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc57da4442afe2d46969f9337341ee29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BotonGenerarPrueba
-  numeroSegmentos: 3
-  sprites: []
-  SpinSpeed: 300
-  SPRITE: 0
-  sprite: {fileID: 2800000, guid: 4041fc106cf4f5742b8be61b178fb1b7, type: 3}
 --- !u!114 &372682546
 MonoBehaviour:
   m_ObjectHideFlags: 0

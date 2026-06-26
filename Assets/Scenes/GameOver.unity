@@ -568,6 +568,7 @@ GameObject:
   - component: {fileID: 1275057253}
   - component: {fileID: 1275057252}
   - component: {fileID: 1275057251}
+  - component: {fileID: 1275057254}
   m_Layer: 5
   m_Name: Play Again
   m_TagString: Untagged
@@ -638,7 +639,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1275057252}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1275057254}
+        m_TargetAssemblyTypeName: PlayAgainButton, Assembly-CSharp
+        m_MethodName: PlayAgain
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1275057252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -677,6 +690,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1275057249}
   m_CullTransparentMesh: 1
+--- !u!114 &1275057254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1275057249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b2809438e552b64d9b4fd6b2c4278a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayAgainButton
 --- !u!1 &1286218350
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,12 +8,14 @@ public class CharacterService : ICharacterService
     IEventService eventService;
     public Guid guid;
     IBuffService buffService;
+    ISceneService sceneService;
     public CharacterService() { 
         life = 10;
         shield = 0;
         eventService = AppContainer.Get<IEventService>();
         buffService = AppContainer.Get<IBuffService>();
         guid= Guid.NewGuid();
+        sceneService = AppContainer.Get<ISceneService>();
     }
     public void resetPlayer() 
     {
@@ -47,6 +49,7 @@ public class CharacterService : ICharacterService
 
         if (life <= 0) {
             Debug.Log("el jugador a muerto");
+            sceneService.LoadScene(SceneNames.GameOver);
         }
     }
     public void addShield(int value) { 

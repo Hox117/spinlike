@@ -219,4 +219,14 @@ public class AudioService : IAudioService
             }
         }
     }
+
+    public float getMusicVolume()
+    {
+        return _musicVolume;
+    }
+
+    public float getSoundVolume()
+    {
+        return _sfxVolume;
+    }
 }

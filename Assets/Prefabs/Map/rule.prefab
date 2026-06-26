@@ -146,3 +146,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ruleTileButton
   ruleta: {fileID: 8709978783878759837, guid: 1119dfe8b1c5d544595b5166f5dd66b7, type: 3}
+  StopButton: {fileID: 7737288054467453857, guid: 67452f2b928e90e4199ceaaedaf424d3, type: 3}

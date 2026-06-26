@@ -16,7 +16,6 @@ MonoBehaviour:
   colorSecundario: {r: 0.93962264, g: 0.72865075, b: 0.72865075, a: 1}
   sprite: {fileID: 21300000, guid: d6345b82d371994479cc549097be7c6f, type: 3}
   nombre: Better attack buff
-  segmentData: 2/4
   actions:
   - type: 6
     value: 2

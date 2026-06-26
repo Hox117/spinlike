@@ -52,4 +52,8 @@ public interface IAudioService
     /// <param name="clip">Clip de audio que se reproducirá en bucle</param>
     /// <param name="pitch">Valor que determina el tono o velocidad del sonido. Valor por defecto: 1f</param>
     void PlayLoopSound(AudioClip clip, float pitch = 1);
+
+    public float getMusicVolume();
+
+    public float getSoundVolume();
 }

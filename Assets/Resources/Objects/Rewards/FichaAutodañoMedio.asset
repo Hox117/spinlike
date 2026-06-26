@@ -16,7 +16,6 @@ MonoBehaviour:
   colorSecundario: {r: 0, g: 0, b: 0, a: 1}
   sprite: {fileID: 1284078919682861982, guid: 864f634b73f009548984363d25ac8d7b, type: 3}
   nombre: Medium autodamage
-  segmentData: -2
   actions:
   - type: 2
     value: -2

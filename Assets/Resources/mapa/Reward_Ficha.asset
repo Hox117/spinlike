@@ -15,8 +15,6 @@ MonoBehaviour:
   colorPrincipal: {r: 1, g: 0, b: 0.118750095, a: 1}
   colorSecundario: {r: 0.26100624, g: 1, b: 0.86117506, a: 1}
   sprite: {fileID: 21300000, guid: 53dfb19d029ca5c4eae99eb886f4b1d8, type: 3}
-  nombre: Reward
-  segmentData: 
   actions: []
-  description: Reward. Reward. Reward. Reward.
+  description: 
   audioClip: {fileID: 0}

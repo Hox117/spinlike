@@ -25,6 +25,7 @@ public class WheelController : MonoBehaviour
     }
     void Start()
     {
+        StartSpin();
     }
     public void StopSpin()
     {
@@ -71,6 +72,7 @@ public class WheelController : MonoBehaviour
         
         audioService.StopSound(audioSpin);
         audioService.PlaySound(audioStopSpin);
+        rouletteService.ToogleStatus(false);
         StopAllCoroutines();
         eventService.Publish(new StopWheelEvent());
     }

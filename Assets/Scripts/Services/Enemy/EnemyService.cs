@@ -36,6 +36,7 @@ public class EnemyService : IEnemyService
 
     public void resetTurns()
     {
+        if (enemiesList == null) return;
         foreach (GameObject enemyGO in enemiesList)
         {
             enemyGO.GetComponent<EnemyBase>().isTurnEnded = false;

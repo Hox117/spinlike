@@ -1012,6 +1012,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   ListaDeFichas: []
+  backGroundMusic: {fileID: 8300000, guid: 43e0a3772f899774489f05780164b881, type: 3}
 --- !u!1001 &2138903064
 PrefabInstance:
   m_ObjectHideFlags: 0

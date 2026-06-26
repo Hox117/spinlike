@@ -48,7 +48,7 @@ public class MapManager : MonoBehaviour
         _eventService.Subscribe<RouletterMapTileSelectedEvent>(AdvanceTile);
         generateMap();
         pIposInicial = posInicial.position;
-        _audioService.PlayLoopSound(backGroundMusic);
+        if (backGroundMusic != null) _audioService.PlayLoopSound(backGroundMusic);
     }
     public void generateMap()
     {
@@ -411,12 +411,8 @@ public class MapManager : MonoBehaviour
     public void OnDestroy()
     {
         _eventService.Unsubscribe<RouletterMapTileSelectedEvent>(AdvanceTile);
-        _audioService.StopMusic();
+        if (backGroundMusic != null) _audioService.StopSound(backGroundMusic);
 
-    }
-    private void OnDisable()
-    {
-        _audioService.StopMusic();
     }
 }
 

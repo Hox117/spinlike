@@ -8,6 +8,8 @@ public class Initializer : MonoBehaviour
     IEventService eventService;
     [SerializeField] List<FichaData> ListaDeFichas;
     [SerializeField] Wheel_Manager ruleta;
+    private IAudioService _audioService;
+    [SerializeField] private AudioClip backGroundMusic;
     public void setListaDeFichas(List<FichaData> ListaDeFichas)
     {
         this.ListaDeFichas = ListaDeFichas;
@@ -17,13 +19,14 @@ public class Initializer : MonoBehaviour
         inventoryService = AppContainer.Get<IInventoryService>();
         turnService = AppContainer.Get<ITurnService>();
         eventService = AppContainer.Get<IEventService>();
+        _audioService = AppContainer.Get<IAudioService>();
+
+        if (backGroundMusic != null) _audioService.PlayLoopSound(backGroundMusic);
 
         if (inventoryService.getListaFichas().Count < 1) inventoryService.cargarInventario(ListaDeFichas);
         if (!turnService.IsPlayerTurn()) turnService.ChangeTurn();
 
         eventService.Subscribe<TurnChangeEvent>(AleatorizarRuleta);
-        
-
 
     }
 
@@ -38,5 +41,6 @@ public class Initializer : MonoBehaviour
     private void OnDestroy()
     {
         eventService.Unsubscribe<TurnChangeEvent>(AleatorizarRuleta);
+        if(backGroundMusic != null) _audioService.StopSound(backGroundMusic);
     }
 }

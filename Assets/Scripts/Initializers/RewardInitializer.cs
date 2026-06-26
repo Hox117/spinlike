@@ -5,7 +5,10 @@ public class RewardInitializer : MonoBehaviour
 {
     IInventoryService inventoryService;
     ITurnService turnService;
+    private IAudioService _audioService;
+
     [SerializeField] List<FichaData> ListaDeFichas;
+    [SerializeField] private AudioClip backGroundMusic;
 
     public void setListaDeFichas(List<FichaData> ListaDeFichas)
     {
@@ -15,7 +18,10 @@ public class RewardInitializer : MonoBehaviour
     {
         inventoryService = AppContainer.Get<IInventoryService>();
         turnService = AppContainer.Get<ITurnService>();
-        
+        _audioService = AppContainer.Get<IAudioService>();
+
+        if (backGroundMusic != null) _audioService.PlayLoopSound(backGroundMusic);
+
     }
 
     void Start()
@@ -31,5 +37,9 @@ public class RewardInitializer : MonoBehaviour
             listaFichasReales.Add(ficha);
         }
         FindAnyObjectByType<Wheel_Manager>().Generate(numeroSegmentos, listaFichasReales);
+    }
+    private void OnDestroy()
+    {
+        if (backGroundMusic != null) _audioService.StopSound(backGroundMusic);
     }
 }

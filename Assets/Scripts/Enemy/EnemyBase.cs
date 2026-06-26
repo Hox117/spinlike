@@ -10,13 +10,15 @@ using static UnityEngine.Rendering.DebugUI;
 
 public class EnemyBase : MonoBehaviour, IHittable
 {
-    [SerializeField]Enemy enemyData;
+    [SerializeField] Enemy enemyData;
     [SerializeField] Slider sliderVida;
     [SerializeField] Image ImageNextAttack;
     [SerializeField] TextMeshProUGUI ValueNextAttack;
     [SerializeField] Slider sliderEscudo;
     [SerializeField] Image BufoEscudo;
     [SerializeField] Image BufoDano;
+
+    [SerializeField] GameObject Explosion;
 
     Slider sliderEscudoInstanciado;
     TextMeshProUGUI textoEscudoInstanciad;
@@ -227,7 +229,7 @@ public class EnemyBase : MonoBehaviour, IHittable
 
     }
 
-    
+
 
     private IEnumerator ExecuteTurn()
     {
@@ -254,12 +256,12 @@ public class EnemyBase : MonoBehaviour, IHittable
             case ActionTypes.BuffAttack:
                 buffService.AddBuff(new Buff(BuffType.attack, AccionElegida.value, AccionElegida.duration, guid));
                 Debug.Log($"{this.gameObject.name} recibe {AccionElegida.value} de bufo al ataque durante {AccionElegida.duration} turnos");
-                
+
                 break;
             case ActionTypes.BuffDefense:
                 buffService.AddBuff(new Buff(BuffType.defense, AccionElegida.value, AccionElegida.duration, guid));
                 Debug.Log($"{this.gameObject.name} recibe {AccionElegida.value} de bufo a la defensa durante {AccionElegida.duration} turnos");
-                
+
 
                 break;
             case ActionTypes.Heal:
@@ -271,13 +273,21 @@ public class EnemyBase : MonoBehaviour, IHittable
                 break;
 
         }
-        enemyService.endTurn(this.gameObject);
+        if (AccionElegida.type != ActionTypes.attack)
+        {
+            finalizarTurno();
+        }
         updatebufos();
+    }
+
+    public void finalizarTurno()
+    {
+        enemyService.endTurn(this.gameObject);
     }
 
     private void updateEscudoUI()
     {
-        
+
         if (sliderEscudoInstanciado.maxValue < shield && sliderEscudoInstanciado.maxValue < life)
         {
 
@@ -285,13 +295,13 @@ public class EnemyBase : MonoBehaviour, IHittable
         }
 
 
-        
+
         sliderEscudoInstanciado.value = shield;
         textoEscudoInstanciad.text = shield.ToString();
     }
     private void updatebufos()
     {
-        if (buffService.GetBuff(guid,BuffType.defense)!= null && buffService.GetBuff(guid, BuffType.defense).duration >0 )
+        if (buffService.GetBuff(guid, BuffType.defense) != null && buffService.GetBuff(guid, BuffType.defense).duration > 0)
         {
             BufoEscudoTexto.text = $"{buffService.GetBuff(guid, BuffType.defense).value}/{buffService.GetBuff(guid, BuffType.defense).duration}";
             bufoEscudoInstanciado.enabled = true;
@@ -313,7 +323,7 @@ public class EnemyBase : MonoBehaviour, IHittable
             BufoDanoTexto.text = " ";
             bufoDanoInstanciado.enabled = false;
         }
-        
+
 
     }
 
@@ -333,11 +343,13 @@ public class EnemyBase : MonoBehaviour, IHittable
         }
 
 
-        if (life <= 0) {
+        if (life <= 0)
+        {
 
-            if (sliderVidaInstanciado != null) { 
-            sliderVidaInstanciado.value = 0;
-            sliderVidaInstanciado.GetComponentInChildren<TextMeshProUGUI>().text = "0";
+            if (sliderVidaInstanciado != null)
+            {
+                sliderVidaInstanciado.value = 0;
+                sliderVidaInstanciado.GetComponentInChildren<TextMeshProUGUI>().text = "0";
             }
             Die();
             return;
@@ -363,7 +375,7 @@ public class EnemyBase : MonoBehaviour, IHittable
         Debug.Log("me Mori");
         enemyService.removeFirstEnemy();
         eventService.Unsubscribe<TurnChangeEvent>(TakeAction);
-        buffService.RemoveBuffByGUID(guid); 
+        buffService.RemoveBuffByGUID(guid);
         if (enemyService.getEnemyList().Count <= 0) StartCoroutine(RewardChange());
 
         StartCoroutine("Disappear");
@@ -379,6 +391,8 @@ public class EnemyBase : MonoBehaviour, IHittable
     public IEnumerator Disappear()
     {
         yield return new WaitForSeconds(3f);
+        GameObject explo = Instantiate(Explosion, transform.position,Quaternion.identity);
+        explo.transform.SetParent(null);
         Destroy(sliderVidaInstanciado.gameObject);
         Destroy(ImageNextAttackInstanciado.gameObject);
         Destroy(ValueNextAttackInstanciado.gameObject);

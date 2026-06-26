@@ -15,9 +15,10 @@ MonoBehaviour:
   colorPrincipal: {r: 0, g: 0.304458, b: 0.6234137, a: 1}
   colorSecundario: {r: 0.015744966, g: 0.005391949, b: 0.64243937, a: 1}
   sprite: {fileID: -3803196367135801590, guid: caa96294ad1844346872b81551b8a079, type: 3}
+  nombre: medium defence
   actions:
   - type: 1
     value: 6
     duration: 0
-  description: 6
+  description: give you 6 shield points
   audioClip: {fileID: 8300000, guid: 7bc908cfe94fb36f78e12922ff60c2e6, type: 3}

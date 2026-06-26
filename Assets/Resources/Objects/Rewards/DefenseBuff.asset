@@ -15,9 +15,10 @@ MonoBehaviour:
   colorPrincipal: {r: 0.52855104, g: 0.52974284, b: 0.9245283, a: 1}
   colorSecundario: {r: 0.53497326, g: 0.5509833, b: 0.85660374, a: 1}
   sprite: {fileID: 21300000, guid: 5843539f2c091404d8868aa2f62964fa, type: 3}
+  nombre: Better buff defense
   actions:
   - type: 7
     value: 2
     duration: 4
-  description: 2
+  description: give you 2 points shield buff for 4 rounds
   audioClip: {fileID: 8300000, guid: 7bc908cfe94fb36f78e12922ff60c2e6, type: 3}

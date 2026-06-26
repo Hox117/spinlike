@@ -6,7 +6,7 @@ public class Ficha
     public Color colorPrincipal;
     public Color colorSecundario;
     public Sprite sprite;
-
+    public string nombre;
     public List<Action> actions;
 
     public string description;
@@ -18,6 +18,7 @@ public class Ficha
         colorSecundario = data.colorSecundario;
         sprite = data.sprite;
         actions = data.actions;
+        nombre = data.nombre;
         description = data.description;
         audioClip = data.audioClip;
     }

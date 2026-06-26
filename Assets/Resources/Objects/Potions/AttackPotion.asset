@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3c87da44aa846546912b3fcbf18f9bc, type: 3}
   m_Name: AttackPotion
   m_EditorClassIdentifier: Assembly-CSharp::PotionData
-  Name: Attack
+  Name: Attack potion
   Sprite: {fileID: 5291881858394707114, guid: e1d4af69e333db649b2f480fec9af84e, type: 3}
   actions:
   - type: 0
     value: 2
     duration: 0
+  description: Deal 2 points of damage to de first enemy

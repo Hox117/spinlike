@@ -1,9 +1,10 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class PotionSlotUI : MonoBehaviour
+public class PotionSlotUI : MonoBehaviour , IHoverable, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private int slotIndex;
     [SerializeField] private Image icon;
@@ -13,6 +14,8 @@ public class PotionSlotUI : MonoBehaviour
     private IAudioService audioService;
     private IRouletteService rouletteService;
     private IEventService eventService;
+    private IBuffService BuffSer;
+    private IEnemyService enemyService;
     private void Start()
     {
         inventoryService = AppContainer.Get<IInventoryService>();
@@ -21,6 +24,8 @@ public class PotionSlotUI : MonoBehaviour
         rouletteService = AppContainer.Get<IRouletteService>();
         eventService = AppContainer.Get<IEventService>();
         eventService.Subscribe<PotionChangeEvent>(Refresh);
+        enemyService = AppContainer.Get<IEnemyService>();
+        BuffSer = AppContainer.Get<IBuffService>();  
         Refresh();
     }
 
@@ -36,7 +41,6 @@ public class PotionSlotUI : MonoBehaviour
 
         icon.enabled = true;
         icon.sprite = potion.Sprite;
-         
     }
 
     public void OnClick()
@@ -49,7 +53,7 @@ public class PotionSlotUI : MonoBehaviour
         UsePotion(potion);
 
         inventoryService.RemovePotion(slotIndex);
-
+        onExitHover();
         Refresh();
     }
 
@@ -69,16 +73,16 @@ public class PotionSlotUI : MonoBehaviour
                     rouletteService.ChangeSpeed((int)Math.Floor(rouletteService.GetSpeed()*0.5f));
                     break;
                 case ActionTypes.BuffAttack:
-                    //characterService.addBuffAttack(action.value, action.duration);
+                    Buff buffatq = new Buff(BuffType.attack, action.value, action.duration,characterService.getGuid() );
+                    BuffSer.AddBuff(buffatq);  
                     break;
                 case ActionTypes.BuffDefense:
-                    //characterService.addBuffDefense(action.value, action.duration);
+                    Buff buffdef = new Buff(BuffType.defense, action.value, action.duration, characterService.getGuid());
+                    BuffSer.AddBuff(buffdef);
                     break;
-                case ActionTypes.debuff:
-                    Debug.Log("pocion aun en desarrollo");
-                    break;
+
                 case ActionTypes.attack:
-                    Debug.Log("pocion aun en desarrollo");
+                    enemyService.getFirstEnemy().OnHit(action.value);
                     break;
                 default:
                     Debug.Log("pocion aun en desarrollo");
@@ -92,5 +96,29 @@ public class PotionSlotUI : MonoBehaviour
     private void OnDestroy()
     {
         eventService.Unsubscribe<PotionChangeEvent>(Refresh);
+    }
+
+    public void onHover()
+    {
+        PotionData potion = inventoryService.GetPotion(slotIndex);
+        if (potion != null)
+        {
+            TooltipManager.Instance.Show(potion.Name, potion.description);
+        }
+    }
+
+    public void onExitHover()
+    {
+       TooltipManager.Instance.Hide();
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        onHover();
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        onExitHover();
     }
 }

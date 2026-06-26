@@ -570,6 +570,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 843904971}
+        m_TargetAssemblyTypeName: MenuWheelController, Assembly-CSharp
+        m_MethodName: slowRulette
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &433534541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -622,7 +634,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BotonGenerarPrueba
   numeroSegmentos: 3
   sprites: []
-  SpinSpeed: 50
+  SpinSpeed: 20
   SPRITE: 0
   sprite: {fileID: 0}
 --- !u!1 &475743488
@@ -960,6 +972,61 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7785902002823427084, guid: abac369d97680ee4392956a44946d30c, type: 3}
   m_PrefabInstance: {fileID: 797673800}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549369878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56666c5a40171f54783dd416a44f42bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.Physics2DRaycaster
+  m_EventMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_MaxRayIntersections: 0
+--- !u!1 &843904970
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 843904972}
+  - component: {fileID: 843904971}
+  m_Layer: 0
+  m_Name: MenuRouletteController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &843904971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843904970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0df1908af94bdfe4f8d3cd840e1eb8e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MenuWheelController
+  Speed: 40
+--- !u!4 &843904972
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843904970}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 976.0879, y: 560.346, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &934614015
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1041,16 +1108,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1038714678}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76d2f0e33708b5fb0a3c1e81224e1b8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TutorialInitializer
   ListaDeFichas:
   - {fileID: 11400000, guid: 615411c0e0b3c07ba8b0de81862c363b, type: 2}
+  - {fileID: 11400000, guid: 3e60a979a9f36ad43a0639d545f81645, type: 2}
   - {fileID: 11400000, guid: 615411c0e0b3c07ba8b0de81862c363b, type: 2}
-  - {fileID: 11400000, guid: 615411c0e0b3c07ba8b0de81862c363b, type: 2}
-  - {fileID: 11400000, guid: 615411c0e0b3c07ba8b0de81862c363b, type: 2}
+  - {fileID: 11400000, guid: 3e60a979a9f36ad43a0639d545f81645, type: 2}
   ruleta: {fileID: 0}
   backGroundMusic: {fileID: 8300000, guid: c929f886d9e09164583c8d1f20300508, type: 3}
 --- !u!4 &1038714680
@@ -1672,3 +1739,5 @@ SceneRoots:
   - {fileID: 1038714680}
   - {fileID: 1874410390}
   - {fileID: 475743491}
+  - {fileID: 1687783886}
+  - {fileID: 843904972}

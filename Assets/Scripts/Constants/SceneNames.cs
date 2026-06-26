@@ -9,6 +9,7 @@ public enum SceneNames
    RewardScene,
    Map,
     GameOver,
-    WIN
+    WIN,
+    Credits
 
 }

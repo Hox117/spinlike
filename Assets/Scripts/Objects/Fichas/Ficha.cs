@@ -10,7 +10,6 @@ public class Ficha
     public List<Action> actions;
     public string segmentData;
     public string description;
-    public string nombre;
     public AudioClip audioClip;
     public Ficha(FichaData data)
     {

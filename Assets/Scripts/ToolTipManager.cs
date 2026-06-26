@@ -23,18 +23,15 @@ public class TooltipManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        Canvas canvas = FindFirstObjectByType<Canvas>();
-        panel = Instantiate(tooltipPrefab, canvas.transform);
 
-        title = panel.transform.Find("Title").GetComponent<TMP_Text>();
-        description = panel.transform.Find("Description").GetComponent<TMP_Text>();
 
-        panel.SetActive(false);
+        
     }
 
     private void Update()
     {
-        if (panel.activeSelf)
+        if(panel==null) return;
+        if ( panel.activeSelf)
         {
             panel.transform.position = Mouse.current.position.ReadValue() + new Vector2(-100, 100);
         }
@@ -42,6 +39,13 @@ public class TooltipManager : MonoBehaviour
 
     public void Show(string Title, string Description)
     {
+        Canvas canvas = FindFirstObjectByType<Canvas>();
+
+
+        panel = Instantiate(tooltipPrefab, canvas.transform);
+
+        title = panel.transform.Find("Title").GetComponent<TMP_Text>();
+        description = panel.transform.Find("Description").GetComponent<TMP_Text>();
         title.text = Title;
         description.text = Description;
         panel.transform.SetAsLastSibling();
@@ -51,7 +55,6 @@ public class TooltipManager : MonoBehaviour
     public void Hide()
     {
 
-        panel.transform.SetAsLastSibling();
-        panel.SetActive(false);
+        GameObject.Destroy(panel);
     }
 }

@@ -12,14 +12,14 @@ public class Wheel_Manager : MonoBehaviour
     [SerializeField] Material _material;
     [SerializeField] private TMPro.TMP_FontAsset _fontPersonalizada;
     IInventoryService inventoryService;
-
+    IRouletteService rouletteService;
     protected virtual void Start()
     {
         inventoryService = AppContainer.Get<IInventoryService>();
         List<Color[]> colores = new List<Color[]>();
         //textos = new List<string>();
         List<Sprite> sprites = new List<Sprite>();
-
+        rouletteService = AppContainer.Get<IRouletteService>();
 
         GenerateRoulette();
 
@@ -28,7 +28,7 @@ public class Wheel_Manager : MonoBehaviour
 
     public void GenerateRoulette() {
         inventoryService.ramdomizeList();
-
+        rouletteService.ToogleStatus(false);
         List<Ficha> listaFichas = inventoryService.getListaFichas();
         int numeroSegmentos = listaFichas.Count;
 

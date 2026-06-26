@@ -49,8 +49,7 @@ public class TooltipManager : MonoBehaviour
 
     public void Hide()
     {
-        if (panel == null) return;
+       
         Destroy(panel);
-        panel = null;
     }
 }

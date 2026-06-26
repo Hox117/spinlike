@@ -6,7 +6,18 @@ public class InventoryService : IInventoryService
 {
     public List<Ficha> listaFichas = new List<Ficha>();
     public PotionData[] potionList= new PotionData[3];
+    public InventoryService() {
+        PotionData[] potions = Resources.LoadAll<PotionData>("Objects/Potions");
+        if (potions == null || potions.Length == 0)
+        {
+            Debug.LogWarning("No hay pociones configuradas");
+            return;
+        }
 
+        PotionData randomPotion = potions[UnityEngine.Random.Range(0, potions.Length)];
+
+        potionList[0]= randomPotion;
+    }
     public void AddFicha(FichaData ficha)
     {
         Ficha fichanueva = new Ficha(ficha);

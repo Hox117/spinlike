@@ -12,6 +12,7 @@ public class Wheel_Manager : MonoBehaviour
     [SerializeField] Material _material;
     [SerializeField] private TMPro.TMP_FontAsset _fontPersonalizada;
     IInventoryService inventoryService;
+    IRouletteService rouletteService;
 
     protected virtual void Start()
     {
@@ -20,7 +21,7 @@ public class Wheel_Manager : MonoBehaviour
         //textos = new List<string>();
         List<Sprite> sprites = new List<Sprite>();
 
-
+        rouletteService = AppContainer.Get<IRouletteService>();
         GenerateRoulette();
 
 
@@ -31,7 +32,7 @@ public class Wheel_Manager : MonoBehaviour
 
         List<Ficha> listaFichas = inventoryService.getListaFichas();
         int numeroSegmentos = listaFichas.Count;
-
+        rouletteService.ToogleStatus(false);
         //para cada ficha sacamos su color y color secundario
 
         Generate(numeroSegmentos, listaFichas);

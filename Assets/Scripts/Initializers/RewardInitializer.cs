@@ -20,7 +20,7 @@ public class RewardInitializer : MonoBehaviour
         turnService = AppContainer.Get<ITurnService>();
         _audioService = AppContainer.Get<IAudioService>();
 
-        if (backGroundMusic != null) _audioService.PlayLoopSound(backGroundMusic);
+        if (backGroundMusic != null) _audioService.PlayMusic(new AudioClip[] { backGroundMusic });
 
     }
 
@@ -40,6 +40,6 @@ public class RewardInitializer : MonoBehaviour
     }
     private void OnDestroy()
     {
-        if (backGroundMusic != null) _audioService.StopSound(backGroundMusic);
+        if (backGroundMusic != null) _audioService.DestroyAudioSources();
     }
 }

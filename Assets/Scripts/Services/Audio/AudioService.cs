@@ -90,7 +90,8 @@ public class AudioService : IAudioService
     {
         if (_musicPlaylist == null || _musicPlaylist.Length == 0)
             return;
-
+        if (_musicSource.clip == null)
+            return;
         if (_musicSource.isPlaying)
             return;
 
@@ -200,7 +201,7 @@ public class AudioService : IAudioService
 
         _sfxSources.Clear();
 
-        Object.Destroy(_musicSource);
+       _musicSource.clip = null;
     }
     /// <summary>
     /// Detiene la reproducción de un efecto de sonido específico

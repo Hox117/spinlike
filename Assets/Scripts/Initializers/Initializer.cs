@@ -21,7 +21,7 @@ public class Initializer : MonoBehaviour
         eventService = AppContainer.Get<IEventService>();
         _audioService = AppContainer.Get<IAudioService>();
 
-        if (backGroundMusic != null) _audioService.PlayLoopSound(backGroundMusic);
+        if (backGroundMusic != null) _audioService.PlayMusic(new AudioClip[] { backGroundMusic });
 
         if (inventoryService.getListaFichas().Count < 1) inventoryService.cargarInventario(ListaDeFichas);
         if (!turnService.IsPlayerTurn()) turnService.ChangeTurn();
@@ -41,6 +41,6 @@ public class Initializer : MonoBehaviour
     private void OnDestroy()
     {
         eventService.Unsubscribe<TurnChangeEvent>(AleatorizarRuleta);
-        if(backGroundMusic != null) _audioService.StopSound(backGroundMusic);
+        if(backGroundMusic != null) _audioService.DestroyAudioSources();
     }
 }

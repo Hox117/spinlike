@@ -43,4 +43,9 @@ public class TurnService : ITurnService
     {
         return _isPlayerTurn;
     }
+
+    public void resetTurn()
+    {
+       _isPlayerTurn = true;
+    }
 }

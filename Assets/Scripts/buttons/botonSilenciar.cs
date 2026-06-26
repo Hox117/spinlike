@@ -10,9 +10,28 @@ public class botonSilenciar : MonoBehaviour
 
     }
 
-    void Silenciar()
+    public void SilenciarMusica()
     {
-        audioService.SetMusicVolume(1f);
+       if (audioService.getMusicVolume() >= 1)
+        {
+            audioService.SetMusicVolume(0);
+        }
+        else
+        {
+            audioService.SetMusicVolume(1);
+        }
+
+    }
+   public void SilenciarSonido()
+    {
+        if (audioService.getSoundVolume() >= 1)
+        {
+            audioService.SetSFXVolume(0);
+        }
+        else
+        {
+            audioService.SetSFXVolume(1);
+        }
 
     }
 }

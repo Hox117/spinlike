@@ -16,7 +16,6 @@ MonoBehaviour:
   colorSecundario: {r: 1, g: 0, b: 0, a: 1}
   sprite: {fileID: -626345360347661066, guid: f2eb5bb6f2c1aae4b8d922eb9b05f59e, type: 3}
   nombre: Agressive defense
-  segmentData: 4/2
   actions:
   - type: 1
     value: 4

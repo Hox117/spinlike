@@ -16,7 +16,6 @@ MonoBehaviour:
   colorSecundario: {r: 0.105332375, g: 0, b: 1, a: 1}
   sprite: {fileID: 1537958881527381866, guid: 5da09240bab755346bf1c5fb88c3776e, type: 3}
   nombre: Defensive attack
-  segmentData: 4/2
   actions:
   - type: 0
     value: 4

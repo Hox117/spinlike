@@ -16,10 +16,9 @@ MonoBehaviour:
   colorSecundario: {r: 0, g: 0.35789, b: 0.020428458, a: 1}
   sprite: {fileID: -1179575431438197405, guid: f9a3ed498f20f9348984cdd8a155f970, type: 3}
   nombre: Crit
-  segmentData: 
   actions:
   - type: 0
-    value: 15
+    value: 200
     duration: 0
-  description: make 15 points of damage
+  description: make 200 points of damager
   audioClip: {fileID: 8300000, guid: 7b806b3ce5d9d22368d52c3d48f9c8b5, type: 3}

@@ -34,7 +34,10 @@ public class WheelMapController : WheelController
         StopMapWheelEvent stopwheelEvent = new StopMapWheelEvent();
         _mapService.ToggleMoving();
         eventService.Publish(stopwheelEvent);
-        Destroy(gameObject);
+        
+        GameObject parent = this.transform.parent.gameObject;
+        
+        Destroy(parent);
     }
 
     protected override IEnumerator letItRide()

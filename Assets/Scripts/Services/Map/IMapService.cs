@@ -16,4 +16,7 @@ public interface IMapService
 
     public void ToggleMoving();
     public bool GetMoving();
+
+    public void setPositionMap(Vector2 posicion);
+    public Vector2 getLastPosition();
 }

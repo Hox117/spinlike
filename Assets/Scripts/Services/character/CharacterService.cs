@@ -15,7 +15,11 @@ public class CharacterService : ICharacterService
         buffService = AppContainer.Get<IBuffService>();
         guid= Guid.NewGuid();
     }
-    public void resetPlayer() { }
+    public void resetPlayer() 
+    {
+        life = 10;
+        shield = 0;
+    }
     public void heal(int value)
     {
         life += value;

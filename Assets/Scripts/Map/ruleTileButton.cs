@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ruleTileButton : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class ruleTileButton : MonoBehaviour
     private int alto = 0;
 
     [SerializeField] private GameObject ruleta;
-
+    [SerializeField] private GameObject StopButton;
     private bool used = false;
 
     private IMapService _mapService;
@@ -42,6 +43,7 @@ public class ruleTileButton : MonoBehaviour
             List<Ficha> fichas = new List<Ficha>();
 
             var rule = Instantiate(ruleta,new Vector2(-7,2),quaternion.identity);
+            var stopBTN = Instantiate(StopButton, new Vector2(-7, 0), quaternion.identity);
             foreach (GameObject tile in listadoOpciones)
             {
                 var mapTile = tile.GetComponent<MapTile>();
@@ -53,7 +55,8 @@ public class ruleTileButton : MonoBehaviour
             
             rule.GetComponentInChildren<WheelMapManager>().Generate(fichas.Count, fichas);
             rule.transform.parent = transform;
-            
+            stopBTN.GetComponent<Button>().onClick.RemoveAllListeners();
+            stopBTN.GetComponent<Button>().onClick.AddListener(rule.GetComponentInChildren<WheelController>().StopSpin);
             StartCoroutine(Spin(rule.GetComponentInChildren<WheelController>()));
         }
     }
@@ -62,8 +65,8 @@ public class ruleTileButton : MonoBehaviour
     IEnumerator Spin(WheelController ruleta)
     {
         ruleta.StartSpin();
-        yield return new WaitForSeconds(UnityEngine.Random.Range(0.1f, 2f));
-        ruleta.StopSpin();
+        yield return null;//new WaitForSeconds(UnityEngine.Random.Range(0.1f, 2f));
+        //ruleta.StopSpin();
         
     }
 

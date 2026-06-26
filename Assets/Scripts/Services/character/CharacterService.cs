@@ -8,12 +8,14 @@ public class CharacterService : ICharacterService
     IEventService eventService;
     public Guid guid;
     IBuffService buffService;
+    IAudioService audioService;
     public CharacterService() { 
         life = 10;
         shield = 0;
         eventService = AppContainer.Get<IEventService>();
         buffService = AppContainer.Get<IBuffService>();
-        guid= Guid.NewGuid();
+        audioService = AppContainer.Get<IAudioService>();
+        guid = Guid.NewGuid();
     }
     public void resetPlayer() { }
     public void heal(int value)
@@ -42,8 +44,16 @@ public class CharacterService : ICharacterService
         eventService.Publish(updateEvent);
 
         if (life <= 0) {
+
+
             Debug.Log("el jugador a muerto");
         }
+    }
+
+    public void die()
+    {
+        AudioClip sound = Resources.Load<AudioClip>("Audios/game over sound");
+        audioService.PlaySound(sound);
     }
     public void addShield(int value) { 
        

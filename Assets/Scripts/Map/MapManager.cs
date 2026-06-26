@@ -301,7 +301,8 @@ public class MapManager : MonoBehaviour
         linea.transform.SetAsFirstSibling();
         //linea.transform.SetParent(posInicialVertex);
         linea.Points = vertex;
-
+        linea.SetVerticesDirty();
+        
     }
 
     public void AdvanceTile()

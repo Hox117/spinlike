@@ -8,7 +8,6 @@ public class FichaData : ScriptableObject
     public Color colorSecundario;
     public Sprite sprite;
     public string nombre;
-    public string segmentData;
     public List<Action> actions;
 
     public string description;

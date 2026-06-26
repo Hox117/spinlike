@@ -15,8 +15,6 @@ MonoBehaviour:
   colorPrincipal: {r: 1, g: 1, b: 1, a: 1}
   colorSecundario: {r: 1, g: 1, b: 1, a: 1}
   sprite: {fileID: 21300000, guid: fc1b28f57d6630f4fbf424834b16359c, type: 3}
-  nombre: Sorry
-  segmentData: 
   actions: []
-  description: Sorry we have not enough budget for this place
+  description: 
   audioClip: {fileID: 0}

@@ -16,7 +16,6 @@ MonoBehaviour:
   colorSecundario: {r: 0.09364968, g: 0.4037736, b: 0, a: 1}
   sprite: {fileID: 21300000, guid: 61c89825c92aba442a642ba71a5c6865, type: 3}
   nombre: heal
-  segmentData: 3
   actions:
   - type: 1
     value: 0

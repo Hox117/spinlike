@@ -15,8 +15,7 @@ MonoBehaviour:
   colorPrincipal: {r: 1, g: 0, b: 0, a: 1}
   colorSecundario: {r: 0, g: 0.13013363, b: 1, a: 1}
   sprite: {fileID: 1436520230527447110, guid: c8f8ddfa59e87fa428cf335c19339bec, type: 3}
-  nombre: Perfect strike
-  segmentData: 4/4
+  nombre: Perfec strike
   actions:
   - type: 0
     value: 4

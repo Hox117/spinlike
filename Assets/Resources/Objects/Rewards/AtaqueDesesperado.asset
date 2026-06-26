@@ -16,7 +16,6 @@ MonoBehaviour:
   colorSecundario: {r: 0, g: 0, b: 0, a: 1}
   sprite: {fileID: -6683585502671519080, guid: 5da09240bab755346bf1c5fb88c3776e, type: 3}
   nombre: Desesperate attack
-  segmentData: 10/-1
   actions:
   - type: 0
     value: 10

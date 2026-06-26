@@ -129,7 +129,9 @@ public class Wheel_Manager : MonoBehaviour
         textGO.transform.localPosition = midPos;
 
         TMPro.TextMeshPro tmp = textGO.AddComponent<TMPro.TextMeshPro>();
-
+        Debug.Log($"Ficha: {ficha.nombre}");
+        Debug.Log($"SegmentData: '{ficha.segmentData}'");
+        Debug.Log($"Font: {tmp.font}");
         tmp.text = ficha.segmentData; 
 
         tmp.alignment = TMPro.TextAlignmentOptions.Center;

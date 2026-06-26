@@ -12,6 +12,7 @@ public class MapManager : MonoBehaviour
     private IMapService _mapService;
 
     private IEventService _eventService;
+    private IAudioService _audioService;
 
     public List<(MapTypess, int altura, int ancho)> map;
 
@@ -21,7 +22,8 @@ public class MapManager : MonoBehaviour
 
     [SerializeField] private Transform posInicial;
 
-    private Vector2 pIposInicial;
+    [SerializeField] private AudioClip backGroundMusic;
+   
 
 
     [SerializeField] private int longitud = 3;
@@ -41,12 +43,16 @@ public class MapManager : MonoBehaviour
     {
         _mapService = AppContainer.Get<IMapService>();
         _eventService = AppContainer.Get<IEventService>();
+        _audioService = AppContainer.Get<IAudioService>();
+
         _eventService.Subscribe<RouletterMapTileSelectedEvent>(AdvanceTile);
         generateMap();
-        pIposInicial = posInicial.position;
+        
+        if (backGroundMusic != null) _audioService.PlayLoopSound(backGroundMusic);
+        
+        
 
     }
-
     public void generateMap()
     {
         if (_mapService != null && posInicial.childCount == 0)
@@ -59,16 +65,18 @@ public class MapManager : MonoBehaviour
             {
                 _mapService.SetPositionPlayer(0, 1);
             }
-
+           
 
             generateDisplay();
-        }
+            
+        } 
     }
 
     void generateDisplay()
     {
         clearChilds();
         map = _mapService.ReadMap();
+        
 
         for (int i = 0; i < map.Count; i++)
         {
@@ -134,6 +142,9 @@ public class MapManager : MonoBehaviour
 
 
         posInicial.GetComponentInParent<DragMap>().CalcularLimites();
+        
+        if (_mapService.getLastPosition() != Vector2.zero)
+        posInicial.transform.position = new Vector3(posInicial.transform.position.x, _mapService.getLastPosition().y, posInicial.transform.position.z);
     }
 
 
@@ -169,7 +180,7 @@ public class MapManager : MonoBehaviour
         _mapService.ResetMap();
         clearChilds();
         StopAllCoroutines();
-        posInicial.transform.position = pIposInicial;
+        
         if (_mapService.GetMoving() == true) _mapService.ToggleMoving();
     }
 
@@ -372,7 +383,7 @@ public class MapManager : MonoBehaviour
         {
             tile.Execute();
         }
-        pIposInicial = posInicial.position;
+        _mapService.setPositionMap(posInicial.transform.position);
         if (lastMovement)
         {
             if (_mapService.GetMoving())
@@ -408,6 +419,8 @@ public class MapManager : MonoBehaviour
     public void OnDestroy()
     {
         _eventService.Unsubscribe<RouletterMapTileSelectedEvent>(AdvanceTile);
+        if (backGroundMusic != null) _audioService.StopSound(backGroundMusic);
+
     }
 }
 

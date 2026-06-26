@@ -10,13 +10,15 @@ using static UnityEngine.Rendering.DebugUI;
 
 public class EnemyBase : MonoBehaviour, IHittable
 {
-    [SerializeField]Enemy enemyData;
+    [SerializeField] Enemy enemyData;
     [SerializeField] Slider sliderVida;
     [SerializeField] Image ImageNextAttack;
     [SerializeField] TextMeshProUGUI ValueNextAttack;
     [SerializeField] Slider sliderEscudo;
     [SerializeField] Image BufoEscudo;
     [SerializeField] Image BufoDano;
+
+    [SerializeField] GameObject Explosion;
 
     Slider sliderEscudoInstanciado;
     TextMeshProUGUI textoEscudoInstanciad;
@@ -51,6 +53,7 @@ public class EnemyBase : MonoBehaviour, IHittable
     IEventService eventService;
     ISceneService sceneService;
     IBuffService buffService;
+    IAudioService audioService;
     void Awake()
     {
         enemyService = AppContainer.Get<IEnemyService>();
@@ -59,6 +62,7 @@ public class EnemyBase : MonoBehaviour, IHittable
         characterService = AppContainer.Get<ICharacterService>();
         buffService = AppContainer.Get<IBuffService>();
         sceneService = AppContainer.Get<ISceneService>();
+        audioService = AppContainer.Get<IAudioService>();
         sprites = Resources.LoadAll<Sprite>($"mapa");
     }
     void Start()
@@ -227,7 +231,7 @@ public class EnemyBase : MonoBehaviour, IHittable
 
     }
 
-    
+
 
     private IEnumerator ExecuteTurn()
     {
@@ -240,6 +244,7 @@ public class EnemyBase : MonoBehaviour, IHittable
                 Buff attackBuff = buffService.GetBuff(guid, BuffType.attack);
                 int attackMod = attackBuff != null ? attackBuff.value : 0;
                 characterService.takeDamage(AccionElegida.value + attackMod);
+                audioService.PlaySound(enemyData.AttackAudio);
                 animator.SetTrigger("Attack");
                 Debug.Log($"El jugador recibe {AccionElegida.value} de daño");
                 break;
@@ -248,22 +253,26 @@ public class EnemyBase : MonoBehaviour, IHittable
                 int defenseMod = defenceBuff != null ? defenceBuff.value : 0;
                 characterService.takeDamage(AccionElegida.value + defenseMod);
                 shield += AccionElegida.value + defenseMod;
+                audioService.PlaySound(enemyData.DefenseSound);
                 updateEscudoUI();
                 Debug.Log($"{this.gameObject.name} recibe {AccionElegida.value} de escudo");
                 break;
             case ActionTypes.BuffAttack:
+                audioService.PlaySound(enemyData.BuffSound);
                 buffService.AddBuff(new Buff(BuffType.attack, AccionElegida.value, AccionElegida.duration, guid));
                 Debug.Log($"{this.gameObject.name} recibe {AccionElegida.value} de bufo al ataque durante {AccionElegida.duration} turnos");
-                
+
                 break;
             case ActionTypes.BuffDefense:
+                audioService.PlaySound(enemyData.BuffSound);
                 buffService.AddBuff(new Buff(BuffType.defense, AccionElegida.value, AccionElegida.duration, guid));
                 Debug.Log($"{this.gameObject.name} recibe {AccionElegida.value} de bufo a la defensa durante {AccionElegida.duration} turnos");
-                
+
 
                 break;
             case ActionTypes.Heal:
                 life += AccionElegida.value;
+                audioService.PlaySound(enemyData.DefenseSound);
                 Debug.Log($"{this.gameObject.name} se cura {AccionElegida.duration} ");
                 updateEscudoUI();
                 sliderVidaInstanciado.value = life;
@@ -271,13 +280,21 @@ public class EnemyBase : MonoBehaviour, IHittable
                 break;
 
         }
-        enemyService.endTurn(this.gameObject);
+        if (AccionElegida.type != ActionTypes.attack)
+        {
+            finalizarTurno();
+        }
         updatebufos();
+    }
+
+    public void finalizarTurno()
+    {
+        enemyService.endTurn(this.gameObject);
     }
 
     private void updateEscudoUI()
     {
-        
+
         if (sliderEscudoInstanciado.maxValue < shield && sliderEscudoInstanciado.maxValue < life)
         {
 
@@ -285,13 +302,13 @@ public class EnemyBase : MonoBehaviour, IHittable
         }
 
 
-        
+
         sliderEscudoInstanciado.value = shield;
         textoEscudoInstanciad.text = shield.ToString();
     }
     private void updatebufos()
     {
-        if (buffService.GetBuff(guid,BuffType.defense)!= null && buffService.GetBuff(guid, BuffType.defense).duration >0 )
+        if (buffService.GetBuff(guid, BuffType.defense) != null && buffService.GetBuff(guid, BuffType.defense).duration > 0)
         {
             BufoEscudoTexto.text = $"{buffService.GetBuff(guid, BuffType.defense).value}/{buffService.GetBuff(guid, BuffType.defense).duration}";
             bufoEscudoInstanciado.enabled = true;
@@ -313,7 +330,7 @@ public class EnemyBase : MonoBehaviour, IHittable
             BufoDanoTexto.text = " ";
             bufoDanoInstanciado.enabled = false;
         }
-        
+
 
     }
 
@@ -333,19 +350,24 @@ public class EnemyBase : MonoBehaviour, IHittable
         }
 
 
-        if (life <= 0) {
+        if (life <= 0)
+        {
 
-            if (sliderVidaInstanciado != null) { 
-            sliderVidaInstanciado.value = 0;
-            sliderVidaInstanciado.GetComponentInChildren<TextMeshProUGUI>().text = "0";
+            if (sliderVidaInstanciado != null)
+            {
+                sliderVidaInstanciado.value = 0;
+                sliderVidaInstanciado.GetComponentInChildren<TextMeshProUGUI>().text = "0";
             }
             Die();
+
+            audioService.PlaySound(enemyData.DieSound);
             return;
         }
         else
         {
             if (sliderVidaInstanciado != null)
             {
+                audioService.PlaySound(enemyData.DamagedSound);
                 sliderVidaInstanciado.value = life;
                 sliderVidaInstanciado.GetComponentInChildren<TextMeshProUGUI>().text = life.ToString();
             }
@@ -363,7 +385,7 @@ public class EnemyBase : MonoBehaviour, IHittable
         Debug.Log("me Mori");
         enemyService.removeFirstEnemy();
         eventService.Unsubscribe<TurnChangeEvent>(TakeAction);
-        buffService.RemoveBuffByGUID(guid); 
+        buffService.RemoveBuffByGUID(guid);
         if (enemyService.getEnemyList().Count <= 0) StartCoroutine(RewardChange());
 
         StartCoroutine("Disappear");
@@ -379,6 +401,8 @@ public class EnemyBase : MonoBehaviour, IHittable
     public IEnumerator Disappear()
     {
         yield return new WaitForSeconds(3f);
+        GameObject explo = Instantiate(Explosion, transform.position,Quaternion.identity);
+        explo.transform.SetParent(null);
         Destroy(sliderVidaInstanciado.gameObject);
         Destroy(ImageNextAttackInstanciado.gameObject);
         Destroy(ValueNextAttackInstanciado.gameObject);

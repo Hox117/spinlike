@@ -34,3 +34,8 @@ MonoBehaviour:
     duration: 0
   Shield: 0
   attackMod: 0
+  AttackAudio: {fileID: 8300000, guid: 9c6c548ba7e94584d8566683d6a0c31f, type: 3}
+  DamagedSound: {fileID: 8300000, guid: 3810bbe8f71f90b4686ce30f3c91fe64, type: 3}
+  DieSound: {fileID: 8300000, guid: 1a0877391d70f0c489cad1041178f378, type: 3}
+  DefenseSound: {fileID: 8300000, guid: 9872061c48f339c42a0792459b00a4f0, type: 3}
+  BuffSound: {fileID: 8300000, guid: b48d319bc79ec47458041ce824875d01, type: 3}

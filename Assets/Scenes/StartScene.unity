@@ -729,6 +729,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 615411c0e0b3c07ba8b0de81862c363b, type: 2}
   - {fileID: 11400000, guid: 615411c0e0b3c07ba8b0de81862c363b, type: 2}
   ruleta: {fileID: 0}
+  backGroundMusic: {fileID: 8300000, guid: c929f886d9e09164583c8d1f20300508, type: 3}
 --- !u!4 &1038714680
 Transform:
   m_ObjectHideFlags: 0

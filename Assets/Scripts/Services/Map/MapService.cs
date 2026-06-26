@@ -17,6 +17,9 @@ public class MapService : IMapService
 
     private bool moving = false;
 
+    private Vector2 lastPosition;
+    private Vector2 originaPosition;
+
     public List<(MapTypess, int altura, int ancho)> generateMap(int longitud,int ancho)
     {
         map.Clear();
@@ -101,7 +104,9 @@ public class MapService : IMapService
     {
         map.Clear();
         posicionJugador = (1, 1);
-        
+
+        lastPosition = originaPosition;
+
     }
 
     public int returnLongitud()
@@ -121,5 +126,24 @@ public class MapService : IMapService
     public bool GetMoving()
     {
         return moving;
+    }
+
+    public void  setPositionMap(Vector2 posicion)
+    {
+        if (originaPosition == Vector2.zero)
+        {
+            originaPosition = posicion;
+
+        }
+        lastPosition = posicion;
+    }
+
+    public Vector2 getLastPosition()
+    {
+        if (lastPosition == null)
+        {
+            return originaPosition;
+        }
+        return lastPosition;
     }
 }

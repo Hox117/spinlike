@@ -251,7 +251,6 @@ public class EnemyBase : MonoBehaviour, IHittable
             case ActionTypes.defense:
                 Buff defenceBuff = buffService.GetBuff(guid, BuffType.defense);
                 int defenseMod = defenceBuff != null ? defenceBuff.value : 0;
-                characterService.takeDamage(AccionElegida.value + defenseMod);
                 shield += AccionElegida.value + defenseMod;
                 audioService.PlaySound(enemyData.DefenseSound);
                 updateEscudoUI();
@@ -410,5 +409,9 @@ public class EnemyBase : MonoBehaviour, IHittable
         Destroy(bufoDanoInstanciado.gameObject);
         Destroy(bufoEscudoInstanciado.gameObject);
         Destroy(gameObject);
+    }
+    private void OnDestroy()
+    {
+        eventService.Unsubscribe<TurnChangeEvent>(TakeAction);
     }
 }

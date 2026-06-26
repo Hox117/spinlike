@@ -25,7 +25,6 @@ public class WheelController : MonoBehaviour
     }
     void Start()
     {
-        StartSpin();
     }
     public void StopSpin()
     {

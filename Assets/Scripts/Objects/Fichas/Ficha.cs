@@ -7,6 +7,7 @@ public class Ficha
     public Color colorSecundario;
     public Sprite sprite;
     public string nombre;
+    public string segmentData;
     public List<Action> actions;
 
     public string description;
@@ -19,6 +20,7 @@ public class Ficha
         sprite = data.sprite;
         actions = data.actions;
         nombre = data.nombre;
+        segmentData = data.segmentData;
         description = data.description;
         audioClip = data.audioClip;
     }

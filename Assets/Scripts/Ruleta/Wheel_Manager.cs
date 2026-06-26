@@ -13,6 +13,7 @@ public class Wheel_Manager : MonoBehaviour
     [SerializeField] private TMPro.TMP_FontAsset _fontPersonalizada;
     IInventoryService inventoryService;
     IRouletteService rouletteService;
+    [SerializeField] private bool isreward = false;
 
     protected virtual void Start()
     {
@@ -22,8 +23,9 @@ public class Wheel_Manager : MonoBehaviour
         List<Sprite> sprites = new List<Sprite>();
 
         rouletteService = AppContainer.Get<IRouletteService>();
+        if(!isreward)
         GenerateRoulette();
-
+        
 
     }
 

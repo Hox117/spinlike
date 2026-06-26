@@ -1977,6 +1977,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4479828113647088216, guid: 64a36722fec92cdc29e7827cf8b3dd8e, type: 3}
+      propertyPath: isreward
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7544506551557881893, guid: 64a36722fec92cdc29e7827cf8b3dd8e, type: 3}
       propertyPath: m_Name
       value: Ruleta recompensa

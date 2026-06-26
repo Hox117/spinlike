@@ -11,6 +11,7 @@ public class FichaData : ScriptableObject
     public List<Action> actions;
 
     public string description;
+    public string SegmentData;
 
     public AudioClip audioClip;
 

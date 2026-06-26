@@ -10,6 +10,7 @@ public class Ficha
     public List<Action> actions;
 
     public string description;
+    public string SegmentData;
 
     public AudioClip audioClip;
     public Ficha(FichaData data)
@@ -20,6 +21,7 @@ public class Ficha
         actions = data.actions;
         nombre = data.nombre;
         description = data.description;
+        SegmentData = data.SegmentData;
         audioClip = data.audioClip;
     }
 }

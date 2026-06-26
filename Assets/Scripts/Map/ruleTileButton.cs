@@ -43,7 +43,10 @@ public class ruleTileButton : MonoBehaviour
             List<Ficha> fichas = new List<Ficha>();
 
             var rule = Instantiate(ruleta,new Vector2(-7,2),quaternion.identity);
-            var stopBTN = Instantiate(StopButton, new Vector2(-7, 0), quaternion.identity);
+
+            var stopBTN = Instantiate(StopButton, new Vector2(348, 433), quaternion.identity);
+            stopBTN.transform.SetParent(rule.transform, true);
+
             foreach (GameObject tile in listadoOpciones)
             {
                 var mapTile = tile.GetComponent<MapTile>();
@@ -55,8 +58,10 @@ public class ruleTileButton : MonoBehaviour
             
             rule.GetComponentInChildren<WheelMapManager>().Generate(fichas.Count, fichas);
             rule.transform.parent = transform;
+
             stopBTN.GetComponent<Button>().onClick.RemoveAllListeners();
             stopBTN.GetComponent<Button>().onClick.AddListener(rule.GetComponentInChildren<WheelController>().StopSpin);
+
             StartCoroutine(Spin(rule.GetComponentInChildren<WheelController>()));
         }
     }

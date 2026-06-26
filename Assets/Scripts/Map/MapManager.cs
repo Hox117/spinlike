@@ -158,15 +158,20 @@ public class MapManager : MonoBehaviour
 
         if (returnPosY(map[index].altura) == 0) { espacio = 0; } else { espacio = EspaciadoAltura / 2; }
         Vector3 posicion = new Vector3(
-    posInicial.position.x - EspaciadoAncho * returnPosX(map[index].ancho),
-    posInicial.position.y - EspaciadoAltura * returnPosY(map[index].altura) + espacio,
-    posInicial.position.z
-);
+            posInicial.position.x - EspaciadoAncho * returnPosX(map[index].ancho),
+            posInicial.position.y - EspaciadoAltura * returnPosY(map[index].altura) + espacio,
+            posInicial.position.z
+        );
         var tile = Instantiate(imagePrefab, posicion, quaternion.identity);
         tile.transform.SetParent(posInicial);
         tile.name = ($"Tile_{map[index].altura}_{map[index].ancho}");
         tile.sprite = tileImage(map[index].Item1);
         tile.GetComponent<MapTile>().SetType(map[index].Item1);
+
+
+        tile.AddComponent<Button>();
+        Button button = tile.GetComponent<Button>();
+        button.onClick.AddListener(AdvanceTile);
     }
 
 
@@ -229,10 +234,10 @@ public class MapManager : MonoBehaviour
 
 
         Vector3 posicion = new Vector3(
-    posInicial.position.x,
-    posInicial.position.y - EspaciadoAltura * (alto - 1),
-    posInicial.position.z
-    );
+            posInicial.position.x,
+            posInicial.position.y - EspaciadoAltura * (alto - 1),
+            posInicial.position.z
+        );
         var ruleta = Instantiate(Rouleta, posicion, quaternion.identity);
         ruleta.transform.SetParent(posInicial);
         ruleta.name = ($"Ruleta_{alto}");

@@ -34,6 +34,7 @@ public class TooltipManager : MonoBehaviour
 
     private void Update()
     {
+        if (panel == null)
         if (panel.activeSelf)
         {
             panel.transform.position = Mouse.current.position.ReadValue() + new Vector2(-100, 100);

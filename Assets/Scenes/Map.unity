@@ -1893,7 +1893,7 @@ MonoBehaviour:
   Rouleta: {fileID: 3027478119778853866, guid: 89c5398d6fa0480458927c5b934da600, type: 3}
   posInicial: {fileID: 1993373861}
   backGroundMusic: {fileID: 8300000, guid: 495ee6bc81b46c24b8237f9c65f08282, type: 3}
-  longitud: 7
+  longitud: 13
   ancho: 7
   EspaciadoAltura: 350
   EspaciadoAncho: 170

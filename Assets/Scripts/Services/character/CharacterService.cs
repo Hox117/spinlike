@@ -9,6 +9,7 @@ public class CharacterService : ICharacterService
     public Guid guid;
     IBuffService buffService;
     IAudioService audioService;
+    ISceneService sceneService;
     public CharacterService() { 
         life = 10;
         shield = 0;
@@ -16,8 +17,14 @@ public class CharacterService : ICharacterService
         buffService = AppContainer.Get<IBuffService>();
         audioService = AppContainer.Get<IAudioService>();
         guid = Guid.NewGuid();
+        
+        sceneService = AppContainer.Get<ISceneService>();
     }
-    public void resetPlayer() { }
+    public void resetPlayer() 
+    {
+        life = 10;
+        shield = 0;
+    }
     public void heal(int value)
     {
         life += value;
@@ -27,7 +34,7 @@ public class CharacterService : ICharacterService
     }
 
     public void takeDamage(int value)
-    {//TODO: quitarle primero daño al escudo si hay
+    {//TODO: quitarle primero daï¿½o al escudo si hay
        if (shield > value)
         {
             shield -= value;
@@ -47,6 +54,7 @@ public class CharacterService : ICharacterService
 
 
             Debug.Log("el jugador a muerto");
+            sceneService.LoadScene(SceneNames.GameOver);
         }
     }
 

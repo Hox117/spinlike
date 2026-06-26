@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.tvOS;
 
 public class BuffService : IBuffService
 {
@@ -16,7 +15,7 @@ public class BuffService : IBuffService
     {
         _buffs.RemoveAll(b =>
             b.Owner == buff.Owner &&
-            b.buffType == buff.buffType);
+            b.buffType == buff.buffType) ;
 
         _buffs.Add(buff);
         _eventService.Publish(new UpdatePlayerUI());

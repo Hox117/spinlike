@@ -1,4 +1,4 @@
-using UnityEditor.MPE;
+
 using UnityEngine;
 
 public class BotonGenerarPocion : MonoBehaviour
